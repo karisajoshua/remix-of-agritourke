@@ -82,13 +82,20 @@ const Footer = () => {
         </div>
 
         {/* Bottom Section */}
-        <div className="border-t border-gray-700 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-400 font-inter text-sm">
-            © 2024 Agritourism Adventures. All rights reserved.
-          </p>
-          <p className="text-gray-400 font-inter text-sm mt-4 md:mt-0">
-            Where Travel Meets Sustainability
-          </p>
+        <div className="border-t border-gray-700 mt-12 pt-8">
+          <div className="flex flex-col md:flex-row justify-between items-center mb-4">
+            <p className="text-gray-400 font-inter text-sm">
+              © 2024 Agritourism Adventures. All rights reserved.
+            </p>
+            <p className="text-gray-400 font-inter text-sm mt-4 md:mt-0">
+              Where Travel Meets Sustainability
+            </p>
+          </div>
+          <div className="text-center border-t border-gray-700 pt-4">
+            <p className="text-gray-500 font-inter text-xs">
+              Powered by Texcortech Systems
+            </p>
+          </div>
         </div>
       </div>
     </footer>
