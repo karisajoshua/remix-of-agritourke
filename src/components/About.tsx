@@ -79,13 +79,13 @@ const About = () => {
     {
       name: "Presley Kevogo",
       role: "Founder & CEO",
-      image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=300&h=300&fit=crop&crop=face",
+      image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/executive/Presley%20Kevogo.jpg",
       description: "Passionate about sustainable agriculture and community empowerment"
     },
     {
-      name: "Kasati",
+      name: "Elija Kasati",
       role: "Head of Operations",
-      image: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=300&h=300&fit=crop&crop=face",
+      image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/executive/Kasati.jpg",
       description: "Expert in agritourism planning and cultural experiences"
     }
   ];
