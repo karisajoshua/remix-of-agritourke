@@ -8,9 +8,13 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div>
-            <h3 className="text-2xl font-poppins font-bold text-agri-yellow mb-4">
-              Agritourism Adventures
-            </h3>
+            <div className="mb-4">
+              <img
+                src="https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/logo/AA%20transparent%20Logo.png"
+                alt="Agritourism Adventures"
+                className="h-16 w-auto"
+              />
+            </div>
             <p className="text-gray-300 font-inter mb-6 leading-relaxed">
               Connecting travelers with Kenya's agricultural heritage through 
               sustainable, educational, and transformative experiences.
@@ -45,10 +49,10 @@ const Footer = () => {
             <h4 className="text-lg font-poppins font-semibold mb-4">Company</h4>
             <ul className="space-y-2 text-gray-300 font-inter">
               <li><a href="#about" className="hover:text-agri-yellow transition-colors">About Us</a></li>
+              <li><a href="/gallery" className="hover:text-agri-yellow transition-colors">Gallery</a></li>
               <li><a href="#impact" className="hover:text-agri-yellow transition-colors">Our Impact</a></li>
               <li><a href="#" className="hover:text-agri-yellow transition-colors">Blog</a></li>
               <li><a href="#" className="hover:text-agri-yellow transition-colors">Careers</a></li>
-              <li><a href="#" className="hover:text-agri-yellow transition-colors">Press Kit</a></li>
             </ul>
           </div>
 

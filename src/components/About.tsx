@@ -25,6 +25,21 @@ const About = () => {
     }
   ];
 
+  const teamMembers = [
+    {
+      name: "Presley Kevogo",
+      role: "Founder & CEO",
+      image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/executive/Presley%20Kevogo.jpg",
+      description: "Passionate advocate for sustainable agritourism with over 7 years of experience connecting travelers with Kenya's agricultural communities."
+    },
+    {
+      name: "Kasati",
+      role: "Operations Director",
+      image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/executive/Kasati.jpg",
+      description: "Expert in tour operations and community partnerships, ensuring authentic and meaningful experiences for every traveler."
+    }
+  ];
+
   return (
     <section id="about" className="py-20 bg-agri-grey">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -71,6 +86,43 @@ const About = () => {
               <Heart className="h-5 w-5 mr-2" />
               Travel with Purpose
             </div>
+          </div>
+        </div>
+
+        {/* Team Section */}
+        <div className="mb-20">
+          <div className="text-center mb-16">
+            <h3 className="text-3xl md:text-4xl font-poppins font-bold text-agri-dark mb-6">
+              Meet Our Team
+            </h3>
+            <p className="text-xl text-gray-600 font-inter max-w-3xl mx-auto leading-relaxed">
+              Passionate leaders dedicated to creating authentic and sustainable agritourism experiences.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+            {teamMembers.map((member, index) => (
+              <div key={index} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300">
+                <div className="aspect-w-16 aspect-h-12">
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    className="w-full h-64 object-cover"
+                  />
+                </div>
+                <div className="p-6">
+                  <h4 className="text-xl font-poppins font-bold text-agri-dark mb-2">
+                    {member.name}
+                  </h4>
+                  <p className="text-agri-green font-inter font-semibold mb-4">
+                    {member.role}
+                  </p>
+                  <p className="text-gray-600 font-inter leading-relaxed">
+                    {member.description}
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
 
