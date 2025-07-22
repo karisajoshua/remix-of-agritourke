@@ -1,9 +1,9 @@
 
 import Navigation from '@/components/Navigation';
 import HeroCarousel from '@/components/HeroCarousel';
-import About from '@/components/About';
-import Tours from '@/components/Tours';
-import Services from '@/components/Services';
+import AboutHome from '@/components/AboutHome';
+import FeaturedToursHome from '@/components/FeaturedToursHome';
+import FeaturedServicesHome from '@/components/FeaturedServicesHome';
 import Partners from '@/components/Partners';
 import Impact from '@/components/Impact';
 import Contact from '@/components/Contact';
@@ -14,9 +14,9 @@ const Index = () => {
     <div className="min-h-screen">
       <Navigation />
       <HeroCarousel />
-      <About />
-      <Tours />
-      <Services />
+      <AboutHome />
+      <FeaturedToursHome />
+      <FeaturedServicesHome />
       <Partners />
       <Impact />
       <Contact />

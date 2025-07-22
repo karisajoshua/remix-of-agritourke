@@ -11,9 +11,9 @@ const Navigation = () => {
 
   const navItems = [
     { name: 'Home', href: '/' },
-    { name: 'About', href: '/#about' },
-    { name: 'Tours', href: '/#tours' },
-    { name: 'Services', href: '/#services' },
+    { name: 'About', href: '/about' },
+    { name: 'Tours', href: '/tours' },
+    { name: 'Services', href: '/services' },
     { name: 'Gallery', href: '/gallery' },
     { name: 'Impact', href: '/#impact' },
     { name: 'Contact', href: '/#contact' }
@@ -95,7 +95,7 @@ const Navigation = () => {
           <div className="hidden md:block">
             <Button 
               className="bg-agri-teal hover:bg-agri-teal/90 text-white font-inter font-medium"
-              onClick={() => handleNavClick('/#tours', 'Tours')}
+              onClick={() => navigate('/tours')}
             >
               Book a Tour
             </Button>
@@ -128,7 +128,7 @@ const Navigation = () => {
               <div className="px-3 py-2">
                 <Button 
                   className="w-full bg-agri-teal hover:bg-agri-teal/90 text-white font-inter font-medium"
-                  onClick={() => handleNavClick('/#tours', 'Tours')}
+                  onClick={() => navigate('/tours')}
                 >
                   Book a Tour
                 </Button>
