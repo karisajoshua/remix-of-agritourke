@@ -1,19 +1,12 @@
-
 import { Facebook, Instagram, Twitter, Mail, Phone } from 'lucide-react';
-
 const Footer = () => {
-  return (
-    <footer className="bg-agri-dark text-white py-16">
+  return <footer className="bg-agri-dark text-white py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div>
             <div className="mb-4">
-              <img
-                src="https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/logo/AA%20transparent%20Logo.png"
-                alt="Agritourism Adventures"
-                className="h-16 w-auto"
-              />
+              <img src="https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/logo/AA%20transparent%20Logo.png" alt="Agritourism Adventures" className="h-16 w-auto" />
             </div>
             <p className="text-gray-300 font-inter mb-6 leading-relaxed">
               Connecting travelers with Kenya's agricultural heritage through 
@@ -84,9 +77,7 @@ const Footer = () => {
         {/* Bottom Section */}
         <div className="border-t border-gray-700 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center mb-4">
-            <p className="text-gray-400 font-inter text-sm">
-              © 2024 Agritourism Adventures. All rights reserved.
-            </p>
+            <p className="text-gray-400 font-inter text-sm">© 2025 Agritourism Adventures. All rights reserved.</p>
             <p className="text-gray-400 font-inter text-sm mt-4 md:mt-0">
               Where Travel Meets Sustainability
             </p>
@@ -98,8 +89,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
