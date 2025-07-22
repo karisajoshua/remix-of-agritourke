@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Clock, MapPin, Users, ArrowRight } from 'lucide-react';
@@ -19,7 +18,6 @@ const Tours = () => {
       duration: "1-2 days",
       location: "Central Kenya",
       participants: "2-15 people",
-      price: "$85",
       image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/2025%20agri%20expo/Organic%20Farm%20Spices.webp",
       description: "Experience the vibrant colors and fragrances of Kenya's renowned flower farms.",
       category: "Farm Tours",
@@ -39,7 +37,6 @@ const Tours = () => {
       duration: "3 days",
       location: "Western Kenya",
       participants: "4-20 people",
-      price: "$275",
       image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/2025%20agri%20expo/Organic%20Seed%20Farming.webp",
       description: "Explore the lush highlands and learn about tea production from leaf to cup.",
       category: "Farm Tours",
@@ -60,7 +57,6 @@ const Tours = () => {
       duration: "9 days",
       location: "Southern Kenya",
       participants: "6-12 people",
-      price: "$1,200",
       image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/2025%20agri%20expo/Farm%20Expo%20tours.webp",
       description: "Combine traditional safari experiences with visits to sustainable farming communities.",
       category: "Safari & Wildlife",
@@ -82,7 +78,6 @@ const Tours = () => {
       duration: "1 day",
       location: "Central Kenya",
       participants: "3-25 people",
-      price: "$65",
       image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/2025%20agri%20expo/On-ground%20learning.webp",
       description: "Learn about modern dairy farming techniques and taste fresh dairy products.",
       category: "Farm Tours",
@@ -102,7 +97,6 @@ const Tours = () => {
       duration: "2 days",
       location: "Central Kenya",
       participants: "4-18 people",
-      price: "$180",
       image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/2025%20agri%20expo/Coffee%20Expo.webp",
       description: "Follow the journey of coffee from cherry to cup at a scenic highland estate.",
       category: "Farm Tours",
@@ -122,7 +116,6 @@ const Tours = () => {
       duration: "1 day",
       location: "Nairobi",
       participants: "5-15 people",
-      price: "$55",
       image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/2025%20agri%20expo/Industrial%20Tourism.webp",
       description: "Explore urban farming initiatives while traveling in Kenya's iconic matatu minibuses.",
       category: "Cultural & Urban",
@@ -142,7 +135,6 @@ const Tours = () => {
       duration: "4 days",
       location: "Coastal Kenya",
       participants: "6-20 people",
-      price: "$450",
       image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/2025%20agri%20expo/Organic%20Fruit%20Jars.webp",
       description: "Discover unique farming practices along Kenya's beautiful coastline.",
       category: "Regional Experiences",
@@ -162,7 +154,6 @@ const Tours = () => {
       duration: "5 days",
       location: "Rift Valley",
       participants: "4-16 people",
-      price: "$520",
       image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/2025%20agri%20expo/Farm%20Machinery.webp",
       description: "Explore the agricultural diversity in Kenya's fertile Rift Valley.",
       category: "Regional Experiences",
@@ -183,7 +174,6 @@ const Tours = () => {
       duration: "3 days",
       location: "Eastern Kenya",
       participants: "5-18 people",
-      price: "$295",
       image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/2025%20agri%20expo/Seed%20Bank.webp",
       description: "Discover the unique farming practices in Kenya's eastern regions.",
       category: "Regional Experiences",
@@ -257,9 +247,6 @@ const Tours = () => {
                       Featured
                     </div>
                   )}
-                  <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-agri-dark font-inter font-bold">
-                    {tour.price}
-                  </div>
                 </div>
 
                 {/* Tour Content */}

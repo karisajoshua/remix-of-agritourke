@@ -16,7 +16,6 @@ const FeaturedToursHome = () => {
       duration: "9 days",
       location: "Southern Kenya",
       participants: "6-12 people",
-      price: "$1,200",
       image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/2025%20agri%20expo/Farm%20Expo%20tours.webp",
       description: "Combine traditional safari experiences with visits to sustainable farming communities.",
       category: "Safari & Wildlife",
@@ -38,7 +37,6 @@ const FeaturedToursHome = () => {
       duration: "2 days",
       location: "Central Kenya",
       participants: "4-18 people",
-      price: "$180",
       image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/2025%20agri%20expo/Coffee%20Expo.webp",
       description: "Follow the journey of coffee from cherry to cup at a scenic highland estate.",
       category: "Farm Tours",
@@ -58,7 +56,6 @@ const FeaturedToursHome = () => {
       duration: "5 days",
       location: "Rift Valley",
       participants: "4-16 people",
-      price: "$520",
       image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/2025%20agri%20expo/Farm%20Machinery.webp",
       description: "Explore the agricultural diversity in Kenya's fertile Rift Valley.",
       category: "Regional Experiences",
@@ -105,9 +102,6 @@ const FeaturedToursHome = () => {
                 />
                 <div className="absolute top-4 left-4 bg-agri-yellow text-agri-dark px-3 py-1 rounded-full text-sm font-inter font-semibold">
                   Featured
-                </div>
-                <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-agri-dark font-inter font-bold">
-                  {tour.price}
                 </div>
               </div>
 
