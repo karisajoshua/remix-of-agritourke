@@ -30,17 +30,6 @@ const About = () => {
     }
   ];
 
-  const services = [
-    "Kenya Farm Tours",
-    "Farm Stays", 
-    "Agricultural Safaris",
-    "Educational Workshops and Activities",
-    "Industry Trade Shows and Conferences",
-    "Cultural and Sightseeing Tours",
-    "Agri-research Tours",
-    "School and Student Tours"
-  ];
-
   const whyChooseUs = [
     "🚜 Cutting-edge Technology – We use the latest tools and methods to elevate your experience.",
     "🌿 Expert Farmers – Learn directly from seasoned professionals.",
@@ -90,13 +79,13 @@ const About = () => {
     {
       name: "Presley Kevogo",
       role: "Founder & CEO",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face",
+      image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=300&h=300&fit=crop&crop=face",
       description: "Passionate about sustainable agriculture and community empowerment"
     },
     {
       name: "Kasati",
       role: "Head of Operations",
-      image: "https://images.unsplash.com/photo-1494790108755-2616b612b29c?w=300&h=300&fit=crop&crop=face",
+      image: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=300&h=300&fit=crop&crop=face",
       description: "Expert in agritourism planning and cultural experiences"
     }
   ];
@@ -284,44 +273,8 @@ const About = () => {
         </div>
       </section>
 
-      {/* Services Overview */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-poppins font-bold text-agri-dark mb-6">
-              Our Services
-            </h2>
-            <p className="text-xl text-gray-600 font-inter max-w-4xl mx-auto leading-relaxed mb-8">
-              At Agritourism Adventures, we offer a wide range of services designed to give you a deep, immersive experience in Kenya's vibrant agricultural and cultural landscape.
-            </p>
-            <h3 className="text-2xl font-poppins font-semibold text-agri-green mb-8">
-              What We Offer:
-            </h3>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-            {services.map((service, index) => (
-              <div key={index} className="bg-agri-grey rounded-lg p-6 shadow-lg">
-                <div className="flex items-center mb-3">
-                  <CheckCircle className="h-5 w-5 text-agri-green mr-3 flex-shrink-0" />
-                  <span className="text-lg font-inter font-semibold text-agri-dark">
-                    {service}
-                  </span>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center">
-            <p className="text-lg text-gray-600 font-inter max-w-4xl mx-auto leading-relaxed">
-              Each service is thoughtfully curated to provide hands-on learning, authentic engagement, and unforgettable memories.
-            </p>
-          </div>
-        </div>
-      </section>
-
       {/* Journey Steps */}
-      <section className="py-20 bg-agri-grey">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-poppins font-bold text-agri-dark mb-6">
@@ -331,7 +284,7 @@ const About = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {steps.map((step, index) => (
-              <div key={index} className="bg-white rounded-lg p-8 shadow-lg text-center">
+              <div key={index} className="bg-agri-grey rounded-lg p-8 shadow-lg text-center">
                 <div className="w-16 h-16 bg-agri-green rounded-full flex items-center justify-center mx-auto mb-6">
                   <span className="text-2xl font-poppins font-bold text-white">{step.number}</span>
                 </div>
@@ -348,7 +301,7 @@ const About = () => {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-agri-grey">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-poppins font-bold text-agri-dark mb-6">
@@ -367,7 +320,7 @@ const About = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
             {whyChooseUs.map((item, index) => (
-              <div key={index} className="bg-agri-grey rounded-lg p-6 shadow-lg">
+              <div key={index} className="bg-white rounded-lg p-6 shadow-lg">
                 <p className="text-lg font-inter text-agri-dark leading-relaxed">
                   {item}
                 </p>
@@ -378,7 +331,7 @@ const About = () => {
       </section>
 
       {/* Inspirational Quotes */}
-      <section className="py-20 bg-agri-grey">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-poppins font-bold text-agri-dark mb-6">
@@ -388,7 +341,7 @@ const About = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {quotes.map((quote, index) => (
-              <div key={index} className="bg-white rounded-lg p-8 shadow-lg text-center">
+              <div key={index} className="bg-agri-grey rounded-lg p-8 shadow-lg text-center">
                 <p className="text-lg font-inter text-gray-600 italic mb-6 leading-relaxed">
                   "{quote.text}"
                 </p>
@@ -402,13 +355,13 @@ const About = () => {
       </section>
 
       {/* Features Grid */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-agri-grey">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature, index) => (
               <div 
                 key={index}
-                className="bg-agri-grey rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 text-center"
+                className="bg-white rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 text-center"
               >
                 <div className="w-16 h-16 bg-agri-green/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <feature.icon className="h-8 w-8 text-agri-green" />
@@ -426,7 +379,7 @@ const About = () => {
       </section>
 
       {/* Team Section */}
-      <section className="py-20 bg-agri-grey">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-poppins font-bold text-agri-dark mb-6">
@@ -439,7 +392,7 @@ const About = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
             {teamMembers.map((member, index) => (
-              <div key={index} className="bg-white rounded-xl p-8 shadow-lg text-center">
+              <div key={index} className="bg-agri-grey rounded-xl p-8 shadow-lg text-center">
                 <img
                   src={member.image}
                   alt={member.name}
@@ -461,7 +414,7 @@ const About = () => {
       </section>
 
       {/* Call to Action */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-agri-grey">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl md:text-5xl font-poppins font-bold text-agri-dark mb-6">
             Ready to Start Your Adventure?

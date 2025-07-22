@@ -3,48 +3,14 @@ import { CheckCircle, Truck, Camera, Users, GraduationCap, Home, Mountain, Bus }
 
 const Services = () => {
   const services = [
-    {
-      icon: Truck,
-      title: "Kenya Farm Tours",
-      description: "Explore diverse agricultural practices across Kenya's fertile regions",
-      features: ["Tea plantation visits", "Coffee farm experiences", "Vegetable farming tours"]
-    },
-    {
-      icon: Camera,
-      title: "Dairy + Tea Safaris",
-      description: "Combined experiences showcasing Kenya's dairy and tea industries",
-      features: ["Dairy farm visits", "Tea processing tours", "Tasting sessions"]
-    },
-    {
-      icon: Mountain,
-      title: "9-Day Agricultural Wildlife Safari",
-      description: "Ultimate adventure combining wildlife viewing with farm experiences",
-      features: ["Wildlife game drives", "Farm visits", "Cultural interactions"]
-    },
-    {
-      icon: Bus,
-      title: "Matatu Urban Culture Tours",
-      description: "Experience authentic Kenyan urban culture through local transport",
-      features: ["City exploration", "Local markets", "Cultural immersion"]
-    },
-    {
-      icon: Users,
-      title: "Bonding & Couple Retreats",
-      description: "Romantic getaways in beautiful rural settings",
-      features: ["Private farm stays", "Romantic dinners", "Scenic landscapes"]
-    },
-    {
-      icon: GraduationCap,
-      title: "Educational & STEM Student Tours",
-      description: "Learning-focused experiences for students and educational groups",
-      features: ["Hands-on learning", "Science applications", "Group activities"]
-    },
-    {
-      icon: Home,
-      title: "Community-Based Homestays",
-      description: "Live with local families and experience authentic rural life",
-      features: ["Family accommodation", "Local cuisine", "Cultural activities"]
-    }
+    "Kenya Farm Tours",
+    "Farm Stays", 
+    "Agricultural Safaris",
+    "Educational Workshops and Activities",
+    "Industry Trade Shows and Conferences",
+    "Cultural and Sightseeing Tours",
+    "Agri-research Tours",
+    "School and Student Tours"
   ];
 
   return (
@@ -53,45 +19,34 @@ const Services = () => {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-poppins font-bold text-agri-dark mb-6">
-            Choose Your Adventure
+            Our Services
           </h2>
-          <p className="text-xl text-gray-600 font-inter max-w-3xl mx-auto leading-relaxed">
-            From educational tours to romantic retreats, we offer diverse experiences 
-            that connect you with Kenya's agricultural heritage.
+          <p className="text-xl text-gray-600 font-inter max-w-4xl mx-auto leading-relaxed mb-8">
+            At Agritourism Adventures, we offer a wide range of services designed to give you a deep, immersive experience in Kenya's vibrant agricultural and cultural landscape.
           </p>
+          <h3 className="text-2xl font-poppins font-semibold text-agri-green mb-8">
+            What We Offer:
+          </h3>
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {services.map((service, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1"
-            >
-              {/* Icon */}
-              <div className="w-16 h-16 bg-agri-green/10 rounded-lg flex items-center justify-center mb-6">
-                <service.icon className="h-8 w-8 text-agri-green" />
+            <div key={index} className="bg-white rounded-lg p-6 shadow-lg">
+              <div className="flex items-center mb-3">
+                <CheckCircle className="h-5 w-5 text-agri-green mr-3 flex-shrink-0" />
+                <span className="text-lg font-inter font-semibold text-agri-dark">
+                  {service}
+                </span>
               </div>
-
-              {/* Content */}
-              <h3 className="text-xl font-poppins font-bold text-agri-dark mb-4">
-                {service.title}
-              </h3>
-              <p className="text-gray-600 font-inter mb-6 leading-relaxed">
-                {service.description}
-              </p>
-
-              {/* Features */}
-              <ul className="space-y-2">
-                {service.features.map((feature, featureIndex) => (
-                  <li key={featureIndex} className="flex items-center text-sm text-gray-600 font-inter">
-                    <CheckCircle className="h-4 w-4 text-agri-green mr-2 flex-shrink-0" />
-                    {feature}
-                  </li>
-                ))}
-              </ul>
             </div>
           ))}
+        </div>
+
+        <div className="text-center">
+          <p className="text-lg text-gray-600 font-inter max-w-4xl mx-auto leading-relaxed">
+            Each service is thoughtfully curated to provide hands-on learning, authentic engagement, and unforgettable memories.
+          </p>
         </div>
 
         {/* CTA Section */}
