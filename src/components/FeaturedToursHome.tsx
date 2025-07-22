@@ -12,63 +12,77 @@ const FeaturedToursHome = () => {
   const featuredTours = [
     {
       id: 3,
-      title: "🐘 Agricultural Wildlife Safari",
+      title: "🐘 9-Day Mixed Farming Safari",
       duration: "9 days",
-      location: "Southern Kenya",
+      location: "Central Kenya",
       participants: "6-12 people",
       image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/2025%20agri%20expo/Farm%20Expo%20tours.webp",
-      description: "Combine traditional safari experiences with visits to sustainable farming communities.",
+      description: "Embrace the Calm Within. A comprehensive journey through Kenya's diverse agricultural landscape, from Mount Kenya to Thompson Falls.",
       category: "Safari & Wildlife",
       featured: true,
-      fullDescription: "The ultimate Kenya experience combining wildlife viewing with agricultural learning. Visit national parks for game drives while also exploring how local communities practice sustainable farming alongside wildlife conservation.",
+      fullDescription: "A 9-day comprehensive agricultural safari that takes you through Kenya's most fertile regions. Experience diverse farming systems from flower and wheat farms near Mount Kenya to dairy farms in Nyahururu, combined with wildlife viewing at Sweetwaters Game Reserve and Solio Ranch.",
       itinerary: [
-        "Day 1-2: Nairobi arrival and orientation",
-        "Day 3-4: Maasai Mara game drives",
-        "Day 5: Community farming visit",
-        "Day 6-7: Amboseli National Park",
-        "Day 8: Agricultural cooperative visit",
-        "Day 9: Departure"
+        "Day 1: Nairobi to Nanyuki - Cross the Equator, Mount Kenya views",
+        "Day 2: Flower & wheat farms, Sweetwaters Game Reserve",
+        "Day 3: Nyahururu - Dairy tour & Thompson Falls",
+        "Day 4: Maize farming & cattle milking experience", 
+        "Day 5: Nyeri - Wildlife at Solio Ranch",
+        "Day 6: Coffee farm tour & Baden Powell Memorial",
+        "Day 7: Tea farm harvesting experience",
+        "Day 8: Orphanage & community visit",
+        "Day 9: Return to Nairobi via plantations"
       ],
-      includes: ["Safari vehicle", "Park fees", "Accommodation", "All meals", "Professional guide", "Community visits"]
+      includes: ["All accommodation", "All meals", "Transportation", "Farm visits", "Game drives", "Professional guide", "Community visits"]
     },
     {
       id: 5,
-      title: "☕ Coffee Estate Tour",
-      duration: "2 days",
-      location: "Central Kenya",
+      title: "☕ Coffee & Dairy Tour",
+      duration: "1 day",
+      location: "Central Kenya Highlands",
       participants: "4-18 people",
       image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/2025%20agri%20expo/Coffee%20Expo.webp",
-      description: "Follow the journey of coffee from cherry to cup at a scenic highland estate.",
+      description: "Make Every Sip an Adventure. Ready for your next farm vacation? Let's dive into nature, heritage, and a cup of fresh, farm-grown coffee.",
       category: "Farm Tours",
       featured: true,
-      fullDescription: "Experience Kenya's world-renowned coffee culture in the scenic Central Highlands. Learn about coffee cultivation, processing, and roasting while enjoying fresh mountain air and beautiful landscapes.",
+      fullDescription: "We'll pick you up from your hotel in Nairobi at 8:00 AM. Just 8 kilometers away lies a 54-acre paradise—lush with coffee plants, rich in history, and surrounded by serene natural beauty. Our destination? Paradise Lost—a beautifully managed estate that offers more than just a farm tour.",
       itinerary: [
-        "Day 1: Coffee plantation tour",
-        "Day 1: Cherry picking experience",
-        "Day 2: Processing and roasting",
-        "Day 2: Cupping and tasting session"
+        "8:00 AM: Hotel pickup in Nairobi",
+        "Paradise Lost estate arrival",
+        "Nature walks and birdwatching",
+        "Horse and camel riding",
+        "Maasai ostrich feeding",
+        "Coffee berry picking experience",
+        "Processing and production line tour",
+        "Brand your own coffee with Kenyan label",
+        "Dairy farm experience - milking session",
+        "Return to Nairobi with fresh coffee"
       ],
-      includes: ["Accommodation", "Meals", "Coffee processing experience", "Take-home coffee"]
+      includes: ["Hotel pickup", "Estate activities", "Coffee processing experience", "Dairy farm visit", "Take-home coffee", "All activities"]
     },
     {
       id: 8,
-      title: "🏔️ Rift Valley Farm Experience",
-      duration: "5 days",
-      location: "Rift Valley",
+      title: "🏔️ Ngong Adrenaline Rush",
+      duration: "1 day",
+      location: "Ngong Hills",
       participants: "4-16 people",
       image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/2025%20agri%20expo/Farm%20Machinery.webp",
-      description: "Explore the agricultural diversity in Kenya's fertile Rift Valley.",
+      description: "We Turn Moments Into Memories. Nestled in the breathtaking Rift Valley, Ngong Hills are among Kenya's most exhilarating adventure destinations.",
       category: "Regional Experiences",
       featured: true,
-      fullDescription: "Journey through Kenya's most fertile agricultural region, the Rift Valley. Experience diverse farming systems from large-scale mechanized farms to traditional smallholder agriculture.",
+      fullDescription: "Meet at International House parking lot (CBD) at 8:00 AM, and after a quick meet-and-greet, we'll hit the road by 8:30 AM. Our journey takes us past Maasai villages and through scenic terrain, with a short stop for teambuilding exercises to shake off the chill of the highlands.",
       itinerary: [
-        "Day 1: Arrival and orientation",
-        "Day 2: Large-scale farming visit",
-        "Day 3: Smallholder farmer community",
-        "Day 4: Agricultural research center",
-        "Day 5: Market visit and departure"
+        "8:00 AM: Meet at International House CBD",
+        "8:30 AM: Departure past Maasai villages",
+        "10:30 AM: Kompass Hotel arrival",
+        "Ziplining across hilltops",
+        "Archery challenges",
+        "Mountain hiking and photography",
+        "Teambuilding and group games",
+        "Nature walk through untouched landscape",
+        "2:30 PM: Nyama Choma lunch at Riverside Restaurant",
+        "4:30 PM: Return to Nairobi"
       ],
-      includes: ["Accommodation", "All meals", "Transportation", "Farm visits", "Research center tour"]
+      includes: ["Transportation", "Adventure activities", "Teambuilding", "Nyama Choma lunch", "Mountain access"]
     }
   ];
 

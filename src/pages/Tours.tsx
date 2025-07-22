@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Clock, MapPin, Users, ArrowRight } from 'lucide-react';
@@ -9,182 +10,317 @@ const Tours = () => {
   const [activeFilter, setActiveFilter] = useState('All');
   const [selectedTour, setSelectedTour] = useState(null);
 
-  const filters = ['All', 'Farm Tours', 'Safari & Wildlife', 'Cultural & Urban', 'Regional Experiences'];
+  const filters = ['All', 'Farm Tours', 'Safari & Wildlife', 'Cultural & Urban', 'Regional Experiences', 'Educational Tours'];
 
   const tours = [
     {
       id: 1,
-      title: "🌹 Flower Farm Tour",
-      duration: "1-2 days",
-      location: "Central Kenya",
+      title: "🌹 Flower Farm Tour in Naivasha",
+      duration: "1 day",
+      location: "Naivasha",
       participants: "2-15 people",
       image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/2025%20agri%20expo/Organic%20Farm%20Spices.webp",
-      description: "Experience the vibrant colors and fragrances of Kenya's renowned flower farms.",
+      description: "Ever wondered where the stunning roses that grace European castles, luxury events, and world-class floral boutiques come from? Welcome to our Flower Farm Tour in Naivasha—a journey into the heart of Kenya's blossoming floriculture industry.",
       category: "Farm Tours",
       featured: false,
-      fullDescription: "Immerse yourself in the colorful world of Kenya's flower industry. Visit state-of-the-art greenhouses, learn about sustainable growing practices, and witness the journey from seed to bloom. This tour includes hands-on activities like flower picking and arrangement workshops.",
+      fullDescription: "Kenya is one of the world's leading exporters of cut flowers, with roses making up over 80% of the floral export market. Through this immersive tour, you'll explore where it all begins—on lush farms nestled between Lake Naivasha and Lake Nakuru, in one of Kenya's richest agricultural zones. You'll visit some of the most reputable flower farms in the region, where premium roses are cultivated for export to top-tier markets and global florists source the blooms used in iconic arrangements.",
       itinerary: [
-        "Day 1: Arrival and farm orientation",
-        "Day 1: Greenhouse tours and flower picking",
-        "Day 2: Flower arrangement workshop",
-        "Day 2: Visit to local flower market"
+        "Farm arrival and orientation session",
+        "Visit premium rose cultivation greenhouses",
+        "Learn about export market processes",
+        "Explore regenerative farming practices",
+        "Organic vegetable farming techniques",
+        "Farm-grown tastings and honey sampling"
       ],
-      includes: ["Transportation", "Guided tours", "Flower arrangement materials", "Light refreshments"]
+      includes: ["Transportation", "Farm visits", "Guided tours", "Organic tastings", "Expert guidance"]
     },
     {
       id: 2,
-      title: "🍵 Tea Plantation Safari",
-      duration: "3 days",
-      location: "Western Kenya",
+      title: "🍵 Rural Farm Safari - Tea & Cheese",
+      duration: "1 day",
+      location: "Limuru Highlands",
       participants: "4-20 people",
       image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/2025%20agri%20expo/Organic%20Seed%20Farming.webp",
-      description: "Explore the lush highlands and learn about tea production from leaf to cup.",
+      description: "Experience Sereni-Tea. Escape the bustle of the city and dive into a full-day 2-in-1 farm experience—a tea and cheese safari that will leave your senses delighted and your soul refreshed.",
       category: "Farm Tours",
       featured: false,
-      fullDescription: "Journey through Kenya's scenic tea country in the highlands of Western Kenya. Experience the complete tea production process, from plucking fresh leaves to the final cup. Stay in comfortable accommodations with stunning views of rolling tea estates.",
+      fullDescription: "Begin the journey at 9:00 AM, departing Nairobi and heading into the cool, green highlands. After a scenic 2-hour drive, arrive at the tea farm for a light breakfast. Over fresh farm-grown tea, our friendly hosts will share the fascinating history of the estate and what makes Kenyan tea so globally loved.",
       itinerary: [
-        "Day 1: Arrival and tea estate tour",
-        "Day 1: Tea plucking experience",
-        "Day 2: Tea processing factory visit",
-        "Day 2: Tea tasting and blending workshop",
-        "Day 3: Cultural visit to local community"
+        "9:00 AM: Departure from Nairobi",
+        "Tea farm tour and breakfast",
+        "Walk through tea bushes and leaf picking",
+        "3-course farm-fresh buffet lunch",
+        "Indigenous forest guided walk",
+        "2:30 PM: Cheese farm experience",
+        "Factory tour and cheese tasting",
+        "Cow milking and vegetable gardens",
+        "Farm-fresh ice cream and pizza",
+        "5:30 PM: Return to Nairobi"
       ],
-      includes: ["Accommodation", "All meals", "Transportation", "Tea tasting sessions", "Cultural activities"]
+      includes: ["Transportation", "Tea farm tour", "Cheese factory visit", "All meals", "Guided walks", "Tastings"]
     },
     {
       id: 3,
-      title: "🐘 Agricultural Wildlife Safari",
+      title: "🐘 9-Day Mixed Farming Safari",
       duration: "9 days",
-      location: "Southern Kenya",
+      location: "Central Kenya",
       participants: "6-12 people",
       image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/2025%20agri%20expo/Farm%20Expo%20tours.webp",
-      description: "Combine traditional safari experiences with visits to sustainable farming communities.",
+      description: "Embrace the Calm Within. A comprehensive journey through Kenya's diverse agricultural landscape, from Mount Kenya to Thompson Falls.",
       category: "Safari & Wildlife",
       featured: true,
-      fullDescription: "The ultimate Kenya experience combining wildlife viewing with agricultural learning. Visit national parks for game drives while also exploring how local communities practice sustainable farming alongside wildlife conservation.",
+      fullDescription: "A 9-day comprehensive agricultural safari that takes you through Kenya's most fertile regions. Experience diverse farming systems from flower and wheat farms near Mount Kenya to dairy farms in Nyahururu, combined with wildlife viewing at Sweetwaters Game Reserve and Solio Ranch.",
       itinerary: [
-        "Day 1-2: Nairobi arrival and orientation",
-        "Day 3-4: Maasai Mara game drives",
-        "Day 5: Community farming visit",
-        "Day 6-7: Amboseli National Park",
-        "Day 8: Agricultural cooperative visit",
-        "Day 9: Departure"
+        "Day 1: Nairobi to Nanyuki - Cross the Equator, Mount Kenya views",
+        "Day 2: Flower & wheat farms, Sweetwaters Game Reserve",
+        "Day 3: Nyahururu - Dairy tour & Thompson Falls",
+        "Day 4: Maize farming & cattle milking experience", 
+        "Day 5: Nyeri - Wildlife at Solio Ranch",
+        "Day 6: Coffee farm tour & Baden Powell Memorial",
+        "Day 7: Tea farm harvesting experience",
+        "Day 8: Orphanage & community visit",
+        "Day 9: Return to Nairobi via plantations"
       ],
-      includes: ["Safari vehicle", "Park fees", "Accommodation", "All meals", "Professional guide", "Community visits"]
+      includes: ["All accommodation", "All meals", "Transportation", "Farm visits", "Game drives", "Professional guide", "Community visits"]
     },
     {
       id: 4,
-      title: "🐄 Dairy Farm Experience",
+      title: "🥛 Organic Farm Visit",
       duration: "1 day",
-      location: "Central Kenya",
+      location: "Limuru Village",
       participants: "3-25 people",
       image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/2025%20agri%20expo/On-ground%20learning.webp",
-      description: "Learn about modern dairy farming techniques and taste fresh dairy products.",
+      description: "A Farm Like No Udder. Get ready for a day that blends nature, nourishment, and nostalgia. An organic farm visit is more than just a countryside escape—it's a hands-on experience that opens your heart to sustainable living and rural beauty.",
       category: "Farm Tours",
       featured: false,
-      fullDescription: "Spend a day at a modern dairy farm learning about cattle management, milking processes, and dairy product manufacturing. Perfect for families and educational groups.",
+      fullDescription: "Whether you're seeking quiet reflection or family fun, this visit offers something for everyone. Meet our friendly team and fellow explorers at Nairobi's CBD, then hop into our ride as we begin the scenic 1-hour drive to Limuru village.",
       itinerary: [
-        "Morning: Farm arrival and orientation",
-        "Mid-morning: Cattle feeding experience",
-        "Afternoon: Milking demonstration",
-        "Late afternoon: Dairy processing tour"
+        "9:00 AM: Departure from Nairobi CBD",
+        "10:00 AM: Farm arrival with refreshing drinks",
+        "Educational farm tour - seedlings, composting, intercropping",
+        "Pick your own vegetables",
+        "Farm-to-fork lunch preparation",
+        "Hands-on animal interaction - cows, goats, poultry",
+        "Cow milking and egg collection",
+        "Art gallery and birdwatching",
+        "Late afternoon: Return to Nairobi"
       ],
-      includes: ["Transportation", "Farm tour", "Fresh dairy tasting", "Light lunch"]
+      includes: ["Transportation", "Farm tour", "Lunch preparation", "Animal interaction", "Art gallery visit", "Fresh produce options"]
     },
     {
       id: 5,
-      title: "☕ Coffee Estate Tour",
-      duration: "2 days",
-      location: "Central Kenya",
+      title: "☕ Coffee & Dairy Tour",
+      duration: "1 day",
+      location: "Central Kenya Highlands",
       participants: "4-18 people",
       image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/2025%20agri%20expo/Coffee%20Expo.webp",
-      description: "Follow the journey of coffee from cherry to cup at a scenic highland estate.",
+      description: "Make Every Sip an Adventure. Ready for your next farm vacation? Let's dive into nature, heritage, and a cup of fresh, farm-grown coffee. This unique coffee and dairy farm tour offers the perfect blend of relaxation, learning, and adventure.",
       category: "Farm Tours",
       featured: true,
-      fullDescription: "Experience Kenya's world-renowned coffee culture in the scenic Central Highlands. Learn about coffee cultivation, processing, and roasting while enjoying fresh mountain air and beautiful landscapes.",
+      fullDescription: "We'll pick you up from your hotel in Nairobi at 8:00 AM. Just 8 kilometers away lies a 54-acre paradise—lush with coffee plants, rich in history, and surrounded by serene natural beauty. Our destination? Paradise Lost—a beautifully managed estate that offers more than just a farm tour.",
       itinerary: [
-        "Day 1: Coffee plantation tour",
-        "Day 1: Cherry picking experience",
-        "Day 2: Processing and roasting",
-        "Day 2: Cupping and tasting session"
+        "8:00 AM: Hotel pickup in Nairobi",
+        "Paradise Lost estate arrival",
+        "Nature walks and birdwatching",
+        "Horse and camel riding",
+        "Maasai ostrich feeding",
+        "Coffee berry picking experience",
+        "Processing and production line tour",
+        "Brand your own coffee with Kenyan label",
+        "Dairy farm experience - milking session",
+        "Return to Nairobi with fresh coffee"
       ],
-      includes: ["Accommodation", "Meals", "Coffee processing experience", "Take-home coffee"]
+      includes: ["Hotel pickup", "Estate activities", "Coffee processing experience", "Dairy farm visit", "Take-home coffee", "All activities"]
     },
     {
       id: 6,
-      title: "🚌 Matatu Urban Farm Tour",
+      title: "🚌 Matatu Tourism",
       duration: "1 day",
       location: "Nairobi",
       participants: "5-15 people",
       image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/2025%20agri%20expo/Industrial%20Tourism.webp",
-      description: "Explore urban farming initiatives while traveling in Kenya's iconic matatu minibuses.",
+      description: "Ride Through the Urban Jungle in Style. Matatu tourism is one of the most vibrant and unexpected highlights of urban Kenya. These graffiti-covered, music-blasting minibuses are a cultural experience like no other.",
       category: "Cultural & Urban",
       featured: false,
-      fullDescription: "A unique urban adventure combining Kenya's vibrant matatu culture with innovative city farming. Visit rooftop gardens, vertical farms, and community gardens while experiencing authentic Nairobi transport.",
+      fullDescription: "Also known as 'ma3' or 'nganya' in local slang, matatus have evolved from simple public transport to iconic, moving works of art since their inception in the 1960s. They are more than just a ride—they're a party on wheels, a voice of youth culture, and an economic engine.",
       itinerary: [
-        "Morning: Matatu ride to urban farms",
-        "Mid-morning: Vertical farming visit",
-        "Afternoon: Community garden tour",
-        "Late afternoon: Local market visit"
+        "Downtown Nairobi meeting point",
+        "Ride in fully customized 'nganya'",
+        "Experience beats, lights, and local conversations",
+        "Try fare collection with conductor",
+        "Visit matatu hubs and customization shops",
+        "Meet artists and sound engineers",
+        "Urban farming stops via matatu transport",
+        "Cultural interactions with daily commuters"
       ],
-      includes: ["Matatu transport", "Farm visits", "Local guide", "Market experience"]
+      includes: ["Matatu transport experience", "Cultural guide", "Artist interactions", "Urban stops", "Local insights"]
     },
     {
       id: 7,
-      title: "🌊 Coastal Agricultural Tour",
-      duration: "4 days",
-      location: "Coastal Kenya",
+      title: "🍍 Nanasi (Pineapple) Tour",
+      duration: "Half day",
+      location: "Gatundu North, Kiambu",
       participants: "6-20 people",
       image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/2025%20agri%20expo/Organic%20Fruit%20Jars.webp",
-      description: "Discover unique farming practices along Kenya's beautiful coastline.",
+      description: "Life Is Sweet, Just Like Pineapples. If you've never tasted a pineapple straight from the field—warm from the sun, sliced fresh with a machete, juice trickling down your chin—this is your moment.",
       category: "Regional Experiences",
       featured: false,
-      fullDescription: "Explore the unique agricultural practices of Kenya's coastal region, including coconut farming, spice cultivation, and innovative irrigation techniques adapted to the coastal climate.",
+      fullDescription: "Welcome to the Nanasi Tour, a refreshing agritourism experience in Kiambu County, where every bite tells a story and every visit feels like a hidden treasure waiting to be discovered. Set in the heart of Gatundu North, this tour is more than just a snack stop—it's an immersion into the vibrant agricultural lifestyle of Kiambu.",
       itinerary: [
-        "Day 1: Arrival and coconut farm visit",
-        "Day 2: Spice plantation tour",
-        "Day 3: Irrigation systems and salt farming",
-        "Day 4: Coastal community visit"
+        "Arrival at Gatundu North pineapple farms",
+        "Walk among rows of lush pineapple plants",
+        "Learn growing and harvesting techniques",
+        "Fresh field pineapple tasting",
+        "Vegetable gardens exploration",
+        "Historic Mau Mau caves visit",
+        "Tea plantation and factory tour",
+        "God's Well spiritual site visit"
       ],
-      includes: ["Accommodation", "Meals", "Transportation", "Farm visits", "Cultural activities"]
+      includes: ["Farm visits", "Historical sites", "Tea factory tour", "Fresh tastings", "Cultural insights"]
     },
     {
       id: 8,
-      title: "🏔️ Rift Valley Farm Experience",
-      duration: "5 days",
-      location: "Rift Valley",
+      title: "🏔️ Ngong Adrenaline Rush",
+      duration: "1 day",
+      location: "Ngong Hills",
       participants: "4-16 people",
       image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/2025%20agri%20expo/Farm%20Machinery.webp",
-      description: "Explore the agricultural diversity in Kenya's fertile Rift Valley.",
+      description: "We Turn Moments Into Memories. Nestled in the breathtaking Rift Valley, Ngong Hills are among Kenya's most exhilarating adventure destinations. The cool, high-altitude breeze, rolling green hills, and sweeping views make this a fairytale escape.",
       category: "Regional Experiences",
       featured: true,
-      fullDescription: "Journey through Kenya's most fertile agricultural region, the Rift Valley. Experience diverse farming systems from large-scale mechanized farms to traditional smallholder agriculture.",
+      fullDescription: "Meet at International House parking lot (CBD) at 8:00 AM, and after a quick meet-and-greet, we'll hit the road by 8:30 AM. Our journey takes us past Maasai villages and through scenic terrain, with a short stop for teambuilding exercises to shake off the chill of the highlands.",
       itinerary: [
-        "Day 1: Arrival and orientation",
-        "Day 2: Large-scale farming visit",
-        "Day 3: Smallholder farmer community",
-        "Day 4: Agricultural research center",
-        "Day 5: Market visit and departure"
+        "8:00 AM: Meet at International House CBD",
+        "8:30 AM: Departure past Maasai villages",
+        "10:30 AM: Kompass Hotel arrival",
+        "Ziplining across hilltops",
+        "Archery challenges",
+        "Mountain hiking and photography",
+        "Teambuilding and group games",
+        "Nature walk through untouched landscape",
+        "2:30 PM: Nyama Choma lunch at Riverside Restaurant",
+        "4:30 PM: Return to Nairobi"
       ],
-      includes: ["Accommodation", "All meals", "Transportation", "Farm visits", "Research center tour"]
+      includes: ["Transportation", "Adventure activities", "Teambuilding", "Nyama Choma lunch", "Mountain access"]
     },
     {
       id: 9,
-      title: "🌾 Eastern Kenya Agri-Safari",
-      duration: "3 days",
-      location: "Eastern Kenya",
+      title: "🐐 Goat Farm Tour",
+      duration: "1 day",
+      location: "Central Kenya Highlands",
       participants: "5-18 people",
       image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/2025%20agri%20expo/Seed%20Bank.webp",
-      description: "Discover the unique farming practices in Kenya's eastern regions.",
-      category: "Regional Experiences",
+      description: "Nature's Baaa-utiful Business. Ready to embark on a unique and enriching farm adventure? Welcome to our Goat Farm Tour — where learning, laughter, and sustainability come together in the heart of Kenya's countryside.",
+      category: "Farm Tours",
       featured: false,
-      fullDescription: "Explore the semi-arid farming systems of Eastern Kenya, learning about drought-resistant crops, water conservation, and innovative farming techniques adapted to challenging climatic conditions.",
+      fullDescription: "Our journey begins at 7:00 AM in Nairobi's CBD. It's a scenic 2-hour drive filled with music, photo stops, and stretch breaks. We arrive at the farm around 9:30 AM, just in time to enjoy a warm welcome from the host, a cup of tea, and some light farm snacks.",
       itinerary: [
-        "Day 1: Drought-resistant crop farms",
-        "Day 2: Water conservation projects",
-        "Day 3: Seed bank and research visit"
+        "7:00 AM: Nairobi CBD departure",
+        "9:30 AM: Farm arrival with tea and snacks",
+        "3-hour interactive goat farming session",
+        "Learn breeds, behaviors, and sustainability",
+        "Hands-on goat feeding experience",
+        "Multi-storey garden exploration",
+        "Dairy production room tour",
+        "Traditional home-cooked lunch",
+        "Biogas and fertilizer demonstrations",
+        "Return to Nairobi with farm stories"
       ],
-      includes: ["Transportation", "Accommodation", "Meals", "Farm visits", "Research facility tour"]
+      includes: ["Transportation", "Farm education", "Goat interaction", "Garden tour", "Dairy experience", "Traditional lunch"]
+    },
+    {
+      id: 10,
+      title: "🐦 Maasai Ostrich Farm Tour",
+      duration: "1 day",
+      location: "Kajiado County",
+      participants: "6-15 people",
+      image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/2025%20agri%20expo/Coffee%20Expo.webp",
+      description: "Satisfy Your Natural Curiosity in a Furry Adventure. Welcome to the Maasai Ostrich Farm Tour! Get ready for an unforgettable day filled with nature, laughter, and a dash of adrenaline.",
+      category: "Farm Tours",
+      featured: false,
+      fullDescription: "Meet our friendly team and fellow explorers in Nairobi city center. Together, we'll head to beautiful Kajiado County, home of the famous Maasai Ostrich Farm. Upon arrival, we'll start with a guided walk through the vegetable gardens.",
+      itinerary: [
+        "8:00 AM: Departure from Nairobi CBD",
+        "10:00 AM: Arrival & vegetable garden tour",
+        "Ostrich encounter - eggs, chicks, adults",
+        "Ostrich rides for the brave",
+        "Picnic & pool time",
+        "Photo sessions with ostriches",
+        "3:00 PM: Lunch at Club 034",
+        "Return journey to Nairobi"
+      ],
+      includes: ["Transportation", "Farm tour", "Ostrich experience", "Pool access", "Lunch at Club 034"]
+    },
+    {
+      id: 11,
+      title: "🐷 Pig Farm Tour",
+      duration: "2 days",
+      location: "Countryside",
+      participants: "8-20 people",
+      image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/2025%20agri%20expo/Industrial%20Tourism.webp",
+      description: "Bacon Begins Here. Pig farming isn't just a profitable venture—it's a fascinating adventure into the world of animals, especially when experienced firsthand in the serene countryside.",
+      category: "Farm Tours",
+      featured: false,
+      fullDescription: "Far from the noise of the city, this one-day, one-night tour will leave you informed, inspired, and fully entertained. Meet your fellow travelers in the city center and begin your scenic 1.5-hour drive to the farm.",
+      itinerary: [
+        "Day 1: 8:00 AM Departure from Nairobi CBD",
+        "10:00 AM: Farm arrival with traditional breakfast",
+        "Farm orientation and pig farming experience",
+        "Tea plantation activity",
+        "Organic farm lunch and nature walk",
+        "Cave exploration",
+        "Bonfire and traditional storytelling",
+        "Overnight camping under stars",
+        "Day 2: Morning activities - zip-lining, swimming, hiking",
+        "Return to Nairobi refreshed"
+      ],
+      includes: ["Transportation", "Traditional meals", "Camping accommodation", "Farm activities", "Storytelling", "Adventure activities"]
+    },
+    {
+      id: 12,
+      title: "🎓 Educational STEM Tours",
+      duration: "1-3 days",
+      location: "Various Locations",
+      participants: "15-50 students",
+      image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/2025%20agri%20expo/Farm%20Machinery.webp",
+      description: "Travel Smart, Learn More. STEM—Science, Technology, Engineering, and Mathematics—is a powerful, hands-on educational approach that's transforming the way learners understand the world.",
+      category: "Educational Tours",
+      featured: true,
+      fullDescription: "Since its national rollout in Kenya in 2019, STEM has become a strategic pillar in achieving Vision 2030. At Agritourism Adventures, we align with this vision by offering educational tours that immerse learners in real-world knowledge across Kenya's thriving industries.",
+      itinerary: [
+        "Food production & agro-processing visits",
+        "Car assembly & automation facilities",
+        "Archaeological preservation sites",
+        "Sound engineering demonstrations",
+        "AI and software development hubs",
+        "Machine learning applications",
+        "Hands-on workshops with professionals",
+        "Q&A sessions with industry experts"
+      ],
+      includes: ["Educational visits", "Professional interactions", "Hands-on workshops", "Transportation", "Learning materials"]
+    },
+    {
+      id: 13,
+      title: "💕 Bonding Safari",
+      duration: "2-3 days",
+      location: "Various Romantic Destinations",
+      participants: "2-8 people",
+      image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/2025%20agri%20expo/Organic%20Fruit%20Jars.webp",
+      description: "It's a Date Worth the Escape. Bonding tourism is all about deepening emotional connections through immersive, shared experiences. Whether it's families reconnecting, couples rekindling romance, or friends creating unforgettable memories.",
+      category: "Cultural & Urban",
+      featured: false,
+      fullDescription: "We design every bonding experience with value, comfort, and impact in mind—curating meaningful itineraries that nurture relationships and encourage repeat visits. From scenic safaris to heartfelt conversations, every moment becomes a memory.",
+      itinerary: [
+        "Friday evening: Romantic arrival and setup",
+        "Safari or boat ride together",
+        "Romantic dinners under the stars",
+        "Camping experience in nature",
+        "Team building and fun games",
+        "Couples cooking sessions",
+        "Expert marriage counseling sessions",
+        "Sunday afternoon: Reflection and departure"
+      ],
+      includes: ["Accommodation", "Romantic activities", "Counseling sessions", "All meals", "Adventure activities"]
     }
   ];
 
