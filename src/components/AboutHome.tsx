@@ -50,8 +50,8 @@ const AboutHome = () => {
           {/* Image */}
           <div className="order-2 lg:order-1">
             <img
-              src="https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?w=600&h=400&fit=crop"
-              alt="Colorful flowers in a Kenyan farm"
+              src="https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Fair%20view/Tractor.webp"
+              alt="Agricultural tractor at a Kenyan farm"
               className="rounded-lg shadow-2xl w-full h-96 object-cover"
             />
           </div>
