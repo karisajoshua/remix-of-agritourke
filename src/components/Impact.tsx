@@ -101,7 +101,7 @@ const Impact = () => {
           {/* Image */}
           <div>
             <img
-              src="https://images.unsplash.com/photo-1517022812141-23620dba5c23?w=600&h=400&fit=crop"
+              src="https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Fair%20view/Her.webp"
               alt="Sustainable farming practices in Kenya"
               className="rounded-lg shadow-2xl w-full h-96 object-cover"
             />
