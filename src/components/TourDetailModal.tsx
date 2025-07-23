@@ -74,7 +74,7 @@ Please provide availability and booking details for this tour.
 Thank you! 🙏`;
 
     const encodedMessage = encodeURIComponent(message);
-    const whatsappUrl = `https://wa.me/254712558187?text=${encodedMessage}`;
+    const whatsappUrl = `https://wa.me/254710429755?text=${encodedMessage}`;
     
     window.open(whatsappUrl, '_blank');
     onClose();

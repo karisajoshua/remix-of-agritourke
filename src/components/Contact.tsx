@@ -74,7 +74,7 @@ const Contact = () => {
                     Call Us
                   </h4>
                   <p className="text-gray-600 font-inter">
-                    +254 xxx xxx xxx
+                    +254710429755
                   </p>
                 </div>
               </div>
