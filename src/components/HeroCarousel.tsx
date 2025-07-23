@@ -8,25 +8,25 @@ const HeroCarousel = () => {
 
   const slides = [
     {
-      image: "https://images.unsplash.com/photo-1472396961693-142e6e269027?w=1920&h=1080&fit=crop&crop=center",
+      image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Trade%20expo%202013/Corridor.webp",
       title: "Where Travel Meets",
       subtitle: "Sustainability",
       description: "Explore Kenya's farms, cultures, and countryside through immersive, eco-conscious adventures that support local communities."
     },
     {
-      image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/2025%20agri%20expo/Coffee%20Expo.webp",
+      image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Mbuzi%20Farm/IMG_6888.webp",
       title: "Agricultural",
       subtitle: "Innovation",
       description: "Discover cutting-edge farming techniques and sustainable practices that are shaping Kenya's agricultural future."
     },
     {
-      image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/2025%20agri%20expo/Farm%20Stand%20Visits.webp",
+      image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/GR13%20summit%202013/Agri%20&%20Aqua%20Discussions.webp",
       title: "Community",
       subtitle: "Connection",
       description: "Build meaningful relationships with local farmers and experience authentic Kenyan agricultural heritage."
     },
     {
-      image: "https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?w=1920&h=1080&fit=crop&crop=center",
+      image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Fair%20view/Bean%20hands.webp",
       title: "Educational",
       subtitle: "Adventures",
       description: "Learn through hands-on experiences that combine tourism with agricultural education and cultural immersion."
