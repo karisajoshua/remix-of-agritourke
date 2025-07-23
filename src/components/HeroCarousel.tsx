@@ -110,7 +110,7 @@ const HeroCarousel = () => {
             <Button 
               size="lg" 
               variant="outline" 
-              className="border-white text-white hover:bg-white hover:text-agri-dark font-inter font-semibold px-8 py-4 text-lg group"
+              className="border-2 border-white text-white bg-transparent hover:bg-white hover:text-agri-dark font-inter font-semibold px-8 py-4 text-lg group backdrop-blur-sm"
             >
               <Play className="mr-2 h-5 w-5" />
               Watch Story
