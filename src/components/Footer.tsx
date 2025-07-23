@@ -1,27 +1,52 @@
-import { Facebook, Instagram, Twitter, Mail, Phone } from 'lucide-react';
+
+import { Facebook, Instagram, Linkedin, Mail, Phone } from 'lucide-react';
+
 const Footer = () => {
-  return <footer className="bg-agri-dark text-white py-16">
+  return (
+    <footer className="bg-agri-dark text-white py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div>
             <div className="mb-4">
-              <img src="https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/logo/AA%20transparent%20Logo.png" alt="Agritourism Adventures" className="h-16 w-auto" />
+              <img 
+                src="https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/logo/AA%20transparent%20Logo.png" 
+                alt="Agritourism Adventures" 
+                className="h-16 w-auto" 
+              />
             </div>
             <p className="text-gray-300 font-inter mb-6 leading-relaxed">
               Connecting travelers with Kenya's agricultural heritage through 
               sustainable, educational, and transformative experiences.
             </p>
             <div className="flex space-x-4">
-              <div className="w-10 h-10 bg-agri-green/20 rounded-full flex items-center justify-center hover:bg-agri-green/30 transition-colors cursor-pointer">
+              <a 
+                href="https://www.facebook.com/Farmtourfam/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-10 h-10 bg-agri-green/20 rounded-full flex items-center justify-center hover:bg-agri-green/30 transition-colors cursor-pointer"
+                aria-label="Visit our Facebook page"
+              >
                 <Facebook className="h-5 w-5" />
-              </div>
-              <div className="w-10 h-10 bg-agri-green/20 rounded-full flex items-center justify-center hover:bg-agri-green/30 transition-colors cursor-pointer">
+              </a>
+              <a 
+                href="https://www.instagram.com/agritourismadventures?utm_source=qr&igsh=MzNlNGNkZWQ4Mg==" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-10 h-10 bg-agri-green/20 rounded-full flex items-center justify-center hover:bg-agri-green/30 transition-colors cursor-pointer"
+                aria-label="Visit our Instagram page"
+              >
                 <Instagram className="h-5 w-5" />
-              </div>
-              <div className="w-10 h-10 bg-agri-green/20 rounded-full flex items-center justify-center hover:bg-agri-green/30 transition-colors cursor-pointer">
-                <Twitter className="h-5 w-5" />
-              </div>
+              </a>
+              <a 
+                href="https://www.linkedin.com/company/101539076/admin/dashboard/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-10 h-10 bg-agri-green/20 rounded-full flex items-center justify-center hover:bg-agri-green/30 transition-colors cursor-pointer"
+                aria-label="Visit our LinkedIn page"
+              >
+                <Linkedin className="h-5 w-5" />
+              </a>
             </div>
           </div>
 
@@ -67,8 +92,26 @@ const Footer = () => {
               <ul className="space-y-1 text-sm text-gray-400 font-inter">
                 <li><a href="#" className="hover:text-agri-yellow transition-colors">Privacy Policy</a></li>
                 <li><a href="#" className="hover:text-agri-yellow transition-colors">Terms of Service</a></li>
-                <li><a href="#" className="hover:text-agri-yellow transition-colors">Image Consent Form</a></li>
-                <li><a href="#" className="hover:text-agri-yellow transition-colors">Data Withdrawal Form</a></li>
+                <li>
+                  <a 
+                    href="https://ppmyiephtxszzlhijssl.supabase.co/storage/v1/object/public/agritourismadv//Consent%20For%20Use%20Of%20Images%20Form%20-%20AA.pdf" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="hover:text-agri-yellow transition-colors"
+                  >
+                    Image Consent Form
+                  </a>
+                </li>
+                <li>
+                  <a 
+                    href="https://ppmyiephtxszzlhijssl.supabase.co/storage/v1/object/public/agritourismadv//Data%20Subject%20Consent%20Withdrawal%20Form.pdf" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="hover:text-agri-yellow transition-colors"
+                  >
+                    Data Withdrawal Form
+                  </a>
+                </li>
               </ul>
             </div>
           </div>
@@ -89,6 +132,8 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </footer>;
+    </footer>
+  );
 };
+
 export default Footer;
