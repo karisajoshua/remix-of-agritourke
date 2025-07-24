@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Clock, MapPin, Users, ArrowRight } from 'lucide-react';
@@ -233,7 +234,7 @@ const Tours = () => {
       duration: "1 day",
       location: "Kajiado County",
       participants: "6-15 people",
-      image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Farm%20expo%202023/Peek-a-boo.webp",
+      image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/2025%20agri%20expo/Coffee%20Expo.webp",
       description: "Satisfy Your Natural Curiosity in a Furry Adventure. Welcome to the Maasai Ostrich Farm Tour! Get ready for an unforgettable day filled with nature, laughter, and a dash of adrenaline.",
       category: "Farm Tours",
       featured: false,
@@ -375,7 +376,7 @@ const Tours = () => {
                   <img
                     src={tour.image}
                     alt={tour.title}
-                    className="w-full h-48 object-contain bg-gray-50"
+                    className="w-full h-48 object-cover"
                   />
                   {tour.featured && (
                     <div className="absolute top-4 left-4 bg-agri-yellow text-agri-dark px-3 py-1 rounded-full text-sm font-inter font-semibold">
