@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Clock, MapPin, Users, ArrowRight } from 'lucide-react';
@@ -376,7 +375,7 @@ const Tours = () => {
                   <img
                     src={tour.image}
                     alt={tour.title}
-                    className="w-full h-48 object-cover"
+                    className="w-full h-48 object-contain bg-gray-50"
                   />
                   {tour.featured && (
                     <div className="absolute top-4 left-4 bg-agri-yellow text-agri-dark px-3 py-1 rounded-full text-sm font-inter font-semibold">
