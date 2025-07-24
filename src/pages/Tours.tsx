@@ -305,7 +305,7 @@ const Tours = () => {
       duration: "2-3 days",
       location: "Various Romantic Destinations",
       participants: "2-8 people",
-      image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/2025%20agri%20expo/Organic%20Fruit%20Jars.webp",
+      image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Fair%20view/Intro.webp",
       description: "It's a Date Worth the Escape. Bonding tourism is all about deepening emotional connections through immersive, shared experiences. Whether it's families reconnecting, couples rekindling romance, or friends creating unforgettable memories.",
       category: "Cultural & Urban",
       featured: false,
