@@ -138,7 +138,7 @@ const Tours = () => {
       duration: "1 day",
       location: "Nairobi",
       participants: "5-30 people",
-      image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/2025%20agri%20expo/Industrial%20Tourism.webp",
+      image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Matatu/matatu%20tourims.jpg",
       description: "Ride Through the Urban Jungle in Style. Matatu tourism is one of the most vibrant and unexpected highlights of urban Kenya. These graffiti-covered, music-blasting minibuses are a cultural experience like no other.",
       category: "Cultural & Urban",
       featured: false,
