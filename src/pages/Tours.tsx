@@ -209,7 +209,7 @@ const Tours = () => {
       duration: "1 day",
       location: "Central Kenya Highlands",
       participants: "5-18 people",
-      image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/2025%20agri%20expo/Seed%20Bank.webp",
+      image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Mbuzi%20Farm/IMG_6923.webp",
       description: "Nature's Baaa-utiful Business. Ready to embark on a unique and enriching farm adventure? Welcome to our Goat Farm Tour — where learning, laughter, and sustainability come together in the heart of Kenya's countryside.",
       category: "Farm Tours",
       featured: false,
