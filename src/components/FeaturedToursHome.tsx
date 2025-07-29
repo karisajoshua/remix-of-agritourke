@@ -12,7 +12,7 @@ const FeaturedToursHome = () => {
     {
       id: 3,
       title: "🐘 9-Day Mixed Farming Safari",
-      duration: "9 days",
+      duration: "9 days", 
       location: "Central Kenya",
       participants: "4-70 people",
       image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Fair%20view/Intro-2.webp",
@@ -64,7 +64,7 @@ const FeaturedToursHome = () => {
       duration: "1 day",
       location: "Ngong Hills",
       participants: "4-80 people",
-      image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Mbuzi%20Farm/IMG_6865.webp",
+      image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Mbuzi%20Farm/Ngong%20adrenaline.webp",
       description: "We Turn Moments Into Memories. Nestled in the breathtaking Rift Valley, Ngong Hills are among Kenya's most exhilarating adventure destinations.",
       category: "Regional Experiences",
       featured: true,
