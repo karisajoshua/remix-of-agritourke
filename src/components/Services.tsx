@@ -1,7 +1,10 @@
-
 import { CheckCircle, Truck, Camera, Users, GraduationCap, Home, Mountain, Bus } from 'lucide-react';
+import { useContentProtection } from '@/hooks/useContentProtection';
 
 const Services = () => {
+  // Enable content protection
+  useContentProtection();
+
   const services = [
     "Kenya Farm Tours",
     "Farm Stays", 

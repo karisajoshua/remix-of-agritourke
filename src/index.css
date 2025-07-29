@@ -114,3 +114,115 @@ All colors MUST be HSL.
     @apply bg-background text-foreground;
   }
 }
+
+/* Content Protection Styles */
+@layer base {
+  /* Disable text selection globally */
+  * {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Disable drag and drop for all elements */
+  * {
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+  }
+
+  /* Disable context menu globally */
+  * {
+    -webkit-context-menu: none;
+  }
+
+  /* Disable image dragging and right-click */
+  img {
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+    pointer-events: none;
+    -webkit-touch-callout: none;
+  }
+
+  /* Protect against printing */
+  @media print {
+    * {
+      display: none !important;
+    }
+  }
+
+  /* Disable selection highlighting */
+  ::selection {
+    background: transparent;
+  }
+  
+  ::-moz-selection {
+    background: transparent;
+  }
+
+  /* Disable copy cursor */
+  * {
+    cursor: default !important;
+  }
+
+  /* Buttons should still have pointer cursor */
+  button, a, input[type="button"], input[type="submit"] {
+    cursor: pointer !important;
+  }
+}
+
+/* Image Protection Layer */
+@layer components {
+  .image-protected {
+    position: relative;
+    display: inline-block;
+  }
+
+  .image-protected::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: transparent;
+    z-index: 1;
+    pointer-events: auto;
+  }
+
+  .image-protected img {
+    pointer-events: none;
+    -webkit-user-drag: none;
+    user-drag: none;
+  }
+}
+
+/* Warning message styles */
+.copy-warning {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(239, 68, 68, 0.95);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  z-index: 9999;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  animation: fadeInOut 3s ease-in-out;
+}
+
+@keyframes fadeInOut {
+  0%, 100% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+  20%, 80% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}

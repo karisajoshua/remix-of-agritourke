@@ -1,10 +1,13 @@
-
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Play, ChevronLeft, ChevronRight } from 'lucide-react';
+import { useContentProtection } from '@/hooks/useContentProtection';
 
 const HeroCarousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+
+  // Enable content protection
+  useContentProtection();
 
   const slides = [
     {
@@ -33,7 +36,6 @@ const HeroCarousel = () => {
     }
   ];
 
-  // Auto-advance slides
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
@@ -55,20 +57,25 @@ const HeroCarousel = () => {
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Images */}
+      {/* Enhanced Protected Background Images */}
       {slides.map((slide, index) => (
         <div
           key={index}
-          className={`absolute inset-0 z-0 transition-opacity duration-1000 ${
+          className={`absolute inset-0 z-0 transition-opacity duration-1000 image-protected ${
             index === currentSlide ? 'opacity-100' : 'opacity-0'
           }`}
         >
           <img
             src={slide.image}
-            alt={`${slide.title} ${slide.subtitle}`}
+            alt=""
             className="w-full h-full object-cover"
+            draggable="false"
+            onContextMenu={(e) => e.preventDefault()}
+            style={{ pointerEvents: 'none' }}
           />
-          <div className="absolute inset-0 bg-black/40"></div>
+          {/* Invisible protection overlay */}
+          <div className="absolute inset-0 bg-transparent z-10" />
+          <div className="absolute inset-0 bg-black/40 z-20"></div>
         </div>
       ))}
 

@@ -1,10 +1,13 @@
-
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Clock, MapPin, Users, ArrowRight } from 'lucide-react';
+import { useContentProtection } from '@/hooks/useContentProtection';
 
 const Tours = () => {
   const [activeFilter, setActiveFilter] = useState('All');
+
+  // Enable content protection
+  useContentProtection();
 
   const filters = ['All', 'Farm Tours', 'Safari & Wildlife', 'Cultural & Urban', 'Regional Experiences'];
 
@@ -154,28 +157,33 @@ const Tours = () => {
           ))}
         </div>
 
-        {/* Tours Grid */}
+        {/* Enhanced Protected Tours Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredTours.map((tour) => (
             <div
               key={tour.id}
-              className={`bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 ${
+              className={`bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 image-protected ${
                 tour.featured ? 'ring-2 ring-agri-yellow' : ''
               }`}
             >
-              {/* Tour Image */}
+              {/* Protected Tour Image */}
               <div className="relative">
                 <img
                   src={tour.image}
-                  alt={tour.title}
+                  alt=""
                   className="w-full h-48 object-cover"
+                  draggable="false"
+                  onContextMenu={(e) => e.preventDefault()}
+                  style={{ pointerEvents: 'none' }}
                 />
+                {/* Invisible protection overlay */}
+                <div className="absolute inset-0 bg-transparent z-10" />
                 {tour.featured && (
-                  <div className="absolute top-4 left-4 bg-agri-yellow text-agri-dark px-3 py-1 rounded-full text-sm font-inter font-semibold">
+                  <div className="absolute top-4 left-4 bg-agri-yellow text-agri-dark px-3 py-1 rounded-full text-sm font-inter font-semibold z-20">
                     Featured
                   </div>
                 )}
-                <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-agri-dark font-inter font-bold">
+                <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-agri-dark font-inter font-bold z-20">
                   {tour.price}
                 </div>
               </div>
