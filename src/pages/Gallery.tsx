@@ -9,7 +9,7 @@ const Gallery = () => {
   const [activeFilter, setActiveFilter] = useState('All');
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
-  const filters = ['All', '2025 Agri Expo', 'Trade Expo 2013'];
+  const filters = ['All', '2025 Agri Expo', 'Trade Expo 2013', 'Fair View', 'GR13 Summit 2013', 'Mbuzi Farm'];
 
   const galleryImages = {
     '2025 Agri Expo': [
@@ -130,13 +130,212 @@ const Gallery = () => {
         title: 'Friendly Poses',
         description: 'Happy visitors enjoying their experience'
       }
+    ],
+    'Fair View': [
+      {
+        url: 'https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Fair%20view/Age.webp',
+        title: 'Agricultural Heritage',
+        description: 'Timeless farming traditions passed down through generations'
+      },
+      {
+        url: 'https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Fair%20view/Bean%20hands.webp',
+        title: 'Bean Harvest',
+        description: 'Fresh beans carefully selected by skilled hands'
+      },
+      {
+        url: 'https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Fair%20view/Berries%20in%20a%20Bucket.webp',
+        title: 'Berry Collection',
+        description: 'Fresh berries gathered in traditional buckets'
+      },
+      {
+        url: 'https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Fair%20view/Berry%20Picking.webp',
+        title: 'Berry Picking Experience',
+        description: 'Hands-on berry picking adventure in the fields'
+      },
+      {
+        url: 'https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Fair%20view/Claims.webp',
+        title: 'Land Claims',
+        description: 'Historical agricultural land management'
+      },
+      {
+        url: 'https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Fair%20view/coffee%20and%20dairy%20tour.webp',
+        title: 'Coffee & Dairy Tour',
+        description: 'Combined coffee and dairy farming experience'
+      },
+      {
+        url: 'https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Fair%20view/Coffee%20array.webp',
+        title: 'Coffee Array',
+        description: 'Diverse coffee varieties displayed beautifully'
+      },
+      {
+        url: 'https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Fair%20view/Coffee%20beans.webp',
+        title: 'Premium Coffee Beans',
+        description: 'High-quality coffee beans from highland farms'
+      },
+      {
+        url: 'https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Fair%20view/Coffee%20brewer.webp',
+        title: 'Coffee Brewing',
+        description: 'Traditional coffee brewing methods'
+      },
+      {
+        url: 'https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Fair%20view/Coffee%20sorting.webp',
+        title: 'Coffee Sorting',
+        description: 'Skilled coffee bean sorting process'
+      },
+      {
+        url: 'https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Fair%20view/Coffee.webp',
+        title: 'Coffee Culture',
+        description: 'Rich coffee culture and traditions'
+      },
+      {
+        url: 'https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Fair%20view/Conference.webp',
+        title: 'Agricultural Conference',
+        description: 'Educational conferences and knowledge sharing'
+      },
+      {
+        url: 'https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Fair%20view/Exclamation.webp',
+        title: 'Exciting Discoveries',
+        description: 'Amazing agricultural innovations and discoveries'
+      }
+    ],
+    'GR13 Summit 2013': [
+      {
+        url: 'https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/GR13%20summit%202013/Agri%20&%20Aqua%20Discussions.webp',
+        title: 'Agricultural & Aqua Discussions',
+        description: 'Strategic discussions on agriculture and aquaculture development'
+      },
+      {
+        url: 'https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/GR13%20summit%202013/Cross%20Discussions.webp',
+        title: 'Cross-Sector Discussions',
+        description: 'Collaborative discussions across different agricultural sectors'
+      }
+    ],
+    'Mbuzi Farm': [
+      {
+        url: 'https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Mbuzi%20Farm/IMG_6869.webp',
+        title: 'Farm Landscapes',
+        description: 'Beautiful rural landscapes and farming environments'
+      },
+      {
+        url: 'https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Mbuzi%20Farm/IMG_6873.webp',
+        title: 'Goat Farming',
+        description: 'Sustainable goat farming practices'
+      },
+      {
+        url: 'https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Mbuzi%20Farm/IMG_6876.webp',
+        title: 'Farm Activities',
+        description: 'Daily farm activities and operations'
+      },
+      {
+        url: 'https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Mbuzi%20Farm/IMG_6880.webp',
+        title: 'Rural Life',
+        description: 'Authentic rural life experiences'
+      },
+      {
+        url: 'https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Mbuzi%20Farm/IMG_6886.webp',
+        title: 'Farm Equipment',
+        description: 'Traditional and modern farm equipment'
+      },
+      {
+        url: 'https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Mbuzi%20Farm/IMG_6888.webp',
+        title: 'Agricultural Learning',
+        description: 'Hands-on agricultural learning experiences'
+      },
+      {
+        url: 'https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Mbuzi%20Farm/IMG_6890.webp',
+        title: 'Farm Tours',
+        description: 'Guided farm tours and educational walks'
+      },
+      {
+        url: 'https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Mbuzi%20Farm/IMG_6892.webp',
+        title: 'Livestock Management',
+        description: 'Professional livestock management practices'
+      },
+      {
+        url: 'https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Mbuzi%20Farm/IMG_6894.webp',
+        title: 'Farm Sustainability',
+        description: 'Sustainable farming and environmental practices'
+      },
+      {
+        url: 'https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Mbuzi%20Farm/IMG_6896.webp',
+        title: 'Rural Adventures',
+        description: 'Adventurous rural experiences'
+      },
+      {
+        url: 'https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Mbuzi%20Farm/IMG_6901.webp',
+        title: 'Farm Community',
+        description: 'Strong farming community bonds'
+      },
+      {
+        url: 'https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Mbuzi%20Farm/IMG_6905.webp',
+        title: 'Agricultural Innovation',
+        description: 'Innovative farming techniques and methods'
+      },
+      {
+        url: 'https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Mbuzi%20Farm/IMG_6907.webp',
+        title: 'Farm Production',
+        description: 'Productive farming systems and outputs'
+      },
+      {
+        url: 'https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Mbuzi%20Farm/IMG_6909.webp',
+        title: 'Rural Tourism',
+        description: 'Engaging rural tourism experiences'
+      },
+      {
+        url: 'https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Mbuzi%20Farm/IMG_6911.webp',
+        title: 'Farm Heritage',
+        description: 'Rich agricultural heritage and traditions'
+      },
+      {
+        url: 'https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Mbuzi%20Farm/IMG_6917.webp',
+        title: 'Farm Education',
+        description: 'Educational farm programs and workshops'
+      },
+      {
+        url: 'https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Mbuzi%20Farm/IMG_6923.webp',
+        title: 'Goat Interactions',
+        description: 'Interactive goat farming experiences'
+      },
+      {
+        url: 'https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Mbuzi%20Farm/IMG_6925.webp',
+        title: 'Farm Hospitality',
+        description: 'Warm farm hospitality and welcomes'
+      },
+      {
+        url: 'https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Mbuzi%20Farm/IMG_6927.webp',
+        title: 'Agricultural Diversity',
+        description: 'Diverse agricultural activities and crops'
+      },
+      {
+        url: 'https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Mbuzi%20Farm/IMG_6929.webp',
+        title: 'Farm Experiences',
+        description: 'Memorable farm experiences and activities'
+      },
+      {
+        url: 'https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Mbuzi%20Farm/IMG_6935.webp',
+        title: 'Organic Farming',
+        description: 'Organic farming practices and methods'
+      },
+      {
+        url: 'https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Mbuzi%20Farm/IMG_6936.webp',
+        title: 'Farm Life',
+        description: 'Daily farm life and routines'
+      },
+      {
+        url: 'https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Mbuzi%20Farm/IMG_6937.webp',
+        title: 'Agricultural Success',
+        description: 'Successful agricultural ventures and achievements'
+      }
     ]
   };
 
   const getAllImages = () => {
     return [
       ...galleryImages['2025 Agri Expo'].map(img => ({ ...img, category: '2025 Agri Expo' })),
-      ...galleryImages['Trade Expo 2013'].map(img => ({ ...img, category: 'Trade Expo 2013' }))
+      ...galleryImages['Trade Expo 2013'].map(img => ({ ...img, category: 'Trade Expo 2013' })),
+      ...galleryImages['Fair View'].map(img => ({ ...img, category: 'Fair View' })),
+      ...galleryImages['GR13 Summit 2013'].map(img => ({ ...img, category: 'GR13 Summit 2013' })),
+      ...galleryImages['Mbuzi Farm'].map(img => ({ ...img, category: 'Mbuzi Farm' }))
     ];
   };
 
@@ -189,30 +388,64 @@ const Gallery = () => {
             ))}
           </div>
 
-          {/* Image Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {filteredImages.map((image, index) => (
-              <div
-                key={index}
-                className="group relative bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer"
-                onClick={() => setSelectedImage(image.url)}
-              >
-                <div className="aspect-w-16 aspect-h-12 overflow-hidden">
-                  <img
-                    src={image.url}
-                    alt={image.title}
-                    className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
-                    loading="lazy"
-                  />
+          {/* Artistic Image Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+            {filteredImages.map((image, index) => {
+              // Create varied sizes for artistic layout
+              const isLarge = index % 7 === 0;
+              const isMedium = index % 5 === 0 && !isLarge;
+              const gridClass = isLarge 
+                ? 'sm:col-span-2 sm:row-span-2' 
+                : isMedium 
+                ? 'sm:col-span-2' 
+                : 'col-span-1';
+              
+              return (
+                <div
+                  key={index}
+                  className={`group relative bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer ${gridClass}`}
+                  onClick={() => setSelectedImage(image.url)}
+                >
+                  <div className="aspect-square overflow-hidden">
+                    <img
+                      src={image.url}
+                      alt={image.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300"></div>
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <h3 className="font-poppins font-semibold text-sm mb-1">{image.title}</h3>
+                    <p className="font-inter text-xs text-gray-200">{image.description}</p>
+                  </div>
                 </div>
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300"></div>
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <h3 className="font-poppins font-semibold text-sm mb-1">{image.title}</h3>
-                  <p className="font-inter text-xs text-gray-200">{image.description}</p>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
+
+          {/* Category Description */}
+          {activeFilter !== 'All' && (
+            <div className="mt-12 text-center">
+              <div className="max-w-3xl mx-auto">
+                {activeFilter === 'Fair View' && (
+                  <p className="text-gray-600 font-inter leading-relaxed">
+                    Fair View showcases the authentic agricultural experiences that connect visitors with Kenya's rich farming heritage. From coffee processing to berry picking, these images capture the essence of hands-on farm life and sustainable agricultural practices.
+                  </p>
+                )}
+                {activeFilter === 'GR13 Summit 2013' && (
+                  <p className="text-gray-600 font-inter leading-relaxed">
+                    The GR13 Summit 2013 brought together agricultural leaders and innovators to discuss the future of farming in Kenya. These images capture the collaborative spirit and knowledge sharing that drives agricultural advancement.
+                  </p>
+                )}
+                {activeFilter === 'Mbuzi Farm' && (
+                  <p className="text-gray-600 font-inter leading-relaxed">
+                    Mbuzi Farm represents the heart of rural Kenya's agricultural community. These images showcase goat farming, sustainable practices, and the warm hospitality that makes agritourism such a meaningful experience.
+                  </p>
+                )}
+              </div>
+            </div>
+          )}
         </div>
       </section>
 

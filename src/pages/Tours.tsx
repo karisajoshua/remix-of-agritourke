@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Clock, MapPin, Users, ArrowRight } from 'lucide-react';
@@ -38,7 +37,7 @@ const Tours = () => {
       id: 2,
       title: "🍵 Rural Farm Safari - Tea & Cheese",
       duration: "1 day",
-      location: "Limuru Highlands",
+      location: "Countryside",
       participants: "4-160 people",
       image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Fair%20view/Tea%20farmers.webp",
       description: "Experience Sereni-Tea. Escape the bustle of the city and dive into a full-day 2-in-1 farm experience—a tea and cheese safari that will leave your senses delighted and your soul refreshed.",
@@ -160,7 +159,7 @@ const Tours = () => {
       title: "🍍 Nanasi (Pineapple) Tour",
       duration: "Half day",
       location: "Gatundu North, Kiambu",
-      participants: "6-20 people",
+      participants: "4-50 people",
       image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Pineaples/Nanasi%20Splash.png",
       description: "Life Is Sweet, Just Like Pineapples. If you've never tasted a pineapple straight from the field—warm from the sun, sliced fresh with a machete, juice trickling down your chin—this is your moment.",
       category: "Regional Experiences",
@@ -233,7 +232,7 @@ const Tours = () => {
       title: "🐦 Maasai Ostrich Farm Tour",
       duration: "1 day",
       location: "Kajiado County",
-      participants: "6-15 people",
+      participants: "6-30 people",
       image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Farm%20expo%202023/Peek-a-boo.webp",
       description: "Satisfy Your Natural Curiosity in a Furry Adventure. Welcome to the Maasai Ostrich Farm Tour! Get ready for an unforgettable day filled with nature, laughter, and a dash of adrenaline.",
       category: "Farm Tours",
@@ -256,7 +255,7 @@ const Tours = () => {
       title: "🐷 Pig Farm Tour",
       duration: "2 days",
       location: "Countryside",
-      participants: "8-20 people",
+      participants: "4-30 people",
       image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Pigs/Pigs%20on%20a%20farm.png",
       description: "Bacon Begins Here. Pig farming isn't just a profitable venture—it's a fascinating adventure into the world of animals, especially when experienced firsthand in the serene countryside.",
       category: "Farm Tours",
@@ -304,7 +303,7 @@ const Tours = () => {
       title: "💕 Bonding Safari",
       duration: "2-3 days",
       location: "Various Romantic Destinations",
-      participants: "2-8 people",
+      participants: "1-50 couples",
       image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Fair%20view/Intro.webp",
       description: "It's a Date Worth the Escape. Bonding tourism is all about deepening emotional connections through immersive, shared experiences. Whether it's families reconnecting, couples rekindling romance, or friends creating unforgettable memories.",
       category: "Cultural & Urban",
