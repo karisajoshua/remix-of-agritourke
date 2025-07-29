@@ -3,23 +3,28 @@ const Partners = () => {
   const partners = [
     {
       name: "Global Agritourism Network",
-      logo: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Partner%20logo/Global%20Agritourism%20Network.png"
+      logo: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Partner%20logo/Global%20Agritourism%20Network.png",
+      website: "https://globalagritourismnetwork.org/"
     },
     {
       name: "KenInvest",
-      logo: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Partner%20logo/KenIvest%20Logo%202.png"
+      logo: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Partner%20logo/KenIvest%20Logo%202.png",
+      website: "https://www.investkenya.go.ke/"
     },
     {
       name: "Ministry of Agriculture, Livestock and Development",
-      logo: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Partner%20logo/MoALD%20Logo.png"
+      logo: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Partner%20logo/MoALD%20Logo.png",
+      website: "https://kilimo.go.ke/"
     },
     {
       name: "NCCG",
-      logo: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Partner%20logo/NCCG%20Logo.jpeg"
+      logo: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Partner%20logo/NCCG%20Logo.jpeg",
+      website: "https://nairobi.go.ke/green-nairobi-environment-water-food-and-agriculture"
     },
     {
       name: "NHC",
-      logo: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Partner%20logo/NHC%20Logo.png"
+      logo: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Partner%20logo/NHC%20Logo.png",
+      website: "https://www.nhckenya.go.ke/"
     }
   ];
 
@@ -40,16 +45,20 @@ const Partners = () => {
         {/* Partners Grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 items-center">
           {partners.map((partner, index) => (
-            <div
+            <a
               key={index}
-              className="bg-white rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center h-32"
+              href={partner.website}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Visit ${partner.name} website`}
+              className="bg-white rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center h-32 cursor-pointer"
             >
               <img
                 src={partner.logo}
                 alt={partner.name}
                 className="max-w-full max-h-full object-contain filter hover:grayscale-0 grayscale transition-all duration-300"
               />
-            </div>
+            </a>
           ))}
         </div>
 

@@ -101,8 +101,8 @@ const Impact = () => {
           {/* Image */}
           <div>
             <img
-              src="https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Fair%20view/Her.webp"
-              alt="Sustainable farming practices in Kenya"
+              src="https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Fair%20view/sustainable%20tourism.webp"
+              alt="Sustainable tourism practices in Kenya's agricultural communities"
               className="rounded-lg shadow-2xl w-full h-96 object-cover"
             />
           </div>
