@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Clock, MapPin, Users, ArrowRight } from 'lucide-react';
@@ -40,7 +39,7 @@ const FeaturedToursHome = () => {
       duration: "1 day",
       location: "Central Kenya Highlands",
       participants: "2-150 people",
-      image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Fair%20view/Aroma.webp",
+      image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Fair%20view/coffee%20and%20dairy%20tour.webp",
       description: "Make Every Sip an Adventure. Ready for your next farm vacation? Let's dive into nature, heritage, and a cup of fresh, farm-grown coffee.",
       category: "Farm Tours",
       featured: true,
