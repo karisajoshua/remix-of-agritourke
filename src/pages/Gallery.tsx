@@ -12,7 +12,7 @@ const Gallery = () => {
   // Enable content protection
   useContentProtection();
 
-  const filters = ['All', '2025 Agri Expo', 'Trade Expo 2013', 'Fair View', 'GR13 Summit 2013', 'Mbuzi Farm'];
+  const filters = ['All', '2025 Agri Expo', 'Trade Expo 2023', 'Fair View', 'GR13 Summit 2023', 'Mbuzi Farm'];
 
   const galleryImages = {
     '2025 Agri Expo': [
@@ -97,7 +97,7 @@ const Gallery = () => {
         description: 'Small business spice vendors'
       }
     ],
-    'Trade Expo 2013': [
+    'Trade Expo 2023': [
       {
         url: 'https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Trade%20expo%202013/Bracelets.webp',
         title: 'Handcrafted Bracelets',
@@ -201,7 +201,7 @@ const Gallery = () => {
         description: 'Amazing agricultural innovations and discoveries'
       }
     ],
-    'GR13 Summit 2013': [
+    'GR13 Summit 2023': [
       {
         url: 'https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/GR13%20summit%202013/Agri%20&%20Aqua%20Discussions.webp',
         title: 'Agricultural & Aqua Discussions',
@@ -335,9 +335,9 @@ const Gallery = () => {
   const getAllImages = () => {
     return [
       ...galleryImages['2025 Agri Expo'].map(img => ({ ...img, category: '2025 Agri Expo' })),
-      ...galleryImages['Trade Expo 2013'].map(img => ({ ...img, category: 'Trade Expo 2013' })),
+      ...galleryImages['Trade Expo 2023'].map(img => ({ ...img, category: 'Trade Expo 2023' })),
       ...galleryImages['Fair View'].map(img => ({ ...img, category: 'Fair View' })),
-      ...galleryImages['GR13 Summit 2013'].map(img => ({ ...img, category: 'GR13 Summit 2013' })),
+      ...galleryImages['GR13 Summit 2023'].map(img => ({ ...img, category: 'GR13 Summit 2023' })),
       ...galleryImages['Mbuzi Farm'].map(img => ({ ...img, category: 'Mbuzi Farm' }))
     ];
   };
@@ -440,14 +440,14 @@ const Gallery = () => {
                     Fair View showcases the authentic agricultural experiences that connect visitors with Kenya's rich farming heritage. From coffee processing to berry picking, these images capture the essence of hands-on farm life and sustainable agricultural practices.
                   </p>
                 )}
-                {activeFilter === 'GR13 Summit 2013' && (
+                {activeFilter === 'GR13 Summit 2023' && (
                   <p className="text-gray-600 font-inter leading-relaxed">
-                    The GR13 Summit 2013 brought together agricultural leaders and innovators to discuss the future of farming in Kenya. These images capture the collaborative spirit and knowledge sharing that drives agricultural advancement.
+                    The GR13 Summit 2023 brought together agricultural leaders and innovators to discuss the future of farming in Kenya. These images capture the collaborative spirit and knowledge sharing that drives agricultural advancement.
                   </p>
                 )}
-                {activeFilter === 'Trade Expo 2013' && (
+                {activeFilter === 'Trade Expo 2023' && (
                   <p className="text-gray-600 font-inter leading-relaxed">
-                    The Trade Expo 2013 showcased Kenya's agricultural innovations and traditional craftsmanship. These images highlight the vibrant trade relationships and cultural exchanges that strengthen our agricultural community.
+                    The Trade Expo 2023 showcased Kenya's agricultural innovations and traditional craftsmanship. These images highlight the vibrant trade relationships and cultural exchanges that strengthen our agricultural community.
                   </p>
                 )}
                 {activeFilter === 'Mbuzi Farm' && (
