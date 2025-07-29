@@ -86,7 +86,7 @@ const EmailPopup: React.FC<EmailPopupProps> = ({ isOpen, onClose }) => {
                 Ready to Explore Kenya's Hidden Agricultural Gems?
               </h2>
               <h3 className="text-xl font-semibold text-agri-green">
-                Join the AgriTourism Adventures Tribe!
+                Join the Fam Tour firm!
               </h3>
               <p className="text-gray-600 leading-relaxed">
                 Get exclusive updates on our upcoming farm tours, eco-travel experiences, seasonal deals, and behind-the-scenes stories from the land.
