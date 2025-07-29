@@ -9,7 +9,7 @@ const Gallery = () => {
   const [activeFilter, setActiveFilter] = useState('All');
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
-  const filters = ['All', '2025 Agri Expo', 'Trade Expo 2013', 'Fair View', 'GR13 Summit 2013', 'Mbuzi Farm'];
+  const filters = ['All', '2025 Agri Expo', 'Trade Expo 2023', 'Fair View', 'GR13 Summit 2023', 'Mbuzi Farm'];
 
   const galleryImages = {
     '2025 Agri Expo': [
