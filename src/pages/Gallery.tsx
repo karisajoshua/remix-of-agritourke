@@ -12,7 +12,7 @@ const Gallery = () => {
   // Enable content protection
   useContentProtection();
 
-  const filters = ['All', '2025 Agri Expo', 'Trade Expo 2023', 'Fair View', 'GR13 Summit 2023', 'Mbuzi Farm'];
+  const filters = ['All', '2025 Agri Expo', 'Trade Expo 2013', 'Fair View', 'GR13 Summit 2013', 'Mbuzi Farm'];
 
   const galleryImages = {
     '2025 Agri Expo': [
@@ -443,6 +443,11 @@ const Gallery = () => {
                 {activeFilter === 'GR13 Summit 2013' && (
                   <p className="text-gray-600 font-inter leading-relaxed">
                     The GR13 Summit 2013 brought together agricultural leaders and innovators to discuss the future of farming in Kenya. These images capture the collaborative spirit and knowledge sharing that drives agricultural advancement.
+                  </p>
+                )}
+                {activeFilter === 'Trade Expo 2013' && (
+                  <p className="text-gray-600 font-inter leading-relaxed">
+                    The Trade Expo 2013 showcased Kenya's agricultural innovations and traditional craftsmanship. These images highlight the vibrant trade relationships and cultural exchanges that strengthen our agricultural community.
                   </p>
                 )}
                 {activeFilter === 'Mbuzi Farm' && (

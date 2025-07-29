@@ -83,10 +83,10 @@ const About = () => {
       description: "Passionate about sustainable agriculture and community empowerment"
     },
     {
-      name: "Elija Kasati",
-      role: "Head of Operations",
+      name: "Elijah Kasati",
+      role: "Strategic Tourism Advisor",
       image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/executive/Kasati.jpg",
-      description: "Expert in agritourism planning and cultural experiences"
+      description: "Expert strategist specializing in sustainable agritourism development and cultural immersion experiences"
     }
   ];
 
@@ -203,8 +203,8 @@ const About = () => {
             </div>
             <div>
               <img
-                src="https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?w=600&h=400&fit=crop"
-                alt="Colorful flowers in a Kenyan farm"
+                src="https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Pineaples/Boat%20Rides.JPG"
+                alt="Scenic boat rides through Kenya's agricultural waterways"
                 className="rounded-lg shadow-2xl w-full h-96 object-cover"
               />
             </div>
