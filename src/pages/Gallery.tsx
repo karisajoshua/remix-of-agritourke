@@ -333,20 +333,34 @@ const Gallery = () => {
   };
 
   const getAllImages = () => {
-    return [
-      ...galleryImages['2025 Agri Expo'].map(img => ({ ...img, category: '2025 Agri Expo' })),
-      ...galleryImages['Trade Expo 2023'].map(img => ({ ...img, category: 'Trade Expo 2023' })),
-      ...galleryImages['Coffee Farm Safari'].map(img => ({ ...img, category: 'Coffee Farm Safari' })),
-      ...galleryImages['GR13 Summit 2023'].map(img => ({ ...img, category: 'GR13 Summit 2023' })),
-      ...galleryImages['Mbuzi Farm'].map(img => ({ ...img, category: 'Mbuzi Farm' }))
-    ];
+    const result = [];
+    
+    // Safely access each category and only add if it exists
+    if (galleryImages['2025 Agri Expo']) {
+      result.push(...galleryImages['2025 Agri Expo'].map(img => ({ ...img, category: '2025 Agri Expo' })));
+    }
+    if (galleryImages['Trade Expo 2023']) {
+      result.push(...galleryImages['Trade Expo 2023'].map(img => ({ ...img, category: 'Trade Expo 2023' })));
+    }
+    if (galleryImages['Coffee Farm Safari']) {
+      result.push(...galleryImages['Coffee Farm Safari'].map(img => ({ ...img, category: 'Coffee Farm Safari' })));
+    }
+    if (galleryImages['GR13 Summit 2023']) {
+      result.push(...galleryImages['GR13 Summit 2023'].map(img => ({ ...img, category: 'GR13 Summit 2023' })));
+    }
+    if (galleryImages['Mbuzi Farm']) {
+      result.push(...galleryImages['Mbuzi Farm'].map(img => ({ ...img, category: 'Mbuzi Farm' })));
+    }
+    
+    return result;
   };
 
   const getFilteredImages = () => {
     if (activeFilter === 'All') {
       return getAllImages();
     }
-    return galleryImages[activeFilter as keyof typeof galleryImages]?.map(img => ({ ...img, category: activeFilter })) || [];
+    const categoryImages = galleryImages[activeFilter as keyof typeof galleryImages];
+    return categoryImages ? categoryImages.map(img => ({ ...img, category: activeFilter })) : [];
   };
 
   const filteredImages = getFilteredImages();
