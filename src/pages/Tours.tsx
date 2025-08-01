@@ -116,10 +116,9 @@ const Tours = () => {
       description: "Make Every Sip an Adventure. Ready for your next farm vacation? Let's dive into nature, heritage, and a cup of fresh, farm-grown coffee. This unique coffee and dairy farm tour offers the perfect blend of relaxation, learning, and adventure.",
       category: "Farm Tours",
       featured: true,
-      fullDescription: "We'll pick you up from your hotel in Nairobi at 8:00 AM. Just 8 kilometers away lies a 54-acre paradise—lush with coffee plants, rich in history, and surrounded by serene natural beauty. Our destination? Paradise Lost—a beautifully managed estate that offers more than just a farm tour.",
+      fullDescription: "We'll pick you up from your hotel in Nairobi at 8:00 AM. Just a short drive away, you'll find a hidden gem — a peaceful estate wrapped in vibrant coffee fields, steeped in rich history, and set against a backdrop of breathtaking scenery. This isn't just a farm visit — it’s an experience. With its thoughtful management and warm atmosphere, the estate invites you to explore, relax, and discover the stories behind every bean.",
       itinerary: [
         "8:00 AM: Hotel pickup in Nairobi",
-        "Paradise Lost estate arrival",
         "Nature walks and birdwatching",
         "Horse and camel riding",
         "Maasai ostrich feeding",
