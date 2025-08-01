@@ -134,7 +134,7 @@ const Gallery = () => {
         description: 'Happy visitors enjoying their experience'
       }
     ],
-    'Fair View': [
+    'Coffee Farm Safari': [
       {
         url: 'https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Fair%20view/Age.webp',
         title: 'Agricultural Heritage',
