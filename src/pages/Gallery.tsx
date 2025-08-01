@@ -12,7 +12,7 @@ const Gallery = () => {
   // Enable content protection
   useContentProtection();
 
-  const filters = ['All', '2025 Agri Expo', 'Trade Expo 2023', 'Fair View', 'GR13 Summit 2023', 'Mbuzi Farm'];
+  const filters = ['All', '2025 Agri Expo', 'Trade Expo 2023', 'Coffee Farm Safari', 'GR13 Summit 2023', 'Mbuzi Farm'];
 
   const galleryImages = {
     '2025 Agri Expo': [
@@ -336,7 +336,7 @@ const Gallery = () => {
     return [
       ...galleryImages['2025 Agri Expo'].map(img => ({ ...img, category: '2025 Agri Expo' })),
       ...galleryImages['Trade Expo 2023'].map(img => ({ ...img, category: 'Trade Expo 2023' })),
-      ...galleryImages['Fair View'].map(img => ({ ...img, category: 'Fair View' })),
+      ...galleryImages['Coffee Farm Safari'].map(img => ({ ...img, category: 'Coffee Farm Safari' })),
       ...galleryImages['GR13 Summit 2023'].map(img => ({ ...img, category: 'GR13 Summit 2023' })),
       ...galleryImages['Mbuzi Farm'].map(img => ({ ...img, category: 'Mbuzi Farm' }))
     ];
@@ -435,9 +435,9 @@ const Gallery = () => {
           {activeFilter !== 'All' && (
             <div className="mt-12 text-center">
               <div className="max-w-3xl mx-auto">
-                {activeFilter === 'Fair View' && (
+                {activeFilter === 'Coffee Farm Safari' && (
                   <p className="text-gray-600 font-inter leading-relaxed">
-                    Fair View showcases the authentic agricultural experiences that connect visitors with Kenya's rich farming heritage. From coffee processing to berry picking, these images capture the essence of hands-on farm life and sustainable agricultural practices.
+                    Coffee Farm Safari showcases the authentic agricultural experiences that connect visitors with Kenya's rich coffee farming heritage. From coffee processing to berry picking, these images capture the essence of hands-on farm life and sustainable coffee production practices.
                   </p>
                 )}
                 {activeFilter === 'GR13 Summit 2023' && (
@@ -453,6 +453,11 @@ const Gallery = () => {
                 {activeFilter === 'Mbuzi Farm' && (
                   <p className="text-gray-600 font-inter leading-relaxed">
                     Mbuzi Farm represents the heart of rural Kenya's agricultural community. These images showcase goat farming, sustainable practices, and the warm hospitality that makes agritourism such a meaningful experience.
+                  </p>
+                )}
+                {activeFilter === '2025 Agri Expo' && (
+                  <p className="text-gray-600 font-inter leading-relaxed">
+                    The 2025 Agri Expo represents the latest in agricultural innovation and technology. These images showcase modern farming techniques, organic practices, and the future of sustainable agriculture in Kenya.
                   </p>
                 )}
               </div>
