@@ -92,7 +92,7 @@ const Tours = () => {
       description: "A Farm Like No Udder. Get ready for a day that blends nature, nourishment, and nostalgia. An organic farm visit is more than just a countryside escape—it's a hands-on experience that opens your heart to sustainable living and rural beauty.",
       category: "Farm Tours",
       featured: false,
-      fullDescription: "Whether you're seeking quiet reflection or family fun, this visit offers something for everyone. Meet our friendly team and fellow explorers at Nairobi's CBD, then hop into our ride as we begin the scenic 1-hour drive to Limuru village.",
+      fullDescription: "Whether you're seeking quiet reflection or family fun, this visit offers something for everyone. Meet our friendly team and fellow explorers at Nairobi's CBD, then hop into our ride as we begin the scenic 1-hour drive to the village.",
       itinerary: [
         "9:00 AM: Departure from Nairobi CBD",
         "10:00 AM: Farm arrival with refreshing drinks",
