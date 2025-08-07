@@ -165,7 +165,7 @@ const Tours = () => {
       featured: false,
       fullDescription: "Welcome to the Nanasi Tour, a refreshing agritourism experience in Central Kenya, where every bite tells a story and every visit feels like a hidden treasure waiting to be discovered. Set in the heart of Gatundu North, this tour is more than just a snack stop—it's an immersion into the vibrant agricultural lifestyle of Central Kenya.",
       itinerary: [
-        "Arrival at Gatundu North pineapple farms",
+        "Arrival at Central Kenya pineapple farms",
         "Walk among rows of lush pineapple plants",
         "Learn growing and harvesting techniques",
         "Fresh field pineapple tasting",
