@@ -14,24 +14,28 @@ const HeroCarousel = () => {
       image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Trade%20expo%202013/Corridor.webp",
       title: "Where Travel Meets",
       subtitle: "Sustainability",
+      slogan: "Wander with a plan.",
       description: "Explore Kenya's farms, cultures, and countryside through immersive, eco-conscious adventures that support local communities."
     },
     {
       image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Mbuzi%20Farm/IMG_6888.webp",
       title: "Agricultural",
       subtitle: "Innovation",
+      slogan: "A fusion of farms and forward thinking.",
       description: "Discover cutting-edge farming techniques and sustainable practices that are shaping Kenya's agricultural future."
     },
     {
       image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/GR13%20summit%202013/Agri%20&%20Aqua%20Discussions.webp",
       title: "Community",
       subtitle: "Connection",
+      slogan: "Where heritage meets the harvest.",
       description: "Build meaningful relationships with local farmers and experience authentic Kenyan agricultural heritage."
     },
     {
       image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Fair%20view/Bean%20hands.webp",
       title: "Educational",
       subtitle: "Adventures",
+      slogan: "Travel - One of life's greatest teachers.",
       description: "Learn through hands-on experiences that combine tourism with agricultural education and cultural immersion."
     }
   ];
@@ -96,10 +100,15 @@ const HeroCarousel = () => {
       {/* Content */}
       <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
         <div className="animate-fade-in">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-poppins font-bold text-white mb-6 leading-tight">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-poppins font-bold text-white mb-4 leading-tight">
             {slides[currentSlide].title}
             <span className="text-agri-yellow block">{slides[currentSlide].subtitle}</span>
           </h1>
+          
+          {/* Catchy Slogan */}
+          <p className="text-2xl md:text-3xl font-inter italic text-agri-yellow/90 mb-6 font-light">
+            {slides[currentSlide].slogan}
+          </p>
           
           <p className="text-xl md:text-2xl text-white/90 mb-8 font-inter max-w-3xl mx-auto leading-relaxed">
             {slides[currentSlide].description}
