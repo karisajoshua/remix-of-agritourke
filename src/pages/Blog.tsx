@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
@@ -189,8 +188,7 @@ const Blog = () => {
               Our Blog
             </h1>
             <p className="text-xl text-agri-dark/80 font-inter max-w-3xl mx-auto">
-              Discover insights on sustainable tourism, agriculture, and travel experiences that make a difference. 
-              Stay informed about the latest trends and policies in responsible travel.
+              Step off the beaten path and into the soul of the countryside. Visualize your way into rustic charm—where hayrides, harvests, and homemade pies tell the story of life on the land. Come for the fresh air, stay for the farm tales. It's simple living, seasoned with adventure.
             </p>
           </div>
         </div>
