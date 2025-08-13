@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Clock, MapPin, Users, ArrowRight } from 'lucide-react';
@@ -96,7 +95,7 @@ const FeaturedToursHome = () => {
           </h2>
           <p className="text-xl text-gray-600 font-inter max-w-4xl mx-auto leading-relaxed">
             Discover our most popular agritourism adventures that blend nature, culture, 
-            and learning into unforgettable journeys. Our tours are developed following <a href="https://sarep.ucdavis.edu/sustainable-ag/agritourism" target="_blank" rel="noopener noreferrer" className="text-agri-green hover:text-agri-dark underline">UC Davis agritourism research</a> and sustainable tourism best practices recommended by <a href="https://www.unwto.org/" target="_blank" rel="noopener noreferrer" className="text-agri-green hover:text-agri-dark underline">UNWTO</a>.
+            and learning into unforgettable journeys.
           </p>
         </div>
 

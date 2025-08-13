@@ -1,3 +1,4 @@
+
 import { Users, Award, Heart, Leaf, CheckCircle, MapPin, Phone, Mail, Globe } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
@@ -9,7 +10,7 @@ const About = () => {
   const features = [
     {
       icon: Users,
-      title: "Community Focused", 
+      title: "Community Focused",
       description: "Building bridges between travelers and local farming communities"
     },
     {
@@ -130,7 +131,7 @@ const About = () => {
               Feel the Culture, Live the Traditions
             </h3>
             <p className="text-xl text-gray-600 font-inter max-w-5xl mx-auto leading-relaxed">
-              Explore the heart of Kenya through agritourism. From avocado farms to eco-friendly crop systems, our experiences blend nature, learning, and local wisdom. According to the <a href="https://www.unwto.org/" target="_blank" rel="noopener noreferrer" className="text-agri-green hover:text-agri-dark underline">UN World Tourism Organization</a>, sustainable tourism practices like ours contribute significantly to rural development while preserving cultural heritage. Watch stories unfold in every landscape and engage with farming communities that care for the land and its legacy, following the principles outlined by the <a href="https://www.gstcouncil.org/" target="_blank" rel="noopener noreferrer" className="text-agri-green hover:text-agri-dark underline">Global Sustainable Tourism Council</a>.
+              Explore the heart of Kenya through agritourism. From avocado farms to eco-friendly crop systems, our experiences blend nature, learning, and local wisdom. Watch stories unfold in every landscape and engage with farming communities that care for the land and its legacy.
             </p>
           </div>
         </div>
@@ -147,10 +148,10 @@ const About = () => {
               Connecting People, Preserving Traditions
             </h3>
             <p className="text-xl text-gray-600 font-inter max-w-5xl mx-auto leading-relaxed mb-8">
-              Agritourism builds a bridge between rural and urban communities. It educates, inspires, and drives sustainable development. The <a href="https://www.fao.org/" target="_blank" rel="noopener noreferrer" className="text-agri-green hover:text-agri-dark underline">Food and Agriculture Organization (FAO)</a> recognizes agritourism as a vital tool for rural economic development and food security awareness. Our unique tours empower travelers and farmers alike by promoting environmental stewardship and celebrating food systems that nourish both people and planet.
+              Agritourism builds a bridge between rural and urban communities. It educates, inspires, and drives sustainable development. Our unique tours empower travelers and farmers alike by promoting environmental stewardship and celebrating food systems that nourish both people and planet.
             </p>
             <p className="text-xl text-gray-600 font-inter max-w-5xl mx-auto leading-relaxed mb-12">
-              Through these connections, we strengthen local economies, honor ancestral wisdom, and champion the traditions that sustain global communities. As highlighted by <a href="https://ecotourism.org/" target="_blank" rel="noopener noreferrer" className="text-agri-green hover:text-agri-dark underline">The International Ecotourism Society</a>, responsible tourism practices create lasting positive impacts for both visitors and host communities.
+              Through these connections, we strengthen local economies, honor ancestral wisdom, and champion the traditions that sustain global communities.
             </p>
             
             {/* Quick Facts */}
@@ -226,7 +227,7 @@ const About = () => {
           <div className="space-y-12">
             <div className="max-w-5xl mx-auto">
               <p className="text-lg text-gray-600 font-inter leading-relaxed mb-6">
-                Kenya is a land rich in culture and breathtaking sights. What makes it truly unique is how seamlessly traditional lifestyles blend with modern values. According to <a href="https://magicalkenya.com/" target="_blank" rel="noopener noreferrer" className="text-agri-green hover:text-agri-dark underline">Magical Kenya</a>, the country's official tourism portal, Kenyans are known for their adaptability—open to new cultural influences while proudly preserving their heritage. Whether it's the rhythmic drumming of the Akamba, the exhilarating bullfighting traditions of Western Kenya, or the world-renowned athleticism of the Kalenjin runners, Kenya has something extraordinary for everyone.
+                Kenya is a land rich in culture and breathtaking sights. What makes it truly unique is how seamlessly traditional lifestyles blend with modern values. Kenyans are known for their adaptability—open to new cultural influences while proudly preserving their heritage. Whether it's the rhythmic drumming of the Akamba, the exhilarating bullfighting traditions of Western Kenya, or the world-renowned athleticism of the Kalenjin runners, Kenya has something extraordinary for everyone.
               </p>
             </div>
 
@@ -238,7 +239,7 @@ const About = () => {
                 Today's travelers are seeking more than typical tourist experiences. Many are moving away from long, pre-planned vacations and turning instead to short cultural getaways, self-improvement holidays, and business-leisure trips that offer deeper meaning. This shift is driving a growing interest in immersive cultural tourism—visits to festivals, museums, heritage sites, live performances, art workshops, and traditional communities.
               </p>
               <p className="text-lg text-gray-600 font-inter leading-relaxed mb-6">
-                Kenya is perfectly positioned for this transformation. The <a href="https://ktb.go.ke/" target="_blank" rel="noopener noreferrer" className="text-agri-green hover:text-agri-dark underline">Kenya Tourism Board</a> promotes cultural tourism initiatives that showcase the country's rich heritage. From historical buildings and archaeological sites to stone fences, orchards, and ancient roads, there is so much to explore. Visitors, both local and international, are eager to experience the richness of Kenyan culture through its landmarks, lifestyle, and living traditions.
+                Kenya is perfectly positioned for this transformation. From historical buildings and archaeological sites to stone fences, orchards, and ancient roads, there is so much to explore. Visitors, both local and international, are eager to experience the richness of Kenyan culture through its landmarks, lifestyle, and living traditions.
               </p>
             </div>
 
@@ -307,10 +308,10 @@ const About = () => {
               Why Choose Agritourism Adventures?
             </h2>
             <p className="text-xl text-gray-600 font-inter max-w-4xl mx-auto leading-relaxed mb-8">
-              We combine innovation, expertise, and commitment to provide deeply immersive and enriching agricultural experiences across Kenya. Our approach aligns with <a href="https://www.responsibletravel.org/" target="_blank" rel="noopener noreferrer" className="text-agri-green hover:text-agri-dark underline">responsible travel principles</a> recommended by leading sustainable tourism organizations.
+              We combine innovation, expertise, and commitment to provide deeply immersive and enriching agricultural experiences across Kenya.
             </p>
             <p className="text-xl text-gray-600 font-inter max-w-4xl mx-auto leading-relaxed mb-12">
-              With modern tools, expert partners, and a passion for sustainability, we ensure your journey is not just enjoyable but also meaningful. Following guidelines from the <a href="https://www.thetravelfoundation.org.uk/" target="_blank" rel="noopener noreferrer" className="text-agri-green hover:text-agri-dark underline">Travel Foundation</a>, we prioritize community benefit and environmental protection.
+              With modern tools, expert partners, and a passion for sustainability, we ensure your journey is not just enjoyable but also meaningful.
             </p>
             <h3 className="text-2xl font-poppins font-semibold text-agri-green mb-8">
               What sets us apart:
