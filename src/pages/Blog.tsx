@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
@@ -23,16 +24,16 @@ const Blog = () => {
       excerpt: "Community-Based Tourism (CBT) is more than travel—it's connection. It's the opportunity to experience life as locals do, guided by those who call the land home.",
       icon: <Users className="h-6 w-6 text-agri-green" />,
       content: `
-        <p class="mb-4">Community-Based Tourism (CBT) is more than travel—it's connection. It's the opportunity to experience life as locals do, guided by those who call the land home. In this sustainable model, local communities host travellers, lead excursions, and manage tourism enterprises, ensuring that the economic benefits remain within the community.</p>
+        <p class="mb-4"><a href="https://www.communitybasedtourism.eu/" target="_blank" rel="noopener noreferrer" class="text-agri-green hover:text-agri-green/80 underline">Community-Based Tourism</a> (CBT) is more than travel—it's connection. It's the opportunity to experience life as locals do, guided by those who call the land home. In this <a href="https://www.gstcouncil.org/" target="_blank" rel="noopener noreferrer" class="text-agri-green hover:text-agri-green/80 underline">sustainable model</a>, local communities host travellers, lead excursions, and manage tourism enterprises, ensuring that the economic benefits remain within the community.</p>
         
         <p class="mb-6">If you're fascinated by authentic lifestyles, traditional wisdom, and cultural richness, then CBT is what you've been seeking.</p>
         
         <h3 class="text-xl font-poppins font-semibold text-agri-dark mb-4">🌍 What Makes CBT Unique?</h3>
         <p class="mb-4">CBT is built on the pillars of:</p>
         <ul class="list-disc list-inside mb-6 space-y-2">
-          <li>Cultural exchange</li>
-          <li>Economic empowerment</li>
-          <li>Environmental conservation</li>
+          <li><a href="https://www.unwto.org/cultural-tourism" target="_blank" rel="noopener noreferrer" class="text-agri-green hover:text-agri-green/80 underline">Cultural exchange</a></li>
+          <li><a href="https://www.fao.org/rural-development/en/" target="_blank" rel="noopener noreferrer" class="text-agri-green hover:text-agri-green/80 underline">Economic empowerment</a></li>
+          <li><a href="https://ecotourism.org/" target="_blank" rel="noopener noreferrer" class="text-agri-green hover:text-agri-green/80 underline">Environmental conservation</a></li>
         </ul>
         
         <p class="mb-6">Rather than being passive observers, visitors become participants—learning indigenous crafts, hearing oral histories, and sharing meals prepared with heritage and heart.</p>
@@ -69,7 +70,7 @@ const Blog = () => {
         </ul>
         
         <h3 class="text-xl font-poppins font-semibold text-agri-dark mb-4">🇰🇪 Kenya's Role in Community-Based Tourism</h3>
-        <p class="mb-6">At Agritourism Adventures, we proudly offer community-based experiences across Kenya—from farming and cultural immersions to homestays and village-led excursions. We believe that sustainable tourism should uplift, not exploit—and Kenya is rich with communities ready to welcome you.</p>
+        <p class="mb-6">At Agritourism Adventures, we proudly offer <a href="https://www.communitybasedtourism.eu/" target="_blank" rel="noopener noreferrer" class="text-agri-green hover:text-agri-green/80 underline">community-based experiences</a> across Kenya—from farming and cultural immersions to homestays and village-led excursions. We believe that <a href="https://www.unwto.org/sustainable-development" target="_blank" rel="noopener noreferrer" class="text-agri-green hover:text-agri-green/80 underline">sustainable tourism</a> should uplift, not exploit—and Kenya is rich with communities ready to welcome you.</p>
         
         <h3 class="text-xl font-poppins font-semibold text-agri-dark mb-4">🌿 Ready to Travel with Purpose?</h3>
         <p class="mb-4">Take the journey that makes a difference. Contact us today to explore how you can be part of a transformational tourism experience rooted in safety, serenity, and satisfaction—for all.</p>
@@ -82,7 +83,7 @@ const Blog = () => {
       excerpt: "Goat farming is more than just a rural pastime in Kenya—it's a thriving, sustainable practice with immense value for food systems, natural health solutions, and green energy alternatives.",
       icon: <Leaf className="h-6 w-6 text-agri-green" />,
       content: `
-        <p class="mb-6">Goat farming is more than just a rural pastime in Kenya—it's a thriving, sustainable practice with immense value. Whether it's the nutritious milk, organic droppings, or high-demand meat, goats are quietly powering food systems, natural health solutions, and green energy alternatives.</p>
+        <p class="mb-6">Goat farming is more than just a rural pastime in Kenya—it's a thriving, <a href="https://www.fao.org/sustainable-development-goals/goals/goal-2/en/" target="_blank" rel="noopener noreferrer" class="text-agri-green hover:text-agri-green/80 underline">sustainable practice</a> with immense value. Whether it's the nutritious milk, organic droppings, or high-demand meat, goats are quietly powering <a href="https://www.fao.org/food-systems/en/" target="_blank" rel="noopener noreferrer" class="text-agri-green hover:text-agri-green/80 underline">food systems</a>, natural health solutions, and green energy alternatives.</p>
         
         <p class="mb-6">In fact, it's no surprise that Kenyans flock to nyama choma joints every weekend to enjoy the rich, flavorful delicacy that is goat meat. But why are goats so treasured? Let's explore the hidden power of these humble animals.</p>
         
@@ -114,7 +115,7 @@ const Blog = () => {
           <li><strong>Composting</strong> – Enriching soil to grow food, herbs, and fodder</li>
           <li><strong>Cost-saving</strong> – Reducing dependence on LPG gas, synthetic fertilizer, and chemical-laden beauty products</li>
         </ul>
-        <p class="mb-6">If you feed goats with organic food, their organic waste returns to your garden, closing the loop in a sustainable cycle.</p>
+        <p class="mb-6">If you feed goats with <a href="https://www.fao.org/organicag/en/" target="_blank" rel="noopener noreferrer" class="text-agri-green hover:text-agri-green/80 underline">organic food</a>, their organic waste returns to your garden, closing the loop in a sustainable cycle.</p>
         
         <h3 class="text-xl font-poppins font-semibold text-agri-dark mb-4">🍖 Goat Meat – Premium Taste, Premium Profits</h3>
         <p class="mb-4">Goat meat is prized in Kenya for its taste and health benefits. It's leaner than beef, packed with nutrients, and always in demand. Whether grilled, fried, or stewed, it delivers both flavor and function.</p>
@@ -250,7 +251,7 @@ const Blog = () => {
             Ready to Experience It Yourself?
           </h2>
           <p className="text-xl text-white/90 font-inter mb-8 max-w-2xl mx-auto">
-            From community-based tourism to sustainable farming experiences, 
+            From <a href="https://www.communitybasedtourism.eu/" target="_blank" rel="noopener noreferrer" className="text-agri-teal hover:text-agri-teal/80 underline">community-based tourism</a> to <a href="https://www.fao.org/sustainable-development-goals/goals/goal-2/en/" target="_blank" rel="noopener noreferrer" className="text-agri-teal hover:text-agri-teal/80 underline">sustainable farming experiences</a>, 
             discover the authentic Kenya with our guided tours.
           </p>
           <Button 

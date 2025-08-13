@@ -94,7 +94,7 @@ const FeaturedToursHome = () => {
             Featured Tours & Experiences
           </h2>
           <p className="text-xl text-gray-600 font-inter max-w-4xl mx-auto leading-relaxed">
-            Discover our most popular agritourism adventures that blend nature, culture, 
+            Discover our most popular <a href="https://sarep.ucdavis.edu/sustainable-ag/agritourism" target="_blank" rel="noopener noreferrer" className="text-agri-green hover:text-agri-green/80 underline">agritourism adventures</a> that blend nature, culture, 
             and learning into unforgettable journeys.
           </p>
         </div>
@@ -124,7 +124,17 @@ const FeaturedToursHome = () => {
                   {tour.title}
                 </h3>
                 <p className="text-gray-600 font-inter mb-4 leading-relaxed">
-                  {tour.description}
+                  {tour.id === 3 ? (
+                    <>
+                      Embrace the Calm Within. A comprehensive journey through Kenya's diverse agricultural landscape, from Mount Kenya to Thompson Falls, featuring <a href="https://ecotourism.org/" target="_blank" rel="noopener noreferrer" className="text-agri-green hover:text-agri-green/80 underline">sustainable practices</a>.
+                    </>
+                  ) : tour.id === 5 ? (
+                    <>
+                      Make Every Sip an Adventure. Ready for your next farm vacation? Let's dive into nature, heritage, and a cup of fresh, farm-grown coffee through <a href="https://www.fao.org/organicag/en/" target="_blank" rel="noopener noreferrer" className="text-agri-green hover:text-agri-green/80 underline">organic farming</a> experiences.
+                    </>
+                  ) : (
+                    tour.description
+                  )}
                 </p>
 
                 {/* Tour Details */}

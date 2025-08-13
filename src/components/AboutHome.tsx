@@ -40,7 +40,7 @@ const AboutHome = () => {
           </h2>
           <p className="text-xl text-gray-600 font-inter max-w-4xl mx-auto leading-relaxed">
             For 7+ years, we've built bridges between travelers and farmers through authentic, 
-            hands-on agritourism. Each trip supports communities, preserves tradition, 
+            hands-on <a href="https://sarep.ucdavis.edu/sustainable-ag/agritourism" target="_blank" rel="noopener noreferrer" className="text-agri-green hover:text-agri-green/80 underline">agritourism</a>. Each trip supports communities, preserves tradition, 
             and shares Kenya's story with the world.
           </p>
         </div>
@@ -99,7 +99,13 @@ const AboutHome = () => {
                 {feature.title}
               </h4>
               <p className="text-gray-600 font-inter leading-relaxed">
-                {feature.description}
+                {feature.title === "Sustainable Tourism" ? (
+                  <>
+                    Every journey supports <a href="https://ecotourism.org/" target="_blank" rel="noopener noreferrer" className="text-agri-green hover:text-agri-green/80 underline">environmental conservation</a> and <a href="https://www.fao.org/rural-development/en/" target="_blank" rel="noopener noreferrer" className="text-agri-green hover:text-agri-green/80 underline">local economies</a>
+                  </>
+                ) : (
+                  feature.description
+                )}
               </p>
             </div>
           ))}

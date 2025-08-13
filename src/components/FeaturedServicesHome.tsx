@@ -37,7 +37,7 @@ const FeaturedServicesHome = () => {
             Our Featured Services
           </h2>
           <p className="text-xl text-gray-600 font-inter max-w-3xl mx-auto leading-relaxed">
-            From educational tours to authentic homestays, we offer diverse experiences 
+            From <a href="https://sarep.ucdavis.edu/sustainable-ag/agritourism" target="_blank" rel="noopener noreferrer" className="text-agri-green hover:text-agri-green/80 underline">educational tours</a> to authentic homestays, we offer diverse experiences 
             that connect you with Kenya's agricultural heritage.
           </p>
         </div>
@@ -59,7 +59,17 @@ const FeaturedServicesHome = () => {
                 {service.title}
               </h3>
               <p className="text-gray-600 font-inter mb-6 leading-relaxed">
-                {service.description}
+                {service.title === "Community-Based Homestays" ? (
+                  <>
+                    Live with local families and experience authentic rural life through <a href="https://www.communitybasedtourism.eu/" target="_blank" rel="noopener noreferrer" className="text-agri-green hover:text-agri-green/80 underline">community-based experiences</a>
+                  </>
+                ) : service.title === "Educational & STEM Student Tours" ? (
+                  <>
+                    Learning-focused experiences for students and <a href="https://sarep.ucdavis.edu/sustainable-ag/agritourism" target="_blank" rel="noopener noreferrer" className="text-agri-green hover:text-agri-green/80 underline">educational groups</a>
+                  </>
+                ) : (
+                  service.description
+                )}
               </p>
 
               {/* Features */}

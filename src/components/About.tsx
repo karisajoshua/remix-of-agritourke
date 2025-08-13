@@ -131,7 +131,7 @@ const About = () => {
               Feel the Culture, Live the Traditions
             </h3>
             <p className="text-xl text-gray-600 font-inter max-w-5xl mx-auto leading-relaxed">
-              Explore the heart of Kenya through agritourism. From avocado farms to eco-friendly crop systems, our experiences blend nature, learning, and local wisdom. Watch stories unfold in every landscape and engage with farming communities that care for the land and its legacy.
+              Explore the heart of Kenya through <a href="https://sarep.ucdavis.edu/sustainable-ag/agritourism" target="_blank" rel="noopener noreferrer" className="text-agri-green hover:text-agri-green/80 underline">agritourism</a>. From avocado farms to eco-friendly crop systems, our experiences blend nature, learning, and local wisdom. Watch stories unfold in every landscape and engage with farming communities that care for the land and its legacy.
             </p>
           </div>
         </div>
@@ -144,11 +144,11 @@ const About = () => {
             <h2 className="text-4xl md:text-5xl font-poppins font-bold text-agri-dark mb-6">
               THE IMPACT OF AGRITOURISM
             </h2>
-            <h3 className="text-2xl font-poppins font-semibold text-agri-green mb-6">
+            <h3 class="text-2xl font-poppins font-semibold text-agri-green mb-6">
               Connecting People, Preserving Traditions
             </h3>
             <p className="text-xl text-gray-600 font-inter max-w-5xl mx-auto leading-relaxed mb-8">
-              Agritourism builds a bridge between rural and urban communities. It educates, inspires, and drives sustainable development. Our unique tours empower travelers and farmers alike by promoting environmental stewardship and celebrating food systems that nourish both people and planet.
+              <a href="https://sarep.ucdavis.edu/sustainable-ag/agritourism" target="_blank" rel="noopener noreferrer" className="text-agri-green hover:text-agri-green/80 underline">Agritourism</a> builds a bridge between rural and urban communities. It educates, inspires, and drives sustainable development. Our unique tours empower travelers and farmers alike by promoting <a href="https://ecotourism.org/" target="_blank" rel="noopener noreferrer" className="text-agri-green hover:text-agri-green/80 underline">environmental stewardship</a> and celebrating <a href="https://www.fao.org/food-systems/en/" target="_blank" rel="noopener noreferrer" className="text-agri-green hover:text-agri-green/80 underline">food systems</a> that nourish both people and planet.
             </p>
             <p className="text-xl text-gray-600 font-inter max-w-5xl mx-auto leading-relaxed mb-12">
               Through these connections, we strengthen local economies, honor ancestral wisdom, and champion the traditions that sustain global communities.
@@ -165,7 +165,7 @@ const About = () => {
               <div className="bg-white rounded-lg p-8 shadow-lg">
                 <div className="text-4xl font-poppins font-bold text-agri-green mb-4">17.23%</div>
                 <p className="text-lg text-gray-600 font-inter">
-                  Global agritourism is projected to grow by 2024.
+                  Global <a href="https://sarep.ucdavis.edu/sustainable-ag/agritourism" target="_blank" rel="noopener noreferrer" className="text-agri-green hover:text-agri-green/80 underline">agritourism</a> is projected to grow by 2024.
                 </p>
               </div>
             </div>
@@ -236,7 +236,7 @@ const About = () => {
                 The Sophistication of Tradition
               </h4>
               <p className="text-lg text-gray-600 font-inter leading-relaxed mb-6">
-                Today's travelers are seeking more than typical tourist experiences. Many are moving away from long, pre-planned vacations and turning instead to short cultural getaways, self-improvement holidays, and business-leisure trips that offer deeper meaning. This shift is driving a growing interest in immersive cultural tourism—visits to festivals, museums, heritage sites, live performances, art workshops, and traditional communities.
+                Today's travelers are seeking more than typical tourist experiences. Many are moving away from long, pre-planned vacations and turning instead to short cultural getaways, self-improvement holidays, and business-leisure trips that offer deeper meaning. This shift is driving a growing interest in immersive <a href="https://www.unwto.org/cultural-tourism" target="_blank" rel="noopener noreferrer" className="text-agri-green hover:text-agri-green/80 underline">cultural tourism</a>—visits to festivals, museums, heritage sites, live performances, art workshops, and traditional communities.
               </p>
               <p className="text-lg text-gray-600 font-inter leading-relaxed mb-6">
                 Kenya is perfectly positioned for this transformation. From historical buildings and archaeological sites to stone fences, orchards, and ancient roads, there is so much to explore. Visitors, both local and international, are eager to experience the richness of Kenyan culture through its landmarks, lifestyle, and living traditions.
@@ -405,7 +405,7 @@ const About = () => {
                   {member.role}
                 </p>
                 <p className="text-gray-600 font-inter leading-relaxed">
-                  {member.description}
+                  Passionate about <a href="https://www.fao.org/sustainable-development-goals/goals/goal-2/en/" target="_blank" rel="noopener noreferrer" className="text-agri-green hover:text-agri-green/80 underline">sustainable agriculture</a> and community empowerment
                 </p>
               </div>
             ))}
