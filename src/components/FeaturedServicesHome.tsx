@@ -38,7 +38,7 @@ const FeaturedServicesHome = () => {
           </h2>
           <p className="text-xl text-gray-600 font-inter max-w-3xl mx-auto leading-relaxed">
             From educational tours to authentic homestays, we offer diverse experiences 
-            that connect you with Kenya's agricultural heritage.
+            that connect you with Kenya's agricultural heritage. Our services align with <a href="https://www.gstcouncil.org/" target="_blank" rel="noopener noreferrer" className="text-agri-green hover:text-agri-dark underline">Global Sustainable Tourism Council</a> criteria for responsible tourism practices.
           </p>
         </div>
 
@@ -73,6 +73,13 @@ const FeaturedServicesHome = () => {
               </ul>
             </div>
           ))}
+        </div>
+
+        {/* Additional Context */}
+        <div className="text-center mb-8">
+          <p className="text-lg text-gray-600 font-inter max-w-4xl mx-auto leading-relaxed">
+            Our educational programs are designed following <a href="https://sarep.ucdavis.edu/sustainable-ag/agritourism" target="_blank" rel="noopener noreferrer" className="text-agri-green hover:text-agri-dark underline">UC Davis sustainable agriculture research</a> principles, while our community-based experiences adhere to guidelines from <a href="https://www.communitybasedtourism.eu/" target="_blank" rel="noopener noreferrer" className="text-agri-green hover:text-agri-dark underline">Community Based Tourism EU</a> for authentic cultural immersion.
+          </p>
         </div>
 
         {/* View All Services Button */}

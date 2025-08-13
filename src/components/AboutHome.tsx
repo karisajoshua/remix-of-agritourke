@@ -40,7 +40,7 @@ const AboutHome = () => {
           </h2>
           <p className="text-xl text-gray-600 font-inter max-w-4xl mx-auto leading-relaxed">
             For 7+ years, we've built bridges between travelers and farmers through authentic, 
-            hands-on agritourism. Each trip supports communities, preserves tradition, 
+            hands-on agritourism. Following principles established by <a href="https://ecotourism.org/" target="_blank" rel="noopener noreferrer" className="text-agri-green hover:text-agri-dark underline">The International Ecotourism Society</a>, each trip supports communities, preserves tradition, 
             and shares Kenya's story with the world.
           </p>
         </div>
@@ -64,7 +64,7 @@ const AboutHome = () => {
             <p className="text-lg text-gray-600 font-inter mb-6 leading-relaxed">
               Agritourism Adventures was born from a passion for Kenya's rich agricultural 
               heritage and a vision to create meaningful connections between visitors and 
-              local communities.
+              local communities. In alignment with <a href="https://www.unwto.org/" target="_blank" rel="noopener noreferrer" className="text-agri-green hover:text-agri-dark underline">UN World Tourism Organization</a> sustainable development goals, we promote responsible travel practices.
             </p>
             <p className="text-lg text-gray-600 font-inter mb-6 leading-relaxed">
               We believe that travel should be transformative – not just for the traveler, 
