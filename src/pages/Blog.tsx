@@ -52,7 +52,7 @@ const Blog = () => {
       Local farmers become cultural ambassadors, sharing knowledge about indigenous crops, sustainable farming techniques, and traditional food preparation methods. Visitors contribute to household incomes while learning about rural life, creating a win-win situation that preserves cultural heritage and supports economic development.
 
       The impact extends beyond economics. Community-based tourism builds cross-cultural understanding, breaks down stereotypes, and creates lasting friendships. It's tourism with purpose – travel that transforms both the visitor and the visited.`,
-      image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Fair%20view/community-based-tourism.webp",
+      image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Farm%20expo%202023/Martha.webp",
       author: "Agritourism Adventures Team",
       date: "March 15, 2024",
       category: "Community Tourism"
