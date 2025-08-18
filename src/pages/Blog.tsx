@@ -1,7 +1,7 @@
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
-import { Calendar, User, ArrowRight, Heart, Users, Leaf } from 'lucide-react';
+import { Calendar, User, ArrowRight, Heart, Users, Leaf, Clock, Phone, Mail } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 const Blog = () => {
@@ -36,7 +36,7 @@ const Blog = () => {
       </ul>
 
       <p>Together, IT and CBT can offer visitors rich, authentic experiences—while building a sustainable future for all.</p>`,
-      image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Fair%20view/Foerland.webp",
+      image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Fair%20view/Coffee%20beans.webp",
       author: "Agritourism Adventures Team",
       date: "March 20, 2024",
       category: "Industrial Tourism"
@@ -88,7 +88,7 @@ const Blog = () => {
       Agritourism visitors participate in coffee picking during harvest seasons, learn about processing methods, and enjoy freshly roasted coffee while overlooking scenic highland landscapes. Many farms offer cupping sessions where visitors can taste and compare different coffee varieties.
 
       Small-scale farmers, often organized in cooperatives, produce most of Kenya's coffee. These cooperatives provide farmers with better market access, training, and resources, ensuring sustainable livelihoods for coffee-growing communities.`,
-      image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Fair%20view/Coffee%20beans.webp",
+      image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Fair%20view/Foerland.webp",
       author: "Coffee Culture Team",
       date: "March 5, 2024",
       category: "Coffee Farming"
@@ -164,6 +164,83 @@ const Blog = () => {
                 </div>
               </article>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Trip Cancellation Guidelines */}
+      <section className="py-20 bg-white border-t border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-poppins font-bold text-agri-dark mb-6">
+              Trip Cancellation Guidelines
+            </h2>
+            <p className="text-xl text-gray-600 font-inter max-w-3xl mx-auto leading-relaxed">
+              We understand that plans can change. Here's everything you need to know about our cancellation policy.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            {/* Cancellation Policy */}
+            <div className="bg-agri-grey rounded-lg p-8">
+              <div className="flex items-center mb-6">
+                <Clock className="h-8 w-8 text-agri-green mr-3" />
+                <h3 className="text-2xl font-poppins font-bold text-agri-dark">Cancellation Policy</h3>
+              </div>
+              
+              <div className="space-y-6">
+                <div>
+                  <h4 className="text-lg font-poppins font-semibold text-agri-dark mb-2">30+ Days Before Trip</h4>
+                  <p className="text-gray-600 font-inter">Full refund minus 10% processing fee</p>
+                </div>
+                
+                <div>
+                  <h4 className="text-lg font-poppins font-semibold text-agri-dark mb-2">15-29 Days Before Trip</h4>
+                  <p className="text-gray-600 font-inter">75% refund of total payment</p>
+                </div>
+                
+                <div>
+                  <h4 className="text-lg font-poppins font-semibold text-agri-dark mb-2">7-14 Days Before Trip</h4>
+                  <p className="text-gray-600 font-inter">50% refund of total payment</p>
+                </div>
+                
+                <div>
+                  <h4 className="text-lg font-poppins font-semibold text-agri-dark mb-2">Less Than 7 Days</h4>
+                  <p className="text-gray-600 font-inter">No refund available</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Emergency & Contact Info */}
+            <div className="space-y-8">
+              <div className="bg-white border border-gray-200 rounded-lg p-8">
+                <h3 className="text-2xl font-poppins font-bold text-agri-dark mb-6">Emergency Cancellations</h3>
+                <p className="text-gray-600 font-inter mb-4">
+                  In case of medical emergencies, family emergencies, or severe weather conditions, 
+                  we may waive standard cancellation fees. Documentation may be required.
+                </p>
+                <p className="text-gray-600 font-inter">
+                  Travel insurance is highly recommended to protect your investment.
+                </p>
+              </div>
+
+              <div className="bg-agri-green text-white rounded-lg p-8">
+                <h3 className="text-2xl font-poppins font-bold mb-6">Need to Cancel?</h3>
+                <div className="space-y-4">
+                  <div className="flex items-center">
+                    <Phone className="h-5 w-5 mr-3" />
+                    <span className="font-inter">+254 712 345 678</span>
+                  </div>
+                  <div className="flex items-center">
+                    <Mail className="h-5 w-5 mr-3" />
+                    <span className="font-inter">bookings@agritourismadventures.com</span>
+                  </div>
+                </div>
+                <p className="mt-4 text-sm font-inter opacity-90">
+                  Contact us as early as possible to discuss your cancellation options.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
