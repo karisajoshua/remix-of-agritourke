@@ -16,7 +16,7 @@ const Blog = () => {
 
       <p>From luxury resorts and theme parks to grand attractions, industrial tourism drives massive economic development. Take Dubai, for example: with landmarks like the Burj Khalifa and man-made marvels like Palm Jumeirah, it has become a global tourism powerhouse. The revenue generated fuels infrastructure growth—airports, highways, utilities—and significantly boosts national economic performance.</p>
 
-      <h3 className="text-xl font-poppins font-bold text-agri-dark mb-4 mt-6">🌍 The Other Side of the Coin</h3>
+      <h3 class="text-xl font-poppins font-bold text-agri-dark mb-4 mt-6">🌍 The Other Side of the Coin</h3>
       <p>Despite its benefits, industrial tourism also comes with serious downsides:</p>
 
       <p><strong>Environmental Strain</strong><br/>Large-scale construction often destroys natural habitats, overuses resources, and causes pollution. Venice, Italy, is a cautionary tale—over-tourism has worn down historic landmarks and disrupted local life. Similarly, luxury resorts in the Maldives are contributing to the degradation of coral reefs.</p>
@@ -25,18 +25,18 @@ const Blog = () => {
 
       <p><strong>Cultural Dilution</strong><br/>IT can also homogenize cultural experiences. For instance, Las Vegas has become a hub for global entertainment that largely overshadows local culture. Over time, this loss of authenticity may lead to a decline in tourist interest.</p>
 
-      <h3 className="text-xl font-poppins font-bold text-agri-dark mb-4 mt-6">✅ A Balanced Way Forward</h3>
+      <h3 class="text-xl font-poppins font-bold text-agri-dark mb-4 mt-6">✅ A Balanced Way Forward</h3>
       <p>But there is hope—and it lies in synergy. Industrial Tourism, when paired with Community-Based Tourism (CBT), creates a more balanced, inclusive model. This hybrid approach can boost the economy, preserve local culture, and safeguard the environment.</p>
 
       <p>For this to work, collaboration between governments, private investors, and local communities is essential. Policies must be enforced to:</p>
-      <ul className="list-disc list-inside ml-4 mb-4">
+      <ul class="list-disc list-inside ml-4 mb-4">
         <li>Regulate the scale of industrial development,</li>
         <li>Promote meaningful local participation, and</li>
         <li>Ensure benefits are shared equitably.</li>
       </ul>
 
       <p>Together, IT and CBT can offer visitors rich, authentic experiences—while building a sustainable future for all.</p>`,
-      image: "/placeholder.svg",
+      image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Fair%20view/Foerland.webp",
       author: "Agritourism Adventures Team",
       date: "March 20, 2024",
       category: "Industrial Tourism"
