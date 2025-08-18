@@ -229,7 +229,7 @@ const Blog = () => {
                 <div className="space-y-4">
                   <div className="flex items-center">
                     <Phone className="h-5 w-5 mr-3" />
-                    <span className="font-inter">+254 712 345 678</span>
+                    <span className="font-inter">+254710429755</span>
                   </div>
                   <div className="flex items-center">
                     <Mail className="h-5 w-5 mr-3" />
