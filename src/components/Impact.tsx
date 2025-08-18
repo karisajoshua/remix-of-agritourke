@@ -1,4 +1,3 @@
-
 import { TrendingUp, Users, Leaf, Heart } from 'lucide-react';
 
 const Impact = () => {
@@ -39,7 +38,7 @@ const Impact = () => {
           </h2>
           <p className="text-xl text-gray-600 font-inter max-w-4xl mx-auto leading-relaxed">
             Every journey strengthens communities, honors tradition, and promotes environmental 
-            sustainability. Agritourism helps preserve ancestral wisdom while supporting local economies.
+            sustainability. Agritourism helps preserve ancestral wisdom while <a href="https://sdgs.un.org/topics/food-security-and-nutrition-and-sustainable-agriculture#:~:text=The%20Sustainable%20Development%20Goal%20to,rural%20poverty%2C%20ensuring%20healthy%20lifestyles%2C" target="_blank" rel="noopener noreferrer" className="text-agri-green hover:text-agri-green/80 underline">supporting local economies</a>.
           </p>
         </div>
 

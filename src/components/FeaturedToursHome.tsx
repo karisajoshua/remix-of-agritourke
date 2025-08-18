@@ -88,25 +88,22 @@ const FeaturedToursHome = () => {
   return (
     <section id="tours" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-poppins font-bold text-agri-dark mb-6">
             Featured Tours & Experiences
           </h2>
           <p className="text-xl text-gray-600 font-inter max-w-4xl mx-auto leading-relaxed">
-            Discover our most popular <a href="https://sarep.ucdavis.edu/sustainable-ag/agritourism" target="_blank" rel="noopener noreferrer" className="text-agri-green hover:text-agri-green/80 underline">agritourism adventures</a> that blend nature, culture, 
+            Discover our most popular <a href="https://nationalaglawcenter.org/overview/agritourism/" target="_blank" rel="noopener noreferrer" className="text-agri-green hover:text-agri-green/80 underline">agritourism adventures</a> that blend nature, culture, 
             and learning into unforgettable journeys.
           </p>
         </div>
 
-        {/* Featured Tours Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {featuredTours.map((tour) => (
             <div
               key={tour.id}
               className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 ring-2 ring-agri-yellow"
             >
-              {/* Tour Image */}
               <div className="relative">
                 <img
                   src={tour.image}
@@ -118,7 +115,6 @@ const FeaturedToursHome = () => {
                 </div>
               </div>
 
-              {/* Tour Content */}
               <div className="p-6">
                 <h3 className="text-xl font-poppins font-bold text-agri-dark mb-3">
                   {tour.title}
@@ -137,7 +133,6 @@ const FeaturedToursHome = () => {
                   )}
                 </p>
 
-                {/* Tour Details */}
                 <div className="space-y-2 mb-6">
                   <div className="flex items-center text-sm text-gray-500 font-inter">
                     <Clock className="h-4 w-4 mr-2 text-agri-green" />
@@ -153,7 +148,6 @@ const FeaturedToursHome = () => {
                   </div>
                 </div>
 
-                {/* CTA Button */}
                 <Button 
                   onClick={() => setSelectedTour(tour)}
                   className="w-full bg-agri-teal hover:bg-agri-teal/90 text-white font-inter font-semibold group"
@@ -166,7 +160,6 @@ const FeaturedToursHome = () => {
           ))}
         </div>
 
-        {/* View All Tours Button */}
         <div className="text-center">
           <Button 
             size="lg" 
@@ -179,7 +172,6 @@ const FeaturedToursHome = () => {
         </div>
       </div>
 
-      {/* Tour Detail Modal */}
       {selectedTour && (
         <TourDetailModal
           tour={selectedTour}
