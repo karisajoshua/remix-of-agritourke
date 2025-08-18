@@ -1,3 +1,4 @@
+
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
@@ -70,7 +71,7 @@ const Blog = () => {
       Visitors to goat farms experience hands-on activities including milking, feeding, and learning about breeding programs. The therapeutic nature of interacting with these gentle animals, combined with learning about their economic importance, creates memorable agritourism experiences.
 
       Goat farming also supports women's empowerment in rural communities, as women often manage small goat herds, providing them with independent income sources and decision-making power within households.`,
-      image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Mbuzi%20Farm/goat-farming-kenya.webp",
+      image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Mbuzi%20Farm/Organic%20farm%20goat.webp",
       author: "Farm Experience Team",
       date: "March 10, 2024",
       category: "Livestock Farming"
