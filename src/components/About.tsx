@@ -1,6 +1,7 @@
+
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Heart, Users, Leaf, ArrowRight } from 'lucide-react';
+import { Heart, Users, Leaf, ArrowRight, User } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const About = () => {
