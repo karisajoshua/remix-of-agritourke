@@ -1,4 +1,3 @@
-
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
@@ -9,6 +8,39 @@ const Blog = () => {
   const navigate = useNavigate();
 
   const blogPosts = [
+    {
+      id: 4,
+      title: "Industrial Tourism: Nothing Beats Being There",
+      excerpt: "Industrial Tourism (IT) offers behind-the-scenes insights into factories, mega-projects, production facilities, and iconic infrastructures—revealing how entire industrial ecosystems function.",
+      content: `<p><strong>Industrial Tourism (IT)</strong> involves visiting sites linked to industries—factories, mega-construction projects, production facilities, and iconic infrastructures. It offers visitors behind-the-scenes insights into how things are made and how entire industrial ecosystems function.</p>
+
+      <p>From luxury resorts and theme parks to grand attractions, industrial tourism drives massive economic development. Take Dubai, for example: with landmarks like the Burj Khalifa and man-made marvels like Palm Jumeirah, it has become a global tourism powerhouse. The revenue generated fuels infrastructure growth—airports, highways, utilities—and significantly boosts national economic performance.</p>
+
+      <h3 className="text-xl font-poppins font-bold text-agri-dark mb-4 mt-6">🌍 The Other Side of the Coin</h3>
+      <p>Despite its benefits, industrial tourism also comes with serious downsides:</p>
+
+      <p><strong>Environmental Strain</strong><br/>Large-scale construction often destroys natural habitats, overuses resources, and causes pollution. Venice, Italy, is a cautionary tale—over-tourism has worn down historic landmarks and disrupted local life. Similarly, luxury resorts in the Maldives are contributing to the degradation of coral reefs.</p>
+
+      <p><strong>Exclusion of Local Communities</strong><br/>Unfortunately, the profits of industrial tourism often go to large corporations, bypassing local communities. In Bali, major resort chains dominate the tourism space, while small local businesses struggle to survive.</p>
+
+      <p><strong>Cultural Dilution</strong><br/>IT can also homogenize cultural experiences. For instance, Las Vegas has become a hub for global entertainment that largely overshadows local culture. Over time, this loss of authenticity may lead to a decline in tourist interest.</p>
+
+      <h3 className="text-xl font-poppins font-bold text-agri-dark mb-4 mt-6">✅ A Balanced Way Forward</h3>
+      <p>But there is hope—and it lies in synergy. Industrial Tourism, when paired with Community-Based Tourism (CBT), creates a more balanced, inclusive model. This hybrid approach can boost the economy, preserve local culture, and safeguard the environment.</p>
+
+      <p>For this to work, collaboration between governments, private investors, and local communities is essential. Policies must be enforced to:</p>
+      <ul className="list-disc list-inside ml-4 mb-4">
+        <li>Regulate the scale of industrial development,</li>
+        <li>Promote meaningful local participation, and</li>
+        <li>Ensure benefits are shared equitably.</li>
+      </ul>
+
+      <p>Together, IT and CBT can offer visitors rich, authentic experiences—while building a sustainable future for all.</p>`,
+      image: "/placeholder.svg",
+      author: "Agritourism Adventures Team",
+      date: "March 20, 2024",
+      category: "Industrial Tourism"
+    },
     {
       id: 1,
       title: "Community-Based Tourism: Building Bridges Through Agriculture",
