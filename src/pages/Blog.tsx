@@ -88,7 +88,7 @@ const Blog = () => {
       Agritourism visitors participate in coffee picking during harvest seasons, learn about processing methods, and enjoy freshly roasted coffee while overlooking scenic highland landscapes. Many farms offer cupping sessions where visitors can taste and compare different coffee varieties.
 
       Small-scale farmers, often organized in cooperatives, produce most of Kenya's coffee. These cooperatives provide farmers with better market access, training, and resources, ensuring sustainable livelihoods for coffee-growing communities.`,
-      image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Fair%20view/Foerland.webp",
+      image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Fair%20view/Coffee%20beans.webp",
       author: "Coffee Culture Team",
       date: "March 5, 2024",
       category: "Coffee Farming"
