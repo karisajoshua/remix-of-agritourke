@@ -92,13 +92,20 @@ const Navigation = () => {
             </div>
           </div>
 
-          {/* CTA Button */}
+          {/* CTA Button - Desktop */}
           <div className="hidden md:block">
             <Button 
+              asChild
               className="bg-agri-teal hover:bg-agri-teal/90 text-white font-inter font-medium"
-              onClick={() => navigate('/tours')}
             >
-              Book a Tour
+              <a 
+                href="https://wa.me/254710429755" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                aria-label="Book a tour via WhatsApp"
+              >
+                Book a Tour
+              </a>
             </Button>
           </div>
 
@@ -128,10 +135,17 @@ const Navigation = () => {
               ))}
               <div className="px-3 py-2">
                 <Button 
+                  asChild
                   className="w-full bg-agri-teal hover:bg-agri-teal/90 text-white font-inter font-medium"
-                  onClick={() => navigate('/tours')}
                 >
-                  Book a Tour
+                  <a 
+                    href="https://wa.me/254710429755" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    aria-label="Book a tour via WhatsApp"
+                  >
+                    Book a Tour
+                  </a>
                 </Button>
               </div>
             </div>
