@@ -1,14 +1,10 @@
-
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Heart, Users, Leaf, ArrowRight, User } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-
 const About = () => {
   const navigate = useNavigate();
-
-  return (
-    <div className="bg-white py-24">
+  return <div className="bg-white py-24">
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -86,11 +82,7 @@ const About = () => {
             </div>
             
             <div className="relative">
-              <img
-                src="https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/More%20Tea.webp"
-                alt="Community farming activities"
-                className="rounded-lg shadow-2xl w-full h-96 object-cover"
-              />
+              <img src="https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/More%20Tea.webp" alt="Community farming activities" className="rounded-lg shadow-2xl w-full h-96 object-cover" />
               <div className="absolute inset-0 bg-agri-green/10 rounded-lg"></div>
             </div>
           </div>
@@ -224,7 +216,7 @@ const About = () => {
             </div>
 
             <div className="bg-white rounded-lg p-8 shadow-lg text-center">
-              <div className="text-4xl font-poppins font-bold text-agri-green mb-2">₹2M+</div>
+              <div className="text-4xl font-poppins font-bold text-agri-green mb-2">Ksh 2M+</div>
               <div className="text-gray-600 font-inter font-semibold mb-2">Direct Income</div>
               <div className="text-sm text-gray-500 font-inter">
                 Generated for farming communities
@@ -254,27 +246,13 @@ const About = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              size="lg"
-              onClick={() => navigate('/tours')}
-              className="bg-agri-green hover:bg-agri-green/90 text-white font-inter font-semibold px-8"
-            >
+            <Button size="lg" onClick={() => navigate('/tours')} className="bg-agri-green hover:bg-agri-green/90 text-white font-inter font-semibold px-8">
               Explore Our Tours
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
             
-            <Button 
-              size="lg"
-              variant="outline"
-              asChild
-              className="border-agri-green text-agri-green hover:bg-agri-green hover:text-white font-inter font-semibold px-8"
-            >
-              <a 
-                href="mailto:info@agritourismadventures.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                aria-label="Partner with us via email"
-              >
+            <Button size="lg" variant="outline" asChild className="border-agri-green text-agri-green hover:bg-agri-green hover:text-white font-inter font-semibold px-8">
+              <a href="mailto:info@agritourismadventures.com" target="_blank" rel="noopener noreferrer" aria-label="Partner with us via email">
                 Partner With Us
                 <Users className="ml-2 h-4 w-4" />
               </a>
@@ -282,8 +260,6 @@ const About = () => {
           </div>
         </div>
       </section>
-    </div>
-  );
+    </div>;
 };
-
 export default About;
