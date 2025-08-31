@@ -1,13 +1,22 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useSearchParams, Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Clock, MapPin, Users, ArrowRight } from 'lucide-react';
+import { Clock, MapPin, Users, ArrowRight, ExternalLink } from 'lucide-react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import TourDetailModal from '@/components/TourDetailModal';
 
 const Tours = () => {
-  const [activeFilter, setActiveFilter] = useState('All');
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [activeFilter, setActiveFilter] = useState(searchParams.get('category') || 'All');
   const [selectedTour, setSelectedTour] = useState(null);
+
+  useEffect(() => {
+    const category = searchParams.get('category');
+    if (category && filters.includes(category)) {
+      setActiveFilter(category);
+    }
+  }, [searchParams]);
 
   const filters = ['All', 'Farm Tours', 'Safari & Wildlife', 'Cultural & Urban', 'Regional Experiences', 'Educational Tours'];
 
@@ -31,7 +40,12 @@ const Tours = () => {
         "Organic vegetable farming techniques",
         "Farm-grown tastings and honey sampling"
       ],
-      includes: ["Transportation", "Farm visits", "Guided tours", "Organic tastings", "Expert guidance"]
+      includes: ["Transportation", "Farm visits", "Guided tours", "Organic tastings", "Expert guidance"],
+      externalLinks: [
+        { title: "Kenya Flower Council - Official Industry Authority", url: "https://kenyaflowercouncil.org/" },
+        { title: "Kenya Export Promotion Council - Flower Export Guidelines", url: "https://www.epc.go.ke/" },
+        { title: "Lake Naivasha Growers Group - Sustainable Floriculture", url: "https://www.lngg.co.ke/" }
+      ]
     },
     {
       id: 2,
@@ -56,7 +70,12 @@ const Tours = () => {
         "Farm-fresh ice cream and pizza",
         "5:30 PM: Return to Nairobi"
       ],
-      includes: ["Transportation", "Tea farm tour", "Cheese factory visit", "All meals", "Guided walks", "Tastings"]
+      includes: ["Transportation", "Tea farm tour", "Cheese factory visit", "All meals", "Guided walks", "Tastings"],
+      externalLinks: [
+        { title: "Kenya Tea Development Agency - Official Tea Authority", url: "https://www.ktdateas.com/" },
+        { title: "Kenya Association of Manufacturers - Dairy Sector", url: "https://kam.co.ke/" },
+        { title: "Kenya Dairy Board - Official Dairy Regulation", url: "https://kdb.co.ke/" }
+      ]
     },
     {
       id: 3,
@@ -80,7 +99,12 @@ const Tours = () => {
         "Day 8: Orphanage & community visit",
         "Day 9: Return to Nairobi via plantations"
       ],
-      includes: ["All accommodation", "All meals", "Transportation", "Farm visits", "Game drives", "Professional guide", "Community visits"]
+      includes: ["All accommodation", "All meals", "Transportation", "Farm visits", "Game drives", "Professional guide", "Community visits"],
+      externalLinks: [
+        { title: "Kenya Wildlife Service - Official Wildlife Authority", url: "https://www.kws.go.ke/" },
+        { title: "Kenya Association of Tour Operators - Certified Tours", url: "https://www.katokenya.org/" },
+        { title: "UNESCO Kenya - Cultural Heritage Sites", url: "https://whc.unesco.org/en/statesparties/ke" }
+      ]
     },
     {
       id: 4,
@@ -104,7 +128,12 @@ const Tours = () => {
         "Art gallery and birdwatching",
         "Late afternoon: Return to Nairobi"
       ],
-      includes: ["Transportation", "Farm tour", "Lunch preparation", "Animal interaction", "Art gallery visit", "Fresh produce options"]
+      includes: ["Transportation", "Farm tour", "Lunch preparation", "Animal interaction", "Art gallery visit", "Fresh produce options"],
+      externalLinks: [
+        { title: "Kenya Organic Agriculture Network - Certified Organic Standards", url: "https://www.koan.co.ke/" },
+        { title: "FAO Kenya - Sustainable Agriculture Practices", url: "https://www.fao.org/kenya/en/" },
+        { title: "Kenya Agricultural Research Institute - Innovation Hub", url: "https://www.kalro.org/" }
+      ]
     },
     {
       id: 5,
@@ -128,7 +157,12 @@ const Tours = () => {
         "Dairy farm experience - milking session",
         "Return to Nairobi with fresh coffee"
       ],
-      includes: ["Hotel pickup", "Estate activities", "Coffee processing experience", "Dairy farm visit", "Take-home coffee", "All activities"]
+      includes: ["Hotel pickup", "Estate activities", "Coffee processing experience", "Dairy farm visit", "Take-home coffee", "All activities"],
+      externalLinks: [
+        { title: "Coffee Board of Kenya - Official Coffee Authority", url: "https://www.coffeeboard.co.ke/" },
+        { title: "Kenya Coffee Producers & Traders Association", url: "https://www.kcpta.com/" },
+        { title: "Specialty Coffee Association - Quality Standards", url: "https://sca.coffee/" }
+      ]
     },
     {
       id: 6,
@@ -151,7 +185,12 @@ const Tours = () => {
         "Urban farming stops via matatu transport",
         "Cultural interactions with daily commuters"
       ],
-      includes: ["Matatu transport experience", "Cultural guide", "Artist interactions", "Urban stops", "Local insights"]
+      includes: ["Matatu transport experience", "Cultural guide", "Artist interactions", "Urban stops", "Local insights"],
+      externalLinks: [
+        { title: "Magical Kenya - Official Tourism Board", url: "https://www.magicalkenya.com/" },
+        { title: "Kenya Museums Society - Cultural Heritage", url: "https://museums.or.ke/" },
+        { title: "Nairobi City County - Urban Transport Guidelines", url: "https://nairobi.go.ke/" }
+      ]
     },
     {
       id: 7,
@@ -174,7 +213,12 @@ const Tours = () => {
         "Tea plantation and factory tour",
         "God's Well spiritual site visit"
       ],
-      includes: ["Farm visits", "Historical sites", "Tea factory tour", "Fresh tastings", "Cultural insights"]
+      includes: ["Farm visits", "Historical sites", "Tea factory tour", "Fresh tastings", "Cultural insights"],
+      externalLinks: [
+        { title: "Fresh Produce Exporters Association of Kenya", url: "https://www.fpeak.org/" },
+        { title: "Kenya National Archives - Historical Documentation", url: "https://www.nationalarchives.go.ke/" },
+        { title: "Central Kenya Tourism Circuit - Regional Authority", url: "https://www.magicalkenya.com/places-to-visit/counties/central-region/" }
+      ]
     },
     {
       id: 8,
@@ -199,7 +243,12 @@ const Tours = () => {
         "2:30 PM: Nyama Choma lunch at Riverside Restaurant",
         "4:30 PM: Return to Nairobi"
       ],
-      includes: ["Transportation", "Adventure activities", "Teambuilding", "Nyama Choma lunch", "Mountain access"]
+      includes: ["Transportation", "Adventure activities", "Teambuilding", "Nyama Choma lunch", "Mountain access"],
+      externalLinks: [
+        { title: "Kenya Forest Service - Ngong Hills Conservation", url: "https://www.kenyaforestservice.org/" },
+        { title: "Kajiado County Government - Tourism Development", url: "https://www.kajiado.go.ke/" },
+        { title: "Adventure Travel Trade Association - Safety Standards", url: "https://www.adventuretravel.biz/" }
+      ]
     },
     {
       id: 9,
@@ -224,7 +273,12 @@ const Tours = () => {
         "Biogas and fertilizer demonstrations",
         "Return to Nairobi with farm stories"
       ],
-      includes: ["Transportation", "Farm education", "Goat interaction", "Garden tour", "Dairy experience", "Traditional lunch"]
+      includes: ["Transportation", "Farm education", "Goat interaction", "Garden tour", "Dairy experience", "Traditional lunch"],
+      externalLinks: [
+        { title: "Kenya Goat Breeders Association - Industry Standards", url: "https://www.kgba.co.ke/" },
+        { title: "International Centre for Research in Agroforestry", url: "https://www.worldagroforestry.org/region/kenya" },
+        { title: "Kenya Agricultural Research Institute - Livestock Division", url: "https://www.kalro.org/" }
+      ]
     },
     {
       id: 10,
@@ -247,7 +301,12 @@ const Tours = () => {
         "3:00 PM: Lunch at Club 034",
         "Return journey to Nairobi"
       ],
-      includes: ["Transportation", "Farm tour", "Ostrich experience", "Pool access", "Lunch at Club 034"]
+      includes: ["Transportation", "Farm tour", "Ostrich experience", "Pool access", "Lunch at Club 034"],
+      externalLinks: [
+        { title: "Kenya Livestock Breeders Organization - Ostrich Farming", url: "https://www.klbo.co.ke/" },
+        { title: "Maasai Mara Association - Cultural Tourism", url: "https://www.maasaimaraassociation.org/" },
+        { title: "Kenya Wildlife Research and Training Institute", url: "https://www.kws.go.ke/" }
+      ]
     },
     {
       id: 11,
@@ -272,7 +331,12 @@ const Tours = () => {
         "Day 2: Morning activities - zip-lining, swimming, hiking",
         "Return to Nairobi refreshed"
       ],
-      includes: ["Transportation", "Traditional meals", "Camping accommodation", "Farm activities", "Storytelling", "Adventure activities"]
+      includes: ["Transportation", "Traditional meals", "Camping accommodation", "Farm activities", "Storytelling", "Adventure activities"],
+      externalLinks: [
+        { title: "Kenya Pig Breeders Association - Industry Authority", url: "https://www.kpba.co.ke/" },
+        { title: "Kenya Bureau of Standards - Food Safety Guidelines", url: "https://www.kebs.org/" },
+        { title: "International Livestock Research Institute - Kenya", url: "https://www.ilri.org/where-we-work/kenya" }
+      ]
     },
     {
       id: 12,
@@ -295,7 +359,12 @@ const Tours = () => {
         "Hands-on workshops with professionals",
         "Q&A sessions with industry experts"
       ],
-      includes: ["Educational visits", "Professional interactions", "Hands-on workshops", "Transportation", "Learning materials"]
+      includes: ["Educational visits", "Professional interactions", "Hands-on workshops", "Transportation", "Learning materials"],
+      externalLinks: [
+        { title: "Kenya Institute of Curriculum Development - STEM Education", url: "https://kicd.ac.ke/" },
+        { title: "Kenya National Academy of Sciences - Research Excellence", url: "https://knas.ac.ke/" },
+        { title: "UNESCO Kenya - Science Education Programs", url: "https://en.unesco.org/countries/kenya" }
+      ]
     },
     {
       id: 13,
@@ -318,7 +387,12 @@ const Tours = () => {
         "Expert marriage counseling sessions",
         "Sunday afternoon: Reflection and departure"
       ],
-      includes: ["Accommodation", "Romantic activities", "Counseling sessions", "All meals", "Adventure activities"]
+      includes: ["Accommodation", "Romantic activities", "Counseling sessions", "All meals", "Adventure activities"],
+      externalLinks: [
+        { title: "Kenya Association of Travel Agents - Certified Tourism", url: "https://www.katakenya.org/" },
+        { title: "Kenya Tourism Board - Romantic Destinations", url: "https://www.ktb.go.ke/" },
+        { title: "Marriage and Family Counseling Association of Kenya", url: "https://www.mfcak.org/" }
+      ]
     }
   ];
 
@@ -348,7 +422,16 @@ const Tours = () => {
             {filters.map((filter) => (
               <button
                 key={filter}
-                onClick={() => setActiveFilter(filter)}
+                onClick={() => {
+                  setActiveFilter(filter);
+                  const newSearchParams = new URLSearchParams(searchParams);
+                  if (filter === 'All') {
+                    newSearchParams.delete('category');
+                  } else {
+                    newSearchParams.set('category', filter);
+                  }
+                  setSearchParams(newSearchParams);
+                }}
                 className={`px-6 py-3 rounded-full font-inter font-medium transition-all duration-200 ${
                   activeFilter === filter
                     ? 'bg-agri-green text-white shadow-lg'
@@ -393,7 +476,7 @@ const Tours = () => {
                   </p>
 
                   {/* Tour Details */}
-                  <div className="space-y-2 mb-6">
+                  <div className="space-y-2 mb-4">
                     <div className="flex items-center text-sm text-gray-500 font-inter">
                       <Clock className="h-4 w-4 mr-2 text-agri-green" />
                       {tour.duration}
@@ -407,6 +490,30 @@ const Tours = () => {
                       {tour.participants}
                     </div>
                   </div>
+
+                  {/* External Links */}
+                  {tour.externalLinks && tour.externalLinks.length > 0 && (
+                    <div className="mb-4">
+                      <h4 className="text-sm font-inter font-semibold text-agri-dark mb-2">
+                        Learn More:
+                      </h4>
+                      <div className="space-y-1">
+                        {tour.externalLinks.slice(0, 2).map((link, index) => (
+                          <a
+                            key={index}
+                            href={link.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-xs text-agri-teal hover:text-agri-green font-inter flex items-center transition-colors"
+                            aria-label={`Learn more about ${link.title}`}
+                          >
+                            <ExternalLink className="h-3 w-3 mr-1 flex-shrink-0" />
+                            <span className="truncate">{link.title}</span>
+                          </a>
+                        ))}
+                      </div>
+                    </div>
+                  )}
 
                   {/* CTA Button */}
                   <Button 

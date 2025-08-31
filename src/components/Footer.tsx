@@ -1,5 +1,6 @@
 
 import { Facebook, Instagram, Linkedin, Mail, Phone } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -54,11 +55,11 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-poppins font-semibold mb-4">Tours</h4>
             <ul className="space-y-2 text-gray-300 font-inter">
-              <li><a href="#" className="hover:text-agri-yellow transition-colors">Farm Tours</a></li>
-              <li><a href="#" className="hover:text-agri-yellow transition-colors">Dairy Safaris</a></li>
-              <li><a href="#" className="hover:text-agri-yellow transition-colors">Wildlife Safaris</a></li>
-              <li><a href="#" className="hover:text-agri-yellow transition-colors">Cultural Tours</a></li>
-              <li><a href="#" className="hover:text-agri-yellow transition-colors">Educational Tours</a></li>
+              <li><Link to="/tours?category=Farm%20Tours" className="hover:text-agri-yellow transition-colors">Farm Tours</Link></li>
+              <li><Link to="/tours?category=Safari%20%26%20Wildlife" className="hover:text-agri-yellow transition-colors">Safari & Wildlife</Link></li>
+              <li><Link to="/tours?category=Cultural%20%26%20Urban" className="hover:text-agri-yellow transition-colors">Cultural Tours</Link></li>
+              <li><Link to="/tours?category=Regional%20Experiences" className="hover:text-agri-yellow transition-colors">Regional Experiences</Link></li>
+              <li><Link to="/tours?category=Educational%20Tours" className="hover:text-agri-yellow transition-colors">Educational Tours</Link></li>
             </ul>
           </div>
 
@@ -66,11 +67,11 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-poppins font-semibold mb-4">Company</h4>
             <ul className="space-y-2 text-gray-300 font-inter">
-              <li><a href="#about" className="hover:text-agri-yellow transition-colors">About Us</a></li>
-              <li><a href="/gallery" className="hover:text-agri-yellow transition-colors">Gallery</a></li>
+              <li><Link to="/about" className="hover:text-agri-yellow transition-colors">About Us</Link></li>
+              <li><Link to="/gallery" className="hover:text-agri-yellow transition-colors">Gallery</Link></li>
               <li><a href="#impact" className="hover:text-agri-yellow transition-colors">Our Impact</a></li>
-              <li><a href="#" className="hover:text-agri-yellow transition-colors">Blog</a></li>
-              <li><a href="#" className="hover:text-agri-yellow transition-colors">Careers</a></li>
+              <li><Link to="/blog" className="hover:text-agri-yellow transition-colors">Blog</Link></li>
+              <li><a href="#careers" className="hover:text-agri-yellow transition-colors">Careers</a></li>
             </ul>
           </div>
 
@@ -78,14 +79,22 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-poppins font-semibold mb-4">Contact</h4>
             <div className="space-y-3">
-              <div className="flex items-center text-gray-300 font-inter">
+              <a 
+                href="mailto:info@agritourismadventures.com"
+                className="flex items-center text-gray-300 font-inter hover:text-agri-yellow transition-colors"
+                aria-label="Send us an email"
+              >
                 <Mail className="h-4 w-4 mr-2 text-agri-green" />
                 info@agritourismadventures.com
-              </div>
-              <div className="flex items-center text-gray-300 font-inter">
+              </a>
+              <a 
+                href="tel:+254710429755"
+                className="flex items-center text-gray-300 font-inter hover:text-agri-yellow transition-colors"
+                aria-label="Call us"
+              >
                 <Phone className="h-4 w-4 mr-2 text-agri-green" />
                 +254710429755
-              </div>
+              </a>
             </div>
             <div className="mt-6">
               <h5 className="font-poppins font-semibold mb-2">Legal Documents</h5>

@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
-import { Clock, MapPin, Users, Check, MessageCircle, User, Phone } from 'lucide-react';
+import { Clock, MapPin, Users, Check, MessageCircle, User, Phone, ExternalLink } from 'lucide-react';
 
 interface Tour {
   id: number;
@@ -15,6 +15,7 @@ interface Tour {
   fullDescription: string;
   itinerary: string[];
   includes: string[];
+  externalLinks?: { title: string; url: string }[];
 }
 
 interface TourDetailModalProps {
@@ -171,6 +172,30 @@ Thank you! 🙏`;
                     ))}
                   </ul>
                 </div>
+
+                {/* External Links */}
+                {tour.externalLinks && tour.externalLinks.length > 0 && (
+                  <div className="mb-6">
+                    <h3 className="text-xl font-poppins font-bold text-agri-dark mb-3">
+                      Authoritative Resources
+                    </h3>
+                    <div className="space-y-3">
+                      {tour.externalLinks.map((link, index) => (
+                        <a
+                          key={index}
+                          href={link.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-start text-agri-teal hover:text-agri-green font-inter transition-colors group"
+                          aria-label={`Learn more about ${link.title}`}
+                        >
+                          <ExternalLink className="h-4 w-4 mr-2 mt-1 flex-shrink-0 group-hover:scale-110 transition-transform" />
+                          <span className="leading-relaxed">{link.title}</span>
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
 

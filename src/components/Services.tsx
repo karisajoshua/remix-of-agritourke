@@ -1,5 +1,6 @@
 import { CheckCircle, Truck, Camera, Users, GraduationCap, Home, Mountain, Bus } from 'lucide-react';
 import { useContentProtection } from '@/hooks/useContentProtection';
+import { Link } from 'react-router-dom';
 
 const Services = () => {
   // Enable content protection
@@ -34,16 +35,52 @@ const Services = () => {
 
         {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-          {services.map((service, index) => (
-            <div key={index} className="bg-white rounded-lg p-6 shadow-lg">
-              <div className="flex items-center mb-3">
-                <CheckCircle className="h-5 w-5 text-agri-green mr-3 flex-shrink-0" />
-                <span className="text-lg font-inter font-semibold text-agri-dark">
-                  {service}
-                </span>
-              </div>
-            </div>
-          ))}
+          {services.map((service, index) => {
+            // Map services to tour categories
+            const categoryMap: { [key: string]: string } = {
+              "Kenya Farm Tours": "Farm%20Tours",
+              "Farm Stays": "Farm%20Tours", 
+              "Agricultural Safaris": "Safari%20%26%20Wildlife",
+              "Educational Workshops and Activities": "Educational%20Tours",
+              "Industry Trade Shows and Conferences": "Educational%20Tours",
+              "Cultural and Sightseeing Tours": "Cultural%20%26%20Urban",
+              "Agri-research Tours": "Educational%20Tours",
+              "School and Student Tours": "Educational%20Tours"
+            };
+
+            const category = categoryMap[service];
+
+            if (category) {
+              return (
+                <Link
+                  key={index}
+                  to={`/tours?category=${category}`}
+                  className="bg-white rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow cursor-pointer"
+                >
+                  <div className="flex items-center mb-3">
+                    <CheckCircle className="h-5 w-5 text-agri-green mr-3 flex-shrink-0" />
+                    <span className="text-lg font-inter font-semibold text-agri-dark hover:text-agri-teal transition-colors">
+                      {service}
+                    </span>
+                  </div>
+                </Link>
+              );
+            } else {
+              return (
+                <div
+                  key={index}
+                  className="bg-white rounded-lg p-6 shadow-lg"
+                >
+                  <div className="flex items-center mb-3">
+                    <CheckCircle className="h-5 w-5 text-agri-green mr-3 flex-shrink-0" />
+                    <span className="text-lg font-inter font-semibold text-agri-dark">
+                      {service}
+                    </span>
+                  </div>
+                </div>
+              );
+            }
+          })}
         </div>
 
         <div className="text-center">
