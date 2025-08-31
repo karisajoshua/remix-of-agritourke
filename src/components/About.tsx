@@ -87,7 +87,7 @@ const About = () => {
             
             <div className="relative">
               <img
-                src="https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Fair%20view/community-based-tourism.webp"
+                src="https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/More%20Tea.webp"
                 alt="Community farming activities"
                 className="rounded-lg shadow-2xl w-full h-96 object-cover"
               />
