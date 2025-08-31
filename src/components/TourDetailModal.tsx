@@ -177,7 +177,7 @@ Thank you! 🙏`;
                 {tour.externalLinks && tour.externalLinks.length > 0 && (
                   <div className="mb-6">
                     <h3 className="text-xl font-poppins font-bold text-agri-dark mb-3">
-                      Authoritative Resources
+                      Resources
                     </h3>
                     <div className="space-y-3">
                       {tour.externalLinks.map((link, index) => (

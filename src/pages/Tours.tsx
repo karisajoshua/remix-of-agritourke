@@ -495,7 +495,7 @@ const Tours = () => {
                   {tour.externalLinks && tour.externalLinks.length > 0 && (
                     <div className="mb-4">
                       <h4 className="text-sm font-inter font-semibold text-agri-dark mb-2">
-                        Learn More:
+                        Resources:
                       </h4>
                       <div className="space-y-1">
                         {tour.externalLinks.slice(0, 2).map((link, index) => (
