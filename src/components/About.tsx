@@ -266,11 +266,18 @@ const About = () => {
             <Button 
               size="lg"
               variant="outline"
-              onClick={() => navigate('/contact')}
+              asChild
               className="border-agri-green text-agri-green hover:bg-agri-green hover:text-white font-inter font-semibold px-8"
             >
-              Partner With Us
-              <Users className="ml-2 h-4 w-4" />
+              <a 
+                href="mailto:info@agritourismadventures.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                aria-label="Partner with us via email"
+              >
+                Partner With Us
+                <Users className="ml-2 h-4 w-4" />
+              </a>
             </Button>
           </div>
         </div>

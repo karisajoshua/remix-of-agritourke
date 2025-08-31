@@ -61,9 +61,15 @@ const Services = () => {
             Contact us today to customize your perfect agritourism experience in Kenya.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-agri-green hover:bg-gray-100 px-8 py-4 rounded-lg font-inter font-semibold text-lg transition-colors">
+            <a 
+              href="https://wa.me/254710429755" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="bg-white text-agri-green hover:bg-gray-100 px-8 py-4 rounded-lg font-inter font-semibold text-lg transition-colors inline-block"
+              aria-label="Get custom quote via WhatsApp"
+            >
               Get Custom Quote
-            </button>
+            </a>
             <button className="border-2 border-white text-white hover:bg-white hover:text-agri-green px-8 py-4 rounded-lg font-inter font-semibold text-lg transition-colors">
               Download Brochure
             </button>
