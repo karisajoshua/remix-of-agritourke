@@ -138,7 +138,7 @@ Thank you! 🙏`;
                     About This Tour
                   </h3>
                   <p className="text-gray-600 font-inter leading-relaxed mb-4">
-                    {tour.description}
+                    <span dangerouslySetInnerHTML={{ __html: tour.description }} />
                   </p>
                   <p className="text-gray-600 font-inter leading-relaxed">
                     {tour.fullDescription}
@@ -172,30 +172,6 @@ Thank you! 🙏`;
                     ))}
                   </ul>
                 </div>
-
-                {/* External Links */}
-                {tour.externalLinks && tour.externalLinks.length > 0 && (
-                  <div className="mb-6">
-                    <h3 className="text-xl font-poppins font-bold text-agri-dark mb-3">
-                      Resources
-                    </h3>
-                    <div className="space-y-3">
-                      {tour.externalLinks.map((link, index) => (
-                        <a
-                          key={index}
-                          href={link.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-start text-agri-teal hover:text-agri-green font-inter transition-colors group"
-                          aria-label={`Learn more about ${link.title}`}
-                        >
-                          <ExternalLink className="h-4 w-4 mr-2 mt-1 flex-shrink-0 group-hover:scale-110 transition-transform" />
-                          <span className="leading-relaxed">{link.title}</span>
-                        </a>
-                      ))}
-                    </div>
-                  </div>
-                )}
               </div>
             </div>
 

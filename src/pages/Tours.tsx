@@ -28,7 +28,7 @@ const Tours = () => {
       location: "Naivasha",
       participants: "4-150 people",
       image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Fair%20view/The%20Crew.webp",
-      description: "Ever wondered where the stunning roses that grace European castles, luxury events, and world-class floral boutiques come from? Welcome to our Flower Farm Tour in Naivasha—a journey into the heart of Kenya's blossoming floriculture industry.",
+      description: "Ever wondered where the stunning roses that grace European castles, luxury events, and world-class floral boutiques come from? Welcome to our Flower Farm Tour in Naivasha—a journey into the heart of Kenya's blossoming floriculture industry. Learn more from the <a href='https://kenyaflowercouncil.org/' target='_blank' rel='noopener noreferrer' class='text-agri-teal hover:text-agri-green underline'>Kenya Flower Council</a>, the official industry authority, and discover export guidelines from the <a href='https://www.epc.go.ke/' target='_blank' rel='noopener noreferrer' class='text-agri-teal hover:text-agri-green underline'>Kenya Export Promotion Council</a>.",
       category: "Farm Tours",
       featured: false,
       fullDescription: "Kenya is one of the world's leading exporters of cut flowers, with roses making up over 80% of the floral export market. Through this immersive tour, you'll explore where it all begins—on lush farms nestled between Lake Naivasha and Lake Nakuru, in one of Kenya's richest agricultural zones. You'll visit some of the most reputable flower farms in the region, where premium roses are cultivated for export to top-tier markets and global florists source the blooms used in iconic arrangements.",
@@ -54,7 +54,7 @@ const Tours = () => {
       location: "Countryside",
       participants: "4-160 people",
       image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Fair%20view/Tea%20farmers.webp",
-      description: "Experience Sereni-Tea. Escape the bustle of the city and dive into a full-day 2-in-1 farm experience—a tea and cheese safari that will leave your senses delighted and your soul refreshed.",
+      description: "Experience Sereni-Tea. Escape the bustle of the city and dive into a full-day 2-in-1 farm experience—a tea and cheese safari that will leave your senses delighted and your soul refreshed. Discover more about Kenya's tea industry from the <a href='https://www.ktdateas.com/' target='_blank' rel='noopener noreferrer' class='text-agri-teal hover:text-agri-green underline'>Kenya Tea Development Agency</a> and learn about dairy regulations from the <a href='https://kdb.co.ke/' target='_blank' rel='noopener noreferrer' class='text-agri-teal hover:text-agri-green underline'>Kenya Dairy Board</a>.",
       category: "Farm Tours",
       featured: false,
       fullDescription: "Begin the journey at 9:00 AM, departing Nairobi and heading into the cool, green highlands. After a scenic 2-hour drive, arrive at the tea farm for a light breakfast. Over fresh farm-grown tea, our friendly hosts will share the fascinating history of the estate and what makes Kenyan tea so globally loved.",
@@ -84,7 +84,7 @@ const Tours = () => {
       location: "Central Kenya",
       participants: "4-70 people",
       image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Fair%20view/Intro-2.webp",
-      description: "Embrace the Calm Within. A comprehensive journey through Kenya's diverse agricultural landscape, from Mount Kenya to Thompson Falls.",
+      description: "Embrace the Calm Within. A comprehensive journey through Kenya's diverse agricultural landscape, from Mount Kenya to Thompson Falls. Experience certified wildlife conservation with the <a href='https://www.kws.go.ke/' target='_blank' rel='noopener noreferrer' class='text-agri-teal hover:text-agri-green underline'>Kenya Wildlife Service</a> and explore tours certified by <a href='https://www.katokenya.org/' target='_blank' rel='noopener noreferrer' class='text-agri-teal hover:text-agri-green underline'>Kenya Association of Tour Operators</a>.",
       category: "Safari & Wildlife",
       featured: true,
       fullDescription: "A 9-day comprehensive agricultural safari that takes you through Kenya's most fertile regions. Experience diverse farming systems from flower and wheat farms near Mount Kenya to dairy farms in Nyahururu, combined with wildlife viewing at Sweetwaters Game Reserve and Solio Ranch.",
@@ -113,7 +113,7 @@ const Tours = () => {
       location: "Central Kenya Highlands",
       participants: "3-90 people",
       image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Mbuzi%20Farm/IMG_6935.webp",
-      description: "A Farm Like No Udder. Get ready for a day that blends nature, nourishment, and nostalgia. An organic farm visit is more than just a countryside escape—it's a hands-on experience that opens your heart to sustainable living and rural beauty.",
+      description: "A Farm Like No Udder. Get ready for a day that blends nature, nourishment, and nostalgia. An organic farm visit is more than just a countryside escape—it's a hands-on experience that opens your heart to sustainable living and rural beauty. Learn about certified organic standards from the <a href='https://www.koan.co.ke/' target='_blank' rel='noopener noreferrer' class='text-agri-teal hover:text-agri-green underline'>Kenya Organic Agriculture Network</a> and explore sustainable practices with <a href='https://www.fao.org/kenya/en/' target='_blank' rel='noopener noreferrer' class='text-agri-teal hover:text-agri-green underline'>FAO Kenya</a>.",
       category: "Farm Tours",
       featured: false,
       fullDescription: "Whether you're seeking quiet reflection or family fun, this visit offers something for everyone. Meet our friendly team and fellow explorers at Nairobi's CBD, then hop into our ride as we begin the scenic 1-hour drive to the village.",
@@ -142,7 +142,7 @@ const Tours = () => {
       location: "Central Kenya Highlands",
       participants: "2-150 people",
       image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Fair%20view/coffee%20and%20dairy%20tour.webp",
-      description: "Make Every Sip an Adventure. Ready for your next farm vacation? Let's dive into nature, heritage, and a cup of fresh, farm-grown coffee. This unique coffee and dairy farm tour offers the perfect blend of relaxation, learning, and adventure.",
+      description: "Make Every Sip an Adventure. Ready for your next farm vacation? Let's dive into nature, heritage, and a cup of fresh, farm-grown coffee. This unique coffee and dairy farm tour offers the perfect blend of relaxation, learning, and adventure. Discover quality standards from the <a href='https://www.coffeeboard.co.ke/' target='_blank' rel='noopener noreferrer' class='text-agri-teal hover:text-agri-green underline'>Coffee Board of Kenya</a> and learn about specialty coffee from the <a href='https://sca.coffee/' target='_blank' rel='noopener noreferrer' class='text-agri-teal hover:text-agri-green underline'>Specialty Coffee Association</a>.",
       category: "Farm Tours",
       featured: true,
       fullDescription: "We'll pick you up from your hotel in Nairobi at 8:00 AM. Just a short drive away, you'll find a hidden gem — a peaceful estate wrapped in vibrant coffee fields, steeped in rich history, and set against a backdrop of breathtaking scenery. This isn't just a farm visit — it’s an experience. With its thoughtful management and warm atmosphere, the estate invites you to explore, relax, and discover the stories behind every bean.",
@@ -171,7 +171,7 @@ const Tours = () => {
       location: "Nairobi",
       participants: "5-30 people",
       image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Matatu/matatu%20tourims.jpg",
-      description: "Ride Through the Urban Jungle in Style. Matatu tourism is one of the most vibrant and unexpected highlights of urban Kenya. These graffiti-covered, music-blasting minibuses are a cultural experience like no other.",
+      description: "Ride Through the Urban Jungle in Style. Matatu tourism is one of the most vibrant and unexpected highlights of urban Kenya. These graffiti-covered, music-blasting minibuses are a cultural experience like no other. Explore Kenya's cultural heritage with <a href='https://www.magicalkenya.com/' target='_blank' rel='noopener noreferrer' class='text-agri-teal hover:text-agri-green underline'>Magical Kenya</a> and learn more from the <a href='https://museums.or.ke/' target='_blank' rel='noopener noreferrer' class='text-agri-teal hover:text-agri-green underline'>Kenya Museums Society</a>.",
       category: "Cultural & Urban",
       featured: false,
       fullDescription: "Also known as 'ma3' or 'nganya' in local slang, matatus have evolved from simple public transport to iconic, moving works of art since their inception in the 1960s. They are more than just a ride—they're a party on wheels, a voice of youth culture, and an economic engine.",
@@ -199,7 +199,7 @@ const Tours = () => {
       location: "Central Kenya",
       participants: "4-50 people",
       image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Pineaples/Nanasi%20Splash.png",
-      description: "Life Is Sweet, Just Like Pineapples. If you've never tasted a pineapple straight from the field—warm from the sun, sliced fresh with a machete, juice trickling down your chin—this is your moment.",
+      description: "Life Is Sweet, Just Like Pineapples. If you've never tasted a pineapple straight from the field—warm from the sun, sliced fresh with a machete, juice trickling down your chin—this is your moment. Learn about fresh produce exports from <a href='https://www.fpeak.org/' target='_blank' rel='noopener noreferrer' class='text-agri-teal hover:text-agri-green underline'>Fresh Produce Exporters Association</a> and explore historical documentation at <a href='https://www.nationalarchives.go.ke/' target='_blank' rel='noopener noreferrer' class='text-agri-teal hover:text-agri-green underline'>Kenya National Archives</a>.",
       category: "Regional Experiences",
       featured: false,
       fullDescription: "Welcome to the Nanasi Tour, a refreshing agritourism experience in Central Kenya, where every bite tells a story and every visit feels like a hidden treasure waiting to be discovered. Set in the heart of Gatundu North, this tour is more than just a snack stop—it's an immersion into the vibrant agricultural lifestyle of Central Kenya.",
@@ -227,7 +227,7 @@ const Tours = () => {
       location: "Ngong Hills",
       participants: "4-80 people",
       image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Mbuzi%20Farm/Ngong%20adrenaline.webp",
-      description: "We Turn Moments Into Memories. Nestled in the breathtaking Rift Valley, Ngong Hills are among Kenya's most exhilarating adventure destinations. The cool, high-altitude breeze, rolling green hills, and sweeping views make this a fairytale escape.",
+      description: "We Turn Moments Into Memories. Nestled in the breathtaking Rift Valley, Ngong Hills are among Kenya's most exhilarating adventure destinations. The cool, high-altitude breeze, rolling green hills, and sweeping views make this a fairytale escape. Forest conservation is managed by the <a href='https://www.kenyaforestservice.org/' target='_blank' rel='noopener noreferrer' class='text-agri-teal hover:text-agri-green underline'>Kenya Forest Service</a> with tourism development supported by <a href='https://www.kajiado.go.ke/' target='_blank' rel='noopener noreferrer' class='text-agri-teal hover:text-agri-green underline'>Kajiado County Government</a>.",
       category: "Regional Experiences",
       featured: true,
       fullDescription: "Meet at International House parking lot (CBD) at 8:00 AM, and after a quick meet-and-greet, we'll hit the road by 8:30 AM. Our journey takes us past Maasai villages and through scenic terrain, with a short stop for teambuilding exercises to shake off the chill of the highlands.",
@@ -257,7 +257,7 @@ const Tours = () => {
       location: "Central Kenya Highlands",
       participants: "3-90 people",
       image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Mbuzi%20Farm/IMG_6923.webp",
-      description: "Nature's Baaa-utiful Business. Ready to embark on a unique and enriching farm adventure? Welcome to our Goat Farm Tour — where learning, laughter, and sustainability come together in the heart of Kenya's countryside.",
+      description: "Nature's Baaa-utiful Business. Ready to embark on a unique and enriching farm adventure? Welcome to our Goat Farm Tour — where learning, laughter, and sustainability come together in the heart of Kenya's countryside. Industry standards are maintained by the <a href='https://www.kgba.co.ke/' target='_blank' rel='noopener noreferrer' class='text-agri-teal hover:text-agri-green underline'>Kenya Goat Breeders Association</a> with research supported by <a href='https://www.worldagroforestry.org/region/kenya' target='_blank' rel='noopener noreferrer' class='text-agri-teal hover:text-agri-green underline'>World Agroforestry</a>.",
       category: "Farm Tours",
       featured: false,
       fullDescription: "Our journey begins at 7:00 AM in Nairobi's CBD. It's a scenic 2-hour drive filled with music, photo stops, and stretch breaks. We arrive at the farm around 9:30 AM, just in time to enjoy a warm welcome from the host, a cup of tea, and some light farm snacks.",
@@ -287,7 +287,7 @@ const Tours = () => {
       location: "Kajiado County",
       participants: "6-30 people",
       image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Farm%20expo%202023/Peek-a-boo.webp",
-      description: "Satisfy Your Natural Curiosity in a Furry Adventure. Welcome to the Maasai Ostrich Farm Tour! Get ready for an unforgettable day filled with nature, laughter, and a dash of adrenaline.",
+      description: "Satisfy Your Natural Curiosity in a Furry Adventure. Welcome to the Maasai Ostrich Farm Tour! Get ready for an unforgettable day filled with nature, laughter, and a dash of adrenaline. Learn about ostrich farming from the <a href='https://www.klbo.co.ke/' target='_blank' rel='noopener noreferrer' class='text-agri-teal hover:text-agri-green underline'>Kenya Livestock Breeders Organization</a> and explore cultural tourism with the <a href='https://www.maasaimaraassociation.org/' target='_blank' rel='noopener noreferrer' class='text-agri-teal hover:text-agri-green underline'>Maasai Mara Association</a>.",
       category: "Farm Tours",
       featured: false,
       fullDescription: "Meet our friendly team and fellow explorers in Nairobi city center. Together, we'll head to beautiful Kajiado County, home of the famous Maasai Ostrich Farm. Upon arrival, we'll start with a guided walk through the vegetable gardens.",
@@ -315,7 +315,7 @@ const Tours = () => {
       location: "Countryside",
       participants: "4-30 people",
       image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Pigs/Pigs%20on%20a%20farm.png",
-      description: "Bacon Begins Here. Pig farming isn't just a profitable venture—it's a fascinating adventure into the world of animals, especially when experienced firsthand in the serene countryside.",
+      description: "Bacon Begins Here. Pig farming isn't just a profitable venture—it's a fascinating adventure into the world of animals, especially when experienced firsthand in the serene countryside. Industry standards are maintained by the <a href='https://www.kpba.co.ke/' target='_blank' rel='noopener noreferrer' class='text-agri-teal hover:text-agri-green underline'>Kenya Pig Breeders Association</a> with safety guidelines from <a href='https://www.kebs.org/' target='_blank' rel='noopener noreferrer' class='text-agri-teal hover:text-agri-green underline'>Kenya Bureau of Standards</a>.",
       category: "Farm Tours",
       featured: false,
       fullDescription: "Far from the noise of the city, this one-day, one-night tour will leave you informed, inspired, and fully entertained. Meet your fellow travelers in the city center and begin your scenic 1.5-hour drive to the farm.",
@@ -345,7 +345,7 @@ const Tours = () => {
       location: "Various Locations",
       participants: "15-50 students",
       image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/2025%20agri%20expo/Farm%20Machinery.webp",
-      description: "Travel Smart, Learn More. STEM—Science, Technology, Engineering, and Mathematics—is a powerful, hands-on educational approach that's transforming the way learners understand the world.",
+      description: "Travel Smart, Learn More. STEM—Science, Technology, Engineering, and Mathematics—is a powerful, hands-on educational approach that's transforming the way learners understand the world. Learn more from the <a href='https://kicd.ac.ke/' target='_blank' rel='noopener noreferrer' class='text-agri-teal hover:text-agri-green underline'>Kenya Institute of Curriculum Development</a> and explore research excellence with <a href='https://knas.ac.ke/' target='_blank' rel='noopener noreferrer' class='text-agri-teal hover:text-agri-green underline'>Kenya National Academy of Sciences</a>.",
       category: "Educational Tours",
       featured: true,
       fullDescription: "Since its national rollout in Kenya in 2019, STEM has become a strategic pillar in achieving Vision 2030. At Agritourism Adventures, we align with this vision by offering educational tours that immerse learners in real-world knowledge across Kenya's thriving industries.",
@@ -373,7 +373,7 @@ const Tours = () => {
       location: "Various Romantic Destinations",
       participants: "1-50 couples",
       image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Fair%20view/Intro.webp",
-      description: "It's a Date Worth the Escape. Bonding tourism is all about deepening emotional connections through immersive, shared experiences. Whether it's families reconnecting, couples rekindling romance, or friends creating unforgettable memories.",
+      description: "It's a Date Worth the Escape. Bonding tourism is all about deepening emotional connections through immersive, shared experiences. Whether it's families reconnecting, couples rekindling romance, or friends creating unforgettable memories. Explore certified tourism with <a href='https://www.katakenya.org/' target='_blank' rel='noopener noreferrer' class='text-agri-teal hover:text-agri-green underline'>Kenya Association of Travel Agents</a> and discover romantic destinations through <a href='https://www.ktb.go.ke/' target='_blank' rel='noopener noreferrer' class='text-agri-teal hover:text-agri-green underline'>Kenya Tourism Board</a>.",
       category: "Cultural & Urban",
       featured: false,
       fullDescription: "We design every bonding experience with value, comfort, and impact in mind—curating meaningful itineraries that nurture relationships and encourage repeat visits. From scenic safaris to heartfelt conversations, every moment becomes a memory.",
@@ -472,7 +472,7 @@ const Tours = () => {
                     {tour.title}
                   </h3>
                   <p className="text-gray-600 font-inter mb-4 leading-relaxed">
-                    {tour.description}
+                    <span dangerouslySetInnerHTML={{ __html: tour.description }} />
                   </p>
 
                   {/* Tour Details */}
@@ -490,30 +490,6 @@ const Tours = () => {
                       {tour.participants}
                     </div>
                   </div>
-
-                  {/* External Links */}
-                  {tour.externalLinks && tour.externalLinks.length > 0 && (
-                    <div className="mb-4">
-                      <h4 className="text-sm font-inter font-semibold text-agri-dark mb-2">
-                        Resources:
-                      </h4>
-                      <div className="space-y-1">
-                        {tour.externalLinks.slice(0, 2).map((link, index) => (
-                          <a
-                            key={index}
-                            href={link.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-xs text-agri-teal hover:text-agri-green font-inter flex items-center transition-colors"
-                            aria-label={`Learn more about ${link.title}`}
-                          >
-                            <ExternalLink className="h-3 w-3 mr-1 flex-shrink-0" />
-                            <span className="truncate">{link.title}</span>
-                          </a>
-                        ))}
-                      </div>
-                    </div>
-                  )}
 
                   {/* CTA Button */}
                   <Button 
