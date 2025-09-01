@@ -74,9 +74,13 @@ const Partners = () => {
               Join our network of partners committed to sustainable agritourism and 
               community development in Kenya.
             </p>
-            <Link to="/#contact" className="bg-agri-green hover:bg-agri-green/90 text-white px-8 py-3 rounded-lg font-inter font-semibold transition-colors inline-block">
+            <a
+              href="mailto:info@agritourismadventures.com?subject=Partnership%20Inquiry%20-%20AgriTourism%20Adventures&body=Hello%20AgriTourism%20Adventures%20Team,%0D%0A%0D%0AWe're%20interested%20in%20a%20partnership.%20Here%20are%20our%20details:%0D%0A-%20Organization%20name:%0D%0A-%20Contact%20person:%0D%0A-%20Phone:%0D%0A-%20Partnership%20interest:%0D%0A%0D%0AThanks!"
+              aria-label="Email us about partnerships"
+              className="bg-agri-green hover:bg-agri-green/90 text-white px-8 py-3 rounded-lg font-inter font-semibold transition-colors inline-block"
+            >
               Become a Partner
-            </Link>
+            </a>
             <p className="text-sm text-gray-500 font-inter mt-4">
               <Link to="/about" className="text-agri-green hover:text-agri-green/80 underline">Learn more about us</Link> and our sustainable tourism approach.
             </p>
