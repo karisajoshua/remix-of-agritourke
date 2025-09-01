@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { Heart, Users, Leaf, ArrowRight, User } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 const About = () => {
@@ -13,7 +13,7 @@ const About = () => {
             </h2>
             <p className="text-xl text-gray-600 font-inter max-w-4xl mx-auto leading-relaxed">
               Founded on the belief that authentic experiences create lasting memories, 
-              we bridge the gap between curious travelers and Kenya's vibrant farming communities.
+              we bridge the gap between curious <Link to="/tours" className="text-agri-green hover:text-agri-green/80 underline">travelers</Link> and Kenya's vibrant farming communities.
             </p>
           </div>
 
@@ -25,7 +25,7 @@ const About = () => {
                 Authentic Connections
               </h3>
               <p className="text-gray-600 font-inter leading-relaxed">
-                We facilitate genuine interactions between travelers and local farming families, 
+                We facilitate genuine interactions between travelers and local <Link to="/gallery" className="text-agri-green hover:text-agri-green/80 underline">farming families</Link>, 
                 creating meaningful cultural exchanges that benefit everyone involved.
               </p>
             </div>
@@ -37,7 +37,7 @@ const About = () => {
               </h3>
               <p className="text-gray-600 font-inter leading-relaxed">
                 Every tour directly supports local communities through fair compensation, 
-                skill development, and sustainable tourism practices that preserve cultural heritage.
+                skill development, and <Link to="/services" className="text-agri-green hover:text-agri-green/80 underline">sustainable tourism practices</Link> that preserve cultural heritage.
               </p>
             </div>
 

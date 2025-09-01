@@ -6,6 +6,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Mail, Phone, MapPin, MessageCircle } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import { Link } from 'react-router-dom';
 
 const Contact = () => {
   const { toast } = useToast();
@@ -39,7 +40,7 @@ const Contact = () => {
           </h2>
           <p className="text-xl text-gray-600 font-inter max-w-3xl mx-auto leading-relaxed">
             Ready to embark on an unforgettable agritourism adventure? 
-            Get in touch and let's create your perfect Kenyan experience.
+            Get in touch and let's create your perfect Kenyan experience with our <Link to="/tours" className="text-agri-green hover:text-agri-green/80 underline">authentic tours</Link> and specialized <Link to="/services" className="text-agri-green hover:text-agri-green/80 underline">agricultural services</Link>.
           </p>
         </div>
 

@@ -1,4 +1,5 @@
 import { TrendingUp, Users, Leaf, Heart } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Impact = () => {
   const stats = [
@@ -37,8 +38,8 @@ const Impact = () => {
             Travel That Gives Back
           </h2>
           <p className="text-xl text-gray-600 font-inter max-w-4xl mx-auto leading-relaxed">
-            Every journey strengthens communities, honors tradition, and promotes environmental 
-            sustainability. Agritourism helps preserve ancestral wisdom while <a href="https://sdgs.un.org/topics/food-security-and-nutrition-and-sustainable-agriculture#:~:text=The%20Sustainable%20Development%20Goal%20to,rural%20poverty%2C%20ensuring%20healthy%20lifestyles%2C" target="_blank" rel="noopener noreferrer" className="text-agri-green hover:text-agri-green/80 underline">supporting local economies</a>.
+            Every journey <Link to="/about" className="text-agri-green hover:text-agri-green/80 underline">strengthens communities</Link>, honors tradition, and promotes environmental 
+            sustainability. Our <Link to="/services" className="text-agri-green hover:text-agri-green/80 underline">agritourism services</Link> help preserve ancestral wisdom while <a href="https://sdgs.un.org/topics/food-security-and-nutrition-and-sustainable-agriculture#:~:text=The%20Sustainable%20Development%20Goal%20to,rural%20poverty%2C%20ensuring%20healthy%20lifestyles%2C" target="_blank" rel="noopener noreferrer" className="text-agri-green hover:text-agri-green/80 underline">supporting local economies</a>.
           </p>
         </div>
 
@@ -75,7 +76,7 @@ const Impact = () => {
                   </h4>
                   <p className="text-gray-600 font-inter leading-relaxed">
                     Our tours promote sustainable farming practices and environmental 
-                    awareness, helping preserve Kenya's natural heritage for future generations.
+                    awareness, helping preserve Kenya's natural heritage for future generations. <Link to="/about" className="text-agri-green hover:text-agri-green/80 underline">Learn more about our mission</Link>.
                   </p>
                 </div>
               </div>

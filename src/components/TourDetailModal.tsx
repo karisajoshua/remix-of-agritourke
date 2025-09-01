@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import { Clock, MapPin, Users, Check, MessageCircle, User, Phone, ExternalLink } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 interface Tour {
   id: number;
@@ -12,6 +13,7 @@ interface Tour {
   participants: string;
   image: string;
   description: string;
+  category: string;
   fullDescription: string;
   itinerary: string[];
   includes: string[];
@@ -140,8 +142,18 @@ Thank you! 🙏`;
                   <p className="text-gray-600 font-inter leading-relaxed mb-4">
                     <span dangerouslySetInnerHTML={{ __html: tour.description }} />
                   </p>
-                  <p className="text-gray-600 font-inter leading-relaxed">
+                  <p className="text-gray-600 font-inter leading-relaxed mb-4">
                     {tour.fullDescription}
+                  </p>
+                  <p className="text-sm text-gray-500 font-inter">
+                    <Link to={`/tours?category=${encodeURIComponent(tour.category)}`} className="text-agri-green hover:text-agri-green/80 underline">
+                      See more {tour.category} tours
+                    </Link>
+                    {" • "}
+                    <Link to="/#contact" className="text-agri-green hover:text-agri-green/80 underline">
+                      Contact us
+                    </Link>
+                    {" for custom arrangements."}
                   </p>
                 </div>
 

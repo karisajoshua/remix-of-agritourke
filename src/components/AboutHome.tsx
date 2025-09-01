@@ -1,7 +1,7 @@
 
 import { Users, Award, Heart, Leaf } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 
 const AboutHome = () => {
@@ -40,7 +40,7 @@ const AboutHome = () => {
           </h2>
           <p className="text-xl text-gray-600 font-inter max-w-4xl mx-auto leading-relaxed">
             For 7+ years, we've built bridges between travelers and farmers through authentic, 
-            hands-on <a href="https://sarep.ucdavis.edu/sustainable-ag/agritourism" target="_blank" rel="noopener noreferrer" className="text-agri-green hover:text-agri-green/80 underline">agritourism</a>. Each trip supports communities, preserves tradition, 
+            hands-on <Link to="/tours" className="text-agri-green hover:text-agri-green/80 underline">agritourism experiences</Link>. Each trip supports communities, preserves tradition, 
             and shares Kenya's story with the world.
           </p>
         </div>
@@ -68,8 +68,8 @@ const AboutHome = () => {
             </p>
             <p className="text-lg text-gray-600 font-inter mb-6 leading-relaxed">
               We believe that travel should be transformative – not just for the traveler, 
-              but for the communities they visit. Through our carefully curated experiences, 
-              we showcase the innovation, dedication, and wisdom of Kenya's farmers.
+              but for the communities they visit. Through our carefully curated <Link to="/services" className="text-agri-green hover:text-agri-green/80 underline">agricultural services</Link>, 
+              we showcase the innovation, dedication, and wisdom of Kenya's farmers. <Link to="/#contact" className="text-agri-green hover:text-agri-green/80 underline">Contact us</Link> to learn more.
             </p>
             <div className="flex items-center text-agri-green font-inter font-semibold mb-6">
               <Heart className="h-5 w-5 mr-2" />

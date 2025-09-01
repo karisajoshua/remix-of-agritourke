@@ -5,6 +5,7 @@ import { Clock, MapPin, Users, ArrowRight, ExternalLink } from 'lucide-react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import TourDetailModal from '@/components/TourDetailModal';
+import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
 
 const Tours = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -404,7 +405,35 @@ const Tours = () => {
     <div className="min-h-screen">
       <Navigation />
       
-      <section className="pt-20 pb-20 bg-white">
+      {/* Breadcrumb */}
+      <div className="pt-20 pb-4 bg-white border-b">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Breadcrumb>
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link to="/">Home</Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage>Tours</BreadcrumbPage>
+              </BreadcrumbItem>
+              {activeFilter !== 'All' && (
+                <>
+                  <BreadcrumbSeparator />
+                  <BreadcrumbItem>
+                    <BreadcrumbPage>{activeFilter}</BreadcrumbPage>
+                  </BreadcrumbItem>
+                </>
+              )}
+            </BreadcrumbList>
+          </Breadcrumb>
+        </div>
+      </div>
+      
+      {/* Hero & Tours Section */}
+      <section className="py-16 bg-agri-grey">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
           <div className="text-center mb-16">
@@ -473,6 +502,14 @@ const Tours = () => {
                   </h3>
                   <p className="text-gray-600 font-inter mb-4 leading-relaxed">
                     <span dangerouslySetInnerHTML={{ __html: tour.description }} />
+                    {" "}
+                    <Link to={`/tours?category=${encodeURIComponent(tour.category)}`} className="text-agri-green hover:text-agri-green/80 underline">
+                      See more {tour.category} tours
+                    </Link>
+                    {" · "}
+                    <Link to="/services" className="text-agri-green hover:text-agri-green/80 underline">
+                      Explore our services
+                    </Link>
                   </p>
 
                   {/* Tour Details */}

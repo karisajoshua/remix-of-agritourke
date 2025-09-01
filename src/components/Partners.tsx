@@ -1,4 +1,6 @@
 
+import { Link } from 'react-router-dom';
+
 const Partners = () => {
   const partners = [
     {
@@ -72,9 +74,12 @@ const Partners = () => {
               Join our network of partners committed to sustainable agritourism and 
               community development in Kenya.
             </p>
-            <button className="bg-agri-green hover:bg-agri-green/90 text-white px-8 py-3 rounded-lg font-inter font-semibold transition-colors">
+            <Link to="/#contact" className="bg-agri-green hover:bg-agri-green/90 text-white px-8 py-3 rounded-lg font-inter font-semibold transition-colors inline-block">
               Become a Partner
-            </button>
+            </Link>
+            <p className="text-sm text-gray-500 font-inter mt-4">
+              <Link to="/about" className="text-agri-green hover:text-agri-green/80 underline">Learn more about us</Link> and our sustainable tourism approach.
+            </p>
           </div>
         </div>
       </div>

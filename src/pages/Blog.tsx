@@ -2,7 +2,8 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Calendar, User, ArrowRight, Heart, Users, Leaf, Clock, Phone, Mail } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
+import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
 
 const Blog = () => {
   const navigate = useNavigate();
@@ -99,8 +100,27 @@ const Blog = () => {
     <div className="min-h-screen bg-white">
       <Navigation />
       
+      {/* Breadcrumb */}
+      <div className="pt-20 pb-4 bg-white border-b">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Breadcrumb>
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link to="/">Home</Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage>Blog</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+        </div>
+      </div>
+      
       {/* Hero Section */}
-      <section className="pt-24 pb-16 bg-agri-grey">
+      <section className="py-16 bg-agri-grey">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-poppins font-bold text-agri-dark mb-6">
@@ -253,7 +273,7 @@ const Blog = () => {
           </h2>
           <p className="text-xl text-gray-600 font-inter max-w-4xl mx-auto leading-relaxed mb-8">
             Join us for an authentic <a href="https://www.rainforest-alliance.org/insights/what-is-sustainable-agriculture/" target="_blank" rel="noopener noreferrer" className="text-agri-green hover:text-agri-green/80 underline">sustainable farming experience</a> and discover the stories, 
-            traditions, and innovations that make Kenya's agricultural landscape extraordinary.
+            traditions, and innovations that make Kenya's agricultural landscape extraordinary. <Link to="/tours" className="text-agri-green hover:text-agri-green/80 underline">Explore our tours</Link> or <Link to="/services" className="text-agri-green hover:text-agri-green/80 underline">view our services</Link>.
           </p>
           
           {/* Stats */}

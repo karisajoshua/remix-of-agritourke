@@ -4,6 +4,8 @@ import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { X } from 'lucide-react';
 import { useContentProtection } from '@/hooks/useContentProtection';
+import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
+import { Link } from 'react-router-dom';
 
 const Gallery = () => {
   const [activeFilter, setActiveFilter] = useState('All');
@@ -369,8 +371,27 @@ const Gallery = () => {
     <div className="min-h-screen">
       <Navigation />
       
+      {/* Breadcrumb */}
+      <div className="pt-20 pb-4 bg-white border-b">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Breadcrumb>
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link to="/">Home</Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage>Gallery</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+        </div>
+      </div>
+      
       {/* Hero Section */}
-      <section className="relative pt-20 pb-16 bg-agri-grey">
+      <section className="relative py-16 bg-agri-grey">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-poppins font-bold text-agri-dark mb-6">
