@@ -55,7 +55,7 @@ const Tours = () => {
       location: "Countryside",
       participants: "4-160 people",
       image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Fair%20view/Tea%20farmers.webp",
-      description: "Experience Sereni-Tea. Escape the bustle of the city and dive into a full-day 2-in-1 farm experience—a tea and cheese safari that will leave your senses delighted and your soul refreshed. Discover more about Kenya's tea industry from the <a href='https://www.ktdateas.com/' target='_blank' rel='noopener noreferrer' class='text-agri-teal hover:text-agri-green underline'>Kenya Tea Development Agency</a> and learn about dairy regulations from the <a href='https://kdb.co.ke/' target='_blank' rel='noopener noreferrer' class='text-agri-teal hover:text-agri-green underline'>Kenya Dairy Board</a>.",
+      description: "Experience Sereni-Tea. Escape the bustle of the city and dive into a full-day 2-in-1 farm experience—a tea and cheese safari that will leave your senses delighted and your soul refreshed. Discover more about Kenya's tea industry from the <a href='https://www.ktdateas.com/' target='_blank' rel='noopener noreferrer' class='text-agri-teal hover:text-agri-green underline'>Kenya Tea Development Agency</a> and learn about dairy regulations from the <a href='https://eprocedures.investkenya.go.ke/media/The%20Dairy%20Industry%20Act%20Cap%20336.pdf?_sm_au_=iVVTZw6qZN4wW125KKQTWK37LBJkG' target='_blank' rel='noopener noreferrer' class='text-agri-teal hover:text-agri-green underline'>Kenya Investment Authority</a>.",
       category: "Farm Tours",
       featured: false,
       fullDescription: "Begin the journey at 9:00 AM, departing Nairobi and heading into the cool, green highlands. After a scenic 2-hour drive, arrive at the tea farm for a light breakfast. Over fresh farm-grown tea, our friendly hosts will share the fascinating history of the estate and what makes Kenyan tea so globally loved.",
@@ -75,7 +75,7 @@ const Tours = () => {
       externalLinks: [
         { title: "Kenya Tea Development Agency - Official Tea Authority", url: "https://www.ktdateas.com/" },
         { title: "Kenya Association of Manufacturers - Dairy Sector", url: "https://kam.co.ke/" },
-        { title: "Kenya Dairy Board - Official Dairy Regulation", url: "https://kdb.co.ke/" }
+        { title: "Kenya Investment Authority - Dairy Industry Act", url: "https://eprocedures.investkenya.go.ke/media/The%20Dairy%20Industry%20Act%20Cap%20336.pdf?_sm_au_=iVVTZw6qZN4wW125KKQTWK37LBJkG" }
       ]
     },
     {
@@ -143,7 +143,7 @@ const Tours = () => {
       location: "Central Kenya Highlands",
       participants: "2-150 people",
       image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Fair%20view/coffee%20and%20dairy%20tour.webp",
-      description: "Make Every Sip an Adventure. Ready for your next farm vacation? Let's dive into nature, heritage, and a cup of fresh, farm-grown coffee. This unique coffee and dairy farm tour offers the perfect blend of relaxation, learning, and adventure. Discover quality standards from the <a href='https://www.coffeeboard.co.ke/' target='_blank' rel='noopener noreferrer' class='text-agri-teal hover:text-agri-green underline'>Coffee Board of Kenya</a> and learn about specialty coffee from the <a href='https://sca.coffee/' target='_blank' rel='noopener noreferrer' class='text-agri-teal hover:text-agri-green underline'>Specialty Coffee Association</a>.",
+      description: "Make Every Sip an Adventure. Ready for your next farm vacation? Let's dive into nature, heritage, and a cup of fresh, farm-grown coffee. This unique coffee and dairy farm tour offers the perfect blend of relaxation, learning, and adventure. The <a href='https://www.afa.go.ke/home-coffee-directorate/' target='_blank' rel='noopener noreferrer' class='text-agri-teal hover:text-agri-green underline'>Agriculture and Food Authority invites you to discover all matters coffee: the rich story behind it, its regulations and what makes it so special</a>.",
       category: "Farm Tours",
       featured: true,
       fullDescription: "We'll pick you up from your hotel in Nairobi at 8:00 AM. Just a short drive away, you'll find a hidden gem — a peaceful estate wrapped in vibrant coffee fields, steeped in rich history, and set against a backdrop of breathtaking scenery. This isn't just a farm visit — it’s an experience. With its thoughtful management and warm atmosphere, the estate invites you to explore, relax, and discover the stories behind every bean.",
@@ -160,7 +160,7 @@ const Tours = () => {
       ],
       includes: ["Hotel pickup", "Estate activities", "Coffee processing experience", "Dairy farm visit", "Take-home coffee", "All activities"],
       externalLinks: [
-        { title: "Coffee Board of Kenya - Official Coffee Authority", url: "https://www.coffeeboard.co.ke/" },
+        { title: "Agriculture and Food Authority - Coffee Directorate", url: "https://www.afa.go.ke/home-coffee-directorate/" },
         { title: "Kenya Coffee Producers & Traders Association", url: "https://www.kcpta.com/" },
         { title: "Specialty Coffee Association - Quality Standards", url: "https://sca.coffee/" }
       ]
@@ -258,7 +258,7 @@ const Tours = () => {
       location: "Central Kenya Highlands",
       participants: "3-90 people",
       image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Mbuzi%20Farm/IMG_6923.webp",
-      description: "Nature's Baaa-utiful Business. Ready to embark on a unique and enriching farm adventure? Welcome to our Goat Farm Tour — where learning, laughter, and sustainability come together in the heart of Kenya's countryside. Industry standards are maintained by the <a href='https://www.kgba.co.ke/' target='_blank' rel='noopener noreferrer' class='text-agri-teal hover:text-agri-green underline'>Kenya Goat Breeders Association</a> with research supported by <a href='https://www.worldagroforestry.org/region/kenya' target='_blank' rel='noopener noreferrer' class='text-agri-teal hover:text-agri-green underline'>World Agroforestry</a>.",
+      description: "Nature's Baaa-utiful Business. Ready to embark on a unique and enriching farm adventure? Welcome to our Goat Farm Tour — where learning, laughter, and sustainability come together in the heart of Kenya's countryside. <a href='https://www.farmafrica.org/our-work/specific-expertise/goat-rearing/' target='_blank' rel='noopener noreferrer' class='text-agri-teal hover:text-agri-green underline'>Embark on an unforgettable journey to learn about goats from Farm Africa</a>, supported by expert research at the <a href='https://kilimo.go.ke/wp-content/uploads/2024/08/CATALOGUE-BREEDS-PUBLISHED-VERSION.pdf' target='_blank' rel='noopener noreferrer' class='text-agri-teal hover:text-agri-green underline'>Ministry of Agriculture and Livestock Development</a>.",
       category: "Farm Tours",
       featured: false,
       fullDescription: "Our journey begins at 7:00 AM in Nairobi's CBD. It's a scenic 2-hour drive filled with music, photo stops, and stretch breaks. We arrive at the farm around 9:30 AM, just in time to enjoy a warm welcome from the host, a cup of tea, and some light farm snacks.",
@@ -276,8 +276,8 @@ const Tours = () => {
       ],
       includes: ["Transportation", "Farm education", "Goat interaction", "Garden tour", "Dairy experience", "Traditional lunch"],
       externalLinks: [
-        { title: "Kenya Goat Breeders Association - Industry Standards", url: "https://www.kgba.co.ke/" },
-        { title: "International Centre for Research in Agroforestry", url: "https://www.worldagroforestry.org/region/kenya" },
+        { title: "Farm Africa - Goat Rearing Expertise", url: "https://www.farmafrica.org/our-work/specific-expertise/goat-rearing/" },
+        { title: "Ministry of Agriculture and Livestock Development - Breeds Catalogue", url: "https://kilimo.go.ke/wp-content/uploads/2024/08/CATALOGUE-BREEDS-PUBLISHED-VERSION.pdf" },
         { title: "Kenya Agricultural Research Institute - Livestock Division", url: "https://www.kalro.org/" }
       ]
     },
@@ -288,7 +288,7 @@ const Tours = () => {
       location: "Kajiado County",
       participants: "6-30 people",
       image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Farm%20expo%202023/Peek-a-boo.webp",
-      description: "Satisfy Your Natural Curiosity in a Furry Adventure. Welcome to the Maasai Ostrich Farm Tour! Get ready for an unforgettable day filled with nature, laughter, and a dash of adrenaline. Learn about ostrich farming from the <a href='https://www.klbo.co.ke/' target='_blank' rel='noopener noreferrer' class='text-agri-teal hover:text-agri-green underline'>Kenya Livestock Breeders Organization</a> and explore cultural tourism with the <a href='https://www.maasaimaraassociation.org/' target='_blank' rel='noopener noreferrer' class='text-agri-teal hover:text-agri-green underline'>Maasai Mara Association</a>.",
+      description: "Satisfy Your Natural Curiosity in a Furry Adventure. Welcome to the Maasai Ostrich Farm Tour! Get ready for an unforgettable day filled with nature, laughter, and a dash of adrenaline. Learn about ostrich farming from the <a href='https://www.ilri.org/' target='_blank' rel='noopener noreferrer' class='text-agri-teal hover:text-agri-green underline'>International Livestock Research Institute</a> and explore cultural tourism with the <a href='https://tourkenya.go.ke/tourism/cultural-heritage-tourism/' target='_blank' rel='noopener noreferrer' class='text-agri-teal hover:text-agri-green underline'>Ministry of Tourism</a>.",
       category: "Farm Tours",
       featured: false,
       fullDescription: "Meet our friendly team and fellow explorers in Nairobi city center. Together, we'll head to beautiful Kajiado County, home of the famous Maasai Ostrich Farm. Upon arrival, we'll start with a guided walk through the vegetable gardens.",
@@ -304,8 +304,8 @@ const Tours = () => {
       ],
       includes: ["Transportation", "Farm tour", "Ostrich experience", "Pool access", "Lunch at Club 034"],
       externalLinks: [
-        { title: "Kenya Livestock Breeders Organization - Ostrich Farming", url: "https://www.klbo.co.ke/" },
-        { title: "Maasai Mara Association - Cultural Tourism", url: "https://www.maasaimaraassociation.org/" },
+        { title: "International Livestock Research Institute", url: "https://www.ilri.org/" },
+        { title: "Ministry of Tourism - Cultural Heritage Tourism", url: "https://tourkenya.go.ke/tourism/cultural-heritage-tourism/" },
         { title: "Kenya Wildlife Research and Training Institute", url: "https://www.kws.go.ke/" }
       ]
     },
@@ -316,7 +316,7 @@ const Tours = () => {
       location: "Countryside",
       participants: "4-30 people",
       image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Pigs/Pigs%20on%20a%20farm.png",
-      description: "Bacon Begins Here. Pig farming isn't just a profitable venture—it's a fascinating adventure into the world of animals, especially when experienced firsthand in the serene countryside. Industry standards are maintained by the <a href='https://www.kpba.co.ke/' target='_blank' rel='noopener noreferrer' class='text-agri-teal hover:text-agri-green underline'>Kenya Pig Breeders Association</a> with safety guidelines from <a href='https://www.kebs.org/' target='_blank' rel='noopener noreferrer' class='text-agri-teal hover:text-agri-green underline'>Kenya Bureau of Standards</a>.",
+      description: "Bacon Begins Here. Pig farming isn't just a profitable venture—it's a fascinating adventure into the world of animals, especially when experienced firsthand in the serene countryside. <a href='https://kilimo.go.ke/wp-content/uploads/2024/08/PIG-INDUSTRY-REGS.pdf' target='_blank' rel='noopener noreferrer' class='text-agri-teal hover:text-agri-green underline'>Learn about pig regulations from the Ministry of Agriculture and Livestock Development (MoALD)</a>.",
       category: "Farm Tours",
       featured: false,
       fullDescription: "Far from the noise of the city, this one-day, one-night tour will leave you informed, inspired, and fully entertained. Meet your fellow travelers in the city center and begin your scenic 1.5-hour drive to the farm.",
@@ -334,7 +334,7 @@ const Tours = () => {
       ],
       includes: ["Transportation", "Traditional meals", "Camping accommodation", "Farm activities", "Storytelling", "Adventure activities"],
       externalLinks: [
-        { title: "Kenya Pig Breeders Association - Industry Authority", url: "https://www.kpba.co.ke/" },
+        { title: "Ministry of Agriculture and Livestock Development - Pig Industry Regulations", url: "https://kilimo.go.ke/wp-content/uploads/2024/08/PIG-INDUSTRY-REGS.pdf" },
         { title: "Kenya Bureau of Standards - Food Safety Guidelines", url: "https://www.kebs.org/" },
         { title: "International Livestock Research Institute - Kenya", url: "https://www.ilri.org/where-we-work/kenya" }
       ]
@@ -346,7 +346,7 @@ const Tours = () => {
       location: "Various Locations",
       participants: "15-50 students",
       image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/2025%20agri%20expo/Farm%20Machinery.webp",
-      description: "Travel Smart, Learn More. STEM—Science, Technology, Engineering, and Mathematics—is a powerful, hands-on educational approach that's transforming the way learners understand the world. Learn more from the <a href='https://kicd.ac.ke/' target='_blank' rel='noopener noreferrer' class='text-agri-teal hover:text-agri-green underline'>Kenya Institute of Curriculum Development</a> and explore research excellence with <a href='https://knas.ac.ke/' target='_blank' rel='noopener noreferrer' class='text-agri-teal hover:text-agri-green underline'>Kenya National Academy of Sciences</a>.",
+      description: "Travel Smart, Learn More. STEM—Science, Technology, Engineering, and Mathematics—is a powerful, hands-on educational approach that's transforming the way learners understand the world. Learn more from the <a href='https://kicd.ac.ke/' target='_blank' rel='noopener noreferrer' class='text-agri-teal hover:text-agri-green underline'>Kenya Institute of Curriculum Development</a> and explore research excellence with <a href='https://uonbi.ac.ke/institutes-and-centres' target='_blank' rel='noopener noreferrer' class='text-agri-teal hover:text-agri-green underline'>University of Nairobi Institutes and Centres</a>.",
       category: "Educational Tours",
       featured: true,
       fullDescription: "Since its national rollout in Kenya in 2019, STEM has become a strategic pillar in achieving Vision 2030. At Agritourism Adventures, we align with this vision by offering educational tours that immerse learners in real-world knowledge across Kenya's thriving industries.",
@@ -363,7 +363,7 @@ const Tours = () => {
       includes: ["Educational visits", "Professional interactions", "Hands-on workshops", "Transportation", "Learning materials"],
       externalLinks: [
         { title: "Kenya Institute of Curriculum Development - STEM Education", url: "https://kicd.ac.ke/" },
-        { title: "Kenya National Academy of Sciences - Research Excellence", url: "https://knas.ac.ke/" },
+        { title: "University of Nairobi Institutes and Centres", url: "https://uonbi.ac.ke/institutes-and-centres" },
         { title: "UNESCO Kenya - Science Education Programs", url: "https://en.unesco.org/countries/kenya" }
       ]
     },
