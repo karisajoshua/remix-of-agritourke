@@ -19,6 +19,35 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Validate required fields
+    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
+      toast({
+        title: "Missing Information",
+        description: "Please fill in all required fields.",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    // Create email content
+    const subject = `Contact Form Submission - ${formData.tourType || 'General Inquiry'}`;
+    const body = `New contact form submission:
+
+Name: ${formData.name}
+Email: ${formData.email}
+Tour Type: ${formData.tourType || 'Not specified'}
+Message: ${formData.message}
+
+Timestamp: ${new Date().toISOString()}
+Source: Contact page`;
+
+    // Create mailto link
+    const mailtoLink = `mailto:info@agritourismadventures.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    
+    // Open mailto link
+    window.location.href = mailtoLink;
+    
     toast({
       title: "Message Sent!",
       description: "We'll get back to you within 24 hours.",
