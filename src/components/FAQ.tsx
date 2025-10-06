@@ -8,7 +8,7 @@ const FAQ = () => {
       questions: [
         {
           question: "What is agritourism, and what makes our farm special?",
-          answer: "Agritourism connects visitors like you with working farms for educational, recreational, and entertaining experiences while supporting local agriculture. At Agritourism Adventures, we specialize in hands-on activities like seasonal fruit picking, guided tours of our organic orchards, and farm-to-table dinners using our fresh produce. Our 50-acre property emphasizes eco-friendly practices, including regenerative farming to preserve soil health and biodiversity."
+          answer: "Agritourism connects visitors like you with working farms for educational, recreational, and entertaining experiences while supporting local agriculture. At Agritourism Adventures, we specialize in hands-on activities like seasonal fruit picking, guided tours of our organic orchards, and farm-to-table dinners using our fresh produce. Our safaris property emphasizes eco-friendly practices, including regenerative farming to preserve soil health and biodiversity."
         },
         {
           question: "What are the operating hours and seasons?",
