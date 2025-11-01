@@ -397,7 +397,7 @@ const Tours = () => {
     },
     {
       id: 14,
-      title: "🌿 Wellness and Nature Safari",
+      title: "🌿 Wellness and Nature Experience",
       duration: "1-3 days",
       location: "Central Kenya",
       participants: "4-200 people",
