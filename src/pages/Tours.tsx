@@ -401,7 +401,7 @@ const Tours = () => {
       duration: "1-3 days",
       location: "Central Kenya",
       participants: "4-200 people",
-      image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Fair%20view/Intro-2.webp",
+      image: "/images/wellness-nature-botanical-garden.png",
       description: "Explore Kenya's <a href='https://www.floraqueen.com/blog/the-advantages-of-botanical-gardens-near-me?srsltid=AfmBOopXyuG0gnxXn9mfJQtv_4zOa1OVARJCf3Do-aU-bOa0RAe6v4tx' target='_blank' rel='noopener noreferrer' class='text-agri-teal hover:text-agri-green underline'>botanical gardens</a> in Nairobi and Central Kenya—a vibrant mix of <a href='https://www.crawfordinternational.co.za/why-you-should-travel-as-a-family' target='_blank' rel='noopener noreferrer' class='text-agri-teal hover:text-agri-green underline'>family-oriented travel</a>, <a href='https://edutourism-project.eu/en/general-features-of-thematic-tourism-edutourism-2/' target='_blank' rel='noopener noreferrer' class='text-agri-teal hover:text-agri-green underline'>educational tourism</a>, and <a href='https://ke.cicinsurancegroup.com/health-and-wellness/' target='_blank' rel='noopener noreferrer' class='text-agri-teal hover:text-agri-green underline'>health and wellness</a>. Discover 300+ plant species, enjoy guided biodiversity tours, and join hands-on workshops like seed planting that delight kids while teaching conservation. Amid towering palms and fragrant frangipani, unwind in fresh, tranquil spaces that ease stress and boost vitality for all ages. Pack sunscreen and curiosity for an eco-friendly adventure blending learning, laughter, and nature's embrace.",
       category: "Regional Experiences",
       featured: false,
