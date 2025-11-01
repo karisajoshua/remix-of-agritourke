@@ -68,7 +68,7 @@ export const blogPosts: BlogPost[] = [
 
     <h3 class="text-2xl font-poppins font-bold text-agri-dark mb-4 mt-8">Ready to Dive In?</h3>
     <p>Agritourism in Kenya isn't just a tour; it's an investment in exclusivity, sustainability, and unforgettable experiences. From the misty slopes of Kericho to the savanna ranches of Narok, you're not just visiting—you're contributing to a greener, richer Kenya. So, next time you hesitate at the price, remember: you're paying for a story, a legacy, and a chance to see the world differently. Book that coffee tour, pluck those tea leaves, and discover why agritourism is worth every shilling.</p>`,
-    image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Fair%20view/Coffee%20beans.webp",
+    image: "/images/blog-ostrich-legs.jpg",
     author: "Agritourism Adventures Team",
     date: "October 5, 2025",
     category: "Agritourism Value",
