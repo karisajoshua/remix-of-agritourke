@@ -440,14 +440,14 @@ const Gallery = () => {
               return (
                 <div
                   key={index}
-                  className={`group relative bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer image-protected ${gridClass}`}
+                  className={`group relative bg-gray-100 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer image-protected ${gridClass}`}
                   onClick={() => setSelectedImage(image.url)}
                 >
-                  <div className="aspect-square overflow-hidden relative">
+                  <div className="relative w-full h-full min-h-[250px] overflow-hidden">
                     <img
                       src={image.url}
                       alt=""
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                       loading="lazy"
                       draggable="false"
                       onContextMenu={(e) => e.preventDefault()}
