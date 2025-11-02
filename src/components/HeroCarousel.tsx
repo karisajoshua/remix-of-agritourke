@@ -14,7 +14,7 @@ const HeroCarousel = () => {
 
   const slides = [
     {
-      image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Trade%20expo%202013/Corridor.webp",
+      image: "https://qwdwrfjyajqxrnjlouqj.supabase.co/storage/v1/object/public/agritourism/Leather%20Bags%20Stand.webp",
       title: "Where Travel Meets",
       subtitle: "Sustainability", 
       slogan: "Wander with a plan.",
