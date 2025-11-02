@@ -315,7 +315,7 @@ const Tours = () => {
       duration: "2 days",
       location: "Countryside",
       participants: "4-30 people",
-      image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Pigs/Pigs%20on%20a%20farm.png",
+      image: "https://qwdwrfjyajqxrnjlouqj.supabase.co/storage/v1/object/public/agritourism/pig%20farm.png",
       description: "Bacon Begins Here. Pig farming isn't just a profitable venture—it's a fascinating adventure into the world of animals, especially when experienced firsthand in the serene countryside. Learn about pig regulations from the <a href='https://kilimo.go.ke/wp-content/uploads/2024/08/PIG-INDUSTRY-REGS.pdf' target='_blank' rel='noopener noreferrer' class='text-agri-teal hover:text-agri-green underline'>Ministry of Agriculture and Livestock Development</a> (<a href='https://kilimo.go.ke/wp-content/uploads/2024/08/PIG-INDUSTRY-REGS.pdf' target='_blank' rel='noopener noreferrer' class='text-agri-teal hover:text-agri-green underline'>MoALD</a>).",
       category: "Farm Tours",
       featured: false,
