@@ -97,23 +97,14 @@ const Navigation = () => {
 
           {/* CTA Button - Desktop */}
           <div className="hidden md:flex items-center gap-3">
-            {user ? (
-              <Button 
-                onClick={() => navigate('/admin')}
-                variant="outline"
-                className="font-inter font-medium"
-              >
-                <User className="mr-2 h-4 w-4" />
-                Admin
-              </Button>
-            ) : (
+            {!user && (
               <Button 
                 onClick={() => navigate('/auth')}
                 variant="outline"
                 className="font-inter font-medium"
               >
                 <LogIn className="mr-2 h-4 w-4" />
-                Login
+                Sign in/Sign up
               </Button>
             )}
             <Button 
@@ -156,19 +147,7 @@ const Navigation = () => {
                 </button>
               ))}
               <div className="px-3 py-2 space-y-2">
-                {user ? (
-                  <Button 
-                    onClick={() => {
-                      navigate('/admin');
-                      setIsMenuOpen(false);
-                    }}
-                    variant="outline"
-                    className="w-full font-inter font-medium"
-                  >
-                    <User className="mr-2 h-4 w-4" />
-                    Admin
-                  </Button>
-                ) : (
+                {!user && (
                   <Button 
                     onClick={() => {
                       navigate('/auth');
@@ -178,7 +157,7 @@ const Navigation = () => {
                     className="w-full font-inter font-medium"
                   >
                     <LogIn className="mr-2 h-4 w-4" />
-                    Login
+                    Sign in/Sign up
                   </Button>
                 )}
                 <Button 
