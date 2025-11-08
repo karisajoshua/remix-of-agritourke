@@ -1,13 +1,15 @@
 
 import { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, LogIn, User } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { useAuth } from '@/hooks/useAuth';
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
+  const { user } = useAuth();
 
   const navItems = [
     { name: 'Home', href: '/' },
@@ -94,7 +96,26 @@ const Navigation = () => {
           </div>
 
           {/* CTA Button - Desktop */}
-          <div className="hidden md:block">
+          <div className="hidden md:flex items-center gap-3">
+            {user ? (
+              <Button 
+                onClick={() => navigate('/admin')}
+                variant="outline"
+                className="font-inter font-medium"
+              >
+                <User className="mr-2 h-4 w-4" />
+                Admin
+              </Button>
+            ) : (
+              <Button 
+                onClick={() => navigate('/auth')}
+                variant="outline"
+                className="font-inter font-medium"
+              >
+                <LogIn className="mr-2 h-4 w-4" />
+                Login
+              </Button>
+            )}
             <Button 
               asChild
               className="bg-agri-teal hover:bg-agri-teal/90 text-white font-inter font-medium"
@@ -134,7 +155,32 @@ const Navigation = () => {
                   {item.name}
                 </button>
               ))}
-              <div className="px-3 py-2">
+              <div className="px-3 py-2 space-y-2">
+                {user ? (
+                  <Button 
+                    onClick={() => {
+                      navigate('/admin');
+                      setIsMenuOpen(false);
+                    }}
+                    variant="outline"
+                    className="w-full font-inter font-medium"
+                  >
+                    <User className="mr-2 h-4 w-4" />
+                    Admin
+                  </Button>
+                ) : (
+                  <Button 
+                    onClick={() => {
+                      navigate('/auth');
+                      setIsMenuOpen(false);
+                    }}
+                    variant="outline"
+                    className="w-full font-inter font-medium"
+                  >
+                    <LogIn className="mr-2 h-4 w-4" />
+                    Login
+                  </Button>
+                )}
                 <Button 
                   asChild
                   className="w-full bg-agri-teal hover:bg-agri-teal/90 text-white font-inter font-medium"
