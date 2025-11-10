@@ -111,7 +111,7 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
   }
 
   return (
-    <SidebarProvider>
+    <SidebarProvider defaultOpen={true}>
       <div className="min-h-screen flex w-full">
         <AdminSidebarContent />
         <main className="flex-1 overflow-auto">

@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { MapPin, FileText, Image } from "lucide-react";
 import AdminLayout from "@/components/AdminLayout";
 
 export default function Dashboard() {
+  const navigate = useNavigate();
   const [stats, setStats] = useState({
     tours: 0,
     blogPosts: 0,
@@ -30,9 +32,9 @@ export default function Dashboard() {
   }, []);
 
   const statCards = [
-    { title: "Total Tours", value: stats.tours, icon: MapPin, color: "text-agri-green" },
-    { title: "Blog Posts", value: stats.blogPosts, icon: FileText, color: "text-agri-teal" },
-    { title: "Gallery Images", value: stats.galleryImages, icon: Image, color: "text-agri-dark" },
+    { title: "Total Tours", value: stats.tours, icon: MapPin, color: "text-agri-green", route: "/admin/tours" },
+    { title: "Blog Posts", value: stats.blogPosts, icon: FileText, color: "text-agri-teal", route: "/admin/blog" },
+    { title: "Gallery Images", value: stats.galleryImages, icon: Image, color: "text-agri-dark", route: "/admin/gallery" },
   ];
 
   return (
@@ -45,7 +47,11 @@ export default function Dashboard() {
 
         <div className="grid gap-4 md:grid-cols-3">
           {statCards.map((stat) => (
-            <Card key={stat.title} className="border-none shadow-sm">
+            <Card 
+              key={stat.title} 
+              className="border-none shadow-sm cursor-pointer transition-all hover:shadow-md hover:scale-[1.02]"
+              onClick={() => navigate(stat.route)}
+            >
               <CardHeader className="flex flex-row items-center justify-between pb-2">
                 <CardTitle className="text-sm font-medium text-muted-foreground">
                   {stat.title}
@@ -54,6 +60,7 @@ export default function Dashboard() {
               </CardHeader>
               <CardContent>
                 <div className="text-3xl font-bold text-agri-dark">{stat.value}</div>
+                <p className="text-xs text-muted-foreground mt-2">Click to manage</p>
               </CardContent>
             </Card>
           ))}
