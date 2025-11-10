@@ -15,6 +15,7 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
+import GalleryUploadDialog from "@/components/admin/GalleryUploadDialog";
 
 interface GalleryImage {
   id: string;
@@ -28,6 +29,7 @@ export default function AdminGallery() {
   const [images, setImages] = useState<GalleryImage[]>([]);
   const [loading, setLoading] = useState(true);
   const [deleteId, setDeleteId] = useState<string | null>(null);
+  const [uploadOpen, setUploadOpen] = useState(false);
 
   useEffect(() => {
     fetchImages();
@@ -84,7 +86,7 @@ export default function AdminGallery() {
             <h2 className="text-3xl font-bold text-agri-dark">Gallery Management</h2>
             <p className="text-muted-foreground mt-2">Manage your gallery images</p>
           </div>
-          <Button className="gap-2">
+          <Button className="gap-2" onClick={() => setUploadOpen(true)}>
             <Plus className="h-4 w-4" />
             Upload Images
           </Button>
@@ -146,6 +148,12 @@ export default function AdminGallery() {
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
+
+      <GalleryUploadDialog
+        open={uploadOpen}
+        onOpenChange={setUploadOpen}
+        onSaved={fetchImages}
+      />
     </AdminLayout>
   );
 }

@@ -15,6 +15,7 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
+import BlogPostForm, { BlogPostRecord } from "@/components/admin/BlogPostForm";
 
 interface BlogPost {
   id: string;
@@ -31,6 +32,8 @@ export default function AdminBlog() {
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
   const [deleteId, setDeleteId] = useState<string | null>(null);
+  const [formOpen, setFormOpen] = useState(false);
+  const [editing, setEditing] = useState<BlogPostRecord | null>(null);
 
   useEffect(() => {
     fetchPosts();
@@ -87,7 +90,7 @@ export default function AdminBlog() {
             <h2 className="text-3xl font-bold text-agri-dark">Blog Management</h2>
             <p className="text-muted-foreground mt-2">Manage your blog content</p>
           </div>
-          <Button className="gap-2">
+          <Button className="gap-2" onClick={() => { setEditing(null); setFormOpen(true); }}>
             <Plus className="h-4 w-4" />
             Add New Post
           </Button>
@@ -116,7 +119,7 @@ export default function AdminBlog() {
                   </div>
                 </div>
                 <div className="flex flex-col gap-2">
-                  <Button variant="outline" size="sm">
+                  <Button variant="outline" size="sm" onClick={() => { setEditing({ id: post.id, title: post.title, slug: post.slug, excerpt: post.excerpt, category: post.category, date: post.date, image: post.image, author: post.author }); setFormOpen(true); }}>
                     <Pencil className="h-4 w-4" />
                   </Button>
                   <Button
@@ -155,6 +158,13 @@ export default function AdminBlog() {
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
+
+      <BlogPostForm
+        open={formOpen}
+        onOpenChange={setFormOpen}
+        initial={editing}
+        onSaved={fetchPosts}
+      />
     </AdminLayout>
   );
 }

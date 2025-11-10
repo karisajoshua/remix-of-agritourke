@@ -15,6 +15,7 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
+import TourForm, { TourRecord } from "@/components/admin/TourForm";
 
 interface Tour {
   id: string;
@@ -30,6 +31,8 @@ export default function AdminTours() {
   const [tours, setTours] = useState<Tour[]>([]);
   const [loading, setLoading] = useState(true);
   const [deleteId, setDeleteId] = useState<string | null>(null);
+  const [formOpen, setFormOpen] = useState(false);
+  const [editing, setEditing] = useState<TourRecord | null>(null);
 
   useEffect(() => {
     fetchTours();
@@ -102,7 +105,7 @@ export default function AdminTours() {
             <h2 className="text-3xl font-bold text-agri-dark">Tours Management</h2>
             <p className="text-muted-foreground mt-2">Manage your tour offerings</p>
           </div>
-          <Button className="gap-2">
+          <Button className="gap-2" onClick={() => { setEditing(null); setFormOpen(true); }}>
             <Plus className="h-4 w-4" />
             Add New Tour
           </Button>
@@ -138,7 +141,7 @@ export default function AdminTours() {
                   >
                     {tour.featured ? "Unfeature" : "Feature"}
                   </Button>
-                  <Button variant="outline" size="sm">
+                  <Button variant="outline" size="sm" onClick={() => { setEditing({ id: tour.id, title: tour.title, category: tour.category, duration: tour.duration, location: tour.location, image: tour.image, featured: tour.featured }); setFormOpen(true); }}>
                     <Pencil className="h-4 w-4" />
                   </Button>
                   <Button
@@ -177,6 +180,13 @@ export default function AdminTours() {
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
+
+      <TourForm
+        open={formOpen}
+        onOpenChange={setFormOpen}
+        initial={editing}
+        onSaved={fetchTours}
+      />
     </AdminLayout>
   );
 }
