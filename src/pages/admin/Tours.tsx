@@ -3,7 +3,7 @@ import { supabase } from "@/integrations/supabase/client";
 import AdminLayout from "@/components/AdminLayout";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Plus, Pencil, Trash2 } from "lucide-react";
+import { Plus, Pencil, Trash2, Download } from "lucide-react";
 import { toast } from "sonner";
 import {
   AlertDialog,
@@ -33,6 +33,7 @@ export default function AdminTours() {
   const [deleteId, setDeleteId] = useState<string | null>(null);
   const [formOpen, setFormOpen] = useState(false);
   const [editing, setEditing] = useState<TourRecord | null>(null);
+  const [importing, setImporting] = useState(false);
 
   useEffect(() => {
     fetchTours();
@@ -87,6 +88,28 @@ export default function AdminTours() {
     }
   };
 
+  const importStaticTours = async () => {
+    const staticTours = [
+      { title: "Coffee Farm Tour", category: "Agriculture", duration: "Half day", location: "Central Kenya", image: "https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=500", description: "Experience coffee production firsthand", featured: true },
+      { title: "Tea Plantation Visit", category: "Agriculture", duration: "Full day", location: "Kericho", image: "https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?w=500", description: "Explore lush tea estates", featured: false },
+      { title: "Dairy Farm Experience", category: "Livestock", duration: "Half day", location: "Kiambu", image: "https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=500", description: "Learn about modern dairy farming", featured: true },
+      { title: "Flower Farm Tour", category: "Horticulture", duration: "3 hours", location: "Naivasha", image: "https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=500", description: "Visit export-quality flower farms", featured: false },
+      { title: "Organic Vegetable Farm", category: "Agriculture", duration: "Half day", location: "Nairobi", image: "https://images.unsplash.com/photo-1592982537447-7440770cbfc9?w=500", description: "Learn organic farming techniques", featured: false },
+    ];
+
+    try {
+      setImporting(true);
+      const { error } = await supabase.from("tours").insert(staticTours);
+      if (error) throw error;
+      toast.success("Tours imported successfully");
+      fetchTours();
+    } catch (error) {
+      toast.error("Failed to import tours");
+    } finally {
+      setImporting(false);
+    }
+  };
+
   if (loading) {
     return (
       <AdminLayout>
@@ -102,13 +125,21 @@ export default function AdminTours() {
       <div className="space-y-6">
         <div className="flex justify-between items-center">
           <div>
-            <h2 className="text-3xl font-bold text-agri-dark">Tours Management</h2>
+            <h2 className="text-3xl font-bold text-agri-dark">Tour Management</h2>
             <p className="text-muted-foreground mt-2">Manage your tour offerings</p>
           </div>
-          <Button className="gap-2" onClick={() => { setEditing(null); setFormOpen(true); }}>
-            <Plus className="h-4 w-4" />
-            Add New Tour
-          </Button>
+          <div className="flex gap-2">
+            {tours.length === 0 && (
+              <Button variant="outline" className="gap-2" onClick={importStaticTours} disabled={importing}>
+                <Download className="h-4 w-4" />
+                {importing ? "Importing..." : "Import Sample Tours"}
+              </Button>
+            )}
+            <Button className="gap-2" onClick={() => { setEditing(null); setFormOpen(true); }}>
+              <Plus className="h-4 w-4" />
+              Add New Tour
+            </Button>
+          </div>
         </div>
 
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">

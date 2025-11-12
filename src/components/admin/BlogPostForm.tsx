@@ -1,22 +1,41 @@
 import { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
+import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
+import { slugify } from "@/lib/slugify";
+import { calculateReadTime } from "@/lib/readTime";
+
+const blogSchema = z.object({
+  title: z.string().min(1, "Title is required").max(200),
+  slug: z.string().min(1, "Slug is required").regex(/^[a-z0-9-]+$/, "Slug must be lowercase with hyphens"),
+  excerpt: z.string().max(500).optional(),
+  category: z.string().max(100).optional(),
+  date: z.string().min(1, "Date is required"),
+  author: z.string().max(100).optional(),
+  image: z.string().url("Must be a valid URL").optional().or(z.literal("")),
+  content: z.string().min(1, "Content is required"),
+});
+
+type BlogFormData = z.infer<typeof blogSchema>;
 
 export interface BlogPostRecord {
   id?: string;
   title: string;
   slug: string;
-  excerpt: string;
-  category: string;
-  date: string; // ISO string
-  image: string;
-  author: string;
-  content?: string;
+  excerpt?: string;
+  category?: string;
+  date: string;
+  author?: string;
+  image?: string;
+  content: string;
+  read_time?: string;
 }
 
 interface BlogPostFormProps {
@@ -27,74 +46,147 @@ interface BlogPostFormProps {
 }
 
 export default function BlogPostForm({ open, onOpenChange, initial, onSaved }: BlogPostFormProps) {
-  const [form, setForm] = useState<BlogPostRecord>({
-    title: "",
-    slug: "",
-    excerpt: "",
-    category: "",
-    date: new Date().toISOString().slice(0, 10),
-    image: "",
-    author: "",
-    content: "",
-  });
+  const [uploading, setUploading] = useState(false);
   const [saving, setSaving] = useState(false);
+
+  const { register, handleSubmit, formState: { errors }, reset, setValue, watch } = useForm<BlogFormData>({
+    resolver: zodResolver(blogSchema),
+    defaultValues: {
+      title: "",
+      slug: "",
+      excerpt: "",
+      category: "",
+      date: new Date().toISOString().split("T")[0],
+      author: "",
+      image: "",
+      content: "",
+    },
+  });
 
   useEffect(() => {
     if (initial) {
-      setForm({
-        id: initial.id,
+      reset({
         title: initial.title || "",
         slug: initial.slug || "",
         excerpt: initial.excerpt || "",
         category: initial.category || "",
-        date: (initial.date || new Date().toISOString().slice(0, 10)).toString(),
-        image: initial.image || "",
+        date: initial.date || new Date().toISOString().split("T")[0],
         author: initial.author || "",
+        image: initial.image || "",
         content: initial.content || "",
       });
     } else {
-      setForm({ title: "", slug: "", excerpt: "", category: "", date: new Date().toISOString().slice(0,10), image: "", author: "", content: "" });
+      reset({
+        title: "",
+        slug: "",
+        excerpt: "",
+        category: "",
+        date: new Date().toISOString().split("T")[0],
+        author: "",
+        image: "",
+        content: "",
+      });
     }
-  }, [initial, open]);
+  }, [initial, open, reset]);
 
-  const handleChange = (key: keyof BlogPostRecord, value: string) => {
-    setForm((p) => ({ ...p, [key]: value } as BlogPostRecord));
+  const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const title = e.target.value;
+    setValue("title", title);
+    if (!initial) {
+      setValue("slug", slugify(title));
+    }
   };
 
-  const handleSubmit = async () => {
+  const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    if (!file.type.startsWith("image/")) {
+      toast.error("Please upload an image file");
+      return;
+    }
+
+    try {
+      setUploading(true);
+      const fileExt = file.name.split(".").pop();
+      const filePath = `${crypto.randomUUID()}.${fileExt}`;
+
+      const { error: uploadError } = await supabase.storage
+        .from("blog-images")
+        .upload(filePath, file);
+
+      if (uploadError) throw uploadError;
+
+      const { data: { publicUrl } } = supabase.storage
+        .from("blog-images")
+        .getPublicUrl(filePath);
+
+      setValue("image", publicUrl);
+      toast.success("Image uploaded");
+    } catch (error) {
+      toast.error("Failed to upload image");
+    } finally {
+      setUploading(false);
+    }
+  };
+
+  const checkSlugExists = async (slug: string, currentId?: string): Promise<boolean> => {
+    const query = supabase
+      .from("blog_posts")
+      .select("id")
+      .eq("slug", slug);
+    
+    if (currentId) {
+      query.neq("id", currentId);
+    }
+
+    const { data } = await query;
+    return (data?.length || 0) > 0;
+  };
+
+  const onSubmit = async (data: BlogFormData) => {
     try {
       setSaving(true);
-      if (form.id) {
-        const { error } = await supabase.from("blog_posts").update({
-          title: form.title,
-          slug: form.slug,
-          excerpt: form.excerpt,
-          category: form.category,
-          date: form.date,
-          image: form.image,
-          author: form.author,
-          content: form.content,
-        }).eq("id", form.id);
+
+      const slugExists = await checkSlugExists(data.slug, initial?.id);
+      if (slugExists) {
+        toast.error("A post with this slug already exists");
+        setSaving(false);
+        return;
+      }
+
+      const readTime = calculateReadTime(data.content);
+
+      const payload = {
+        title: data.title,
+        slug: data.slug,
+        excerpt: data.excerpt || null,
+        category: data.category || null,
+        date: data.date,
+        author: data.author || null,
+        image: data.image || null,
+        content: data.content,
+        read_time: readTime,
+      };
+
+      if (initial?.id) {
+        const { error } = await supabase
+          .from("blog_posts")
+          .update(payload)
+          .eq("id", initial.id);
         if (error) throw error;
-        toast.success("Post updated");
+        toast.success("Blog post updated");
       } else {
-        const { error } = await supabase.from("blog_posts").insert({
-          title: form.title,
-          slug: form.slug,
-          excerpt: form.excerpt,
-          category: form.category,
-          date: form.date,
-          image: form.image,
-          author: form.author,
-          content: form.content,
-        });
+        const { error } = await supabase
+          .from("blog_posts")
+          .insert(payload);
         if (error) throw error;
-        toast.success("Post created");
+        toast.success("Blog post created");
       }
       onOpenChange(false);
       onSaved?.();
     } catch (e) {
-      toast.error("Failed to save post");
+      toast.error("Failed to save blog post");
     } finally {
       setSaving(false);
     }
@@ -102,48 +194,69 @@ export default function BlogPostForm({ open, onOpenChange, initial, onSaved }: B
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-2xl">
+      <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto">
         <DialogHeader>
-          <DialogTitle>{form.id ? "Edit Post" : "Add New Post"}</DialogTitle>
+          <DialogTitle>{initial?.id ? "Edit Blog Post" : "Add New Blog Post"}</DialogTitle>
         </DialogHeader>
-        <div className="grid gap-4">
+        <form onSubmit={handleSubmit(onSubmit)} className="grid gap-6">
           <div className="grid gap-2">
-            <Label htmlFor="title">Title</Label>
-            <Input id="title" value={form.title} onChange={(e) => handleChange("title", e.target.value)} />
+            <Label htmlFor="title">Title *</Label>
+            <Input id="title" {...register("title")} onChange={handleTitleChange} />
+            {errors.title && <p className="text-sm text-red-500">{errors.title.message}</p>}
           </div>
-          <div className="grid grid-cols-2 gap-4">
-            <div className="grid gap-2">
-              <Label htmlFor="slug">Slug</Label>
-              <Input id="slug" value={form.slug} onChange={(e) => handleChange("slug", e.target.value)} placeholder="post-slug" />
-            </div>
-            <div className="grid gap-2">
-              <Label htmlFor="date">Date</Label>
-              <Input id="date" type="date" value={form.date} onChange={(e) => handleChange("date", e.target.value)} />
-            </div>
+
+          <div className="grid gap-2">
+            <Label htmlFor="slug">Slug *</Label>
+            <Input id="slug" {...register("slug")} placeholder="url-friendly-title" />
+            {errors.slug && <p className="text-sm text-red-500">{errors.slug.message}</p>}
           </div>
+
           <div className="grid grid-cols-2 gap-4">
             <div className="grid gap-2">
               <Label htmlFor="category">Category</Label>
-              <Input id="category" value={form.category} onChange={(e) => handleChange("category", e.target.value)} />
+              <Input id="category" {...register("category")} placeholder="e.g., Coffee Farming" />
             </div>
             <div className="grid gap-2">
-              <Label htmlFor="author">Author</Label>
-              <Input id="author" value={form.author} onChange={(e) => handleChange("author", e.target.value)} />
+              <Label htmlFor="date">Date *</Label>
+              <Input id="date" type="date" {...register("date")} />
+              {errors.date && <p className="text-sm text-red-500">{errors.date.message}</p>}
             </div>
           </div>
+
           <div className="grid gap-2">
-            <Label htmlFor="image">Image URL</Label>
-            <Input id="image" value={form.image} onChange={(e) => handleChange("image", e.target.value)} placeholder="https://..." />
+            <Label htmlFor="author">Author</Label>
+            <Input id="author" {...register("author")} placeholder="e.g., Agritourism Team" />
           </div>
+
+          <div className="grid gap-2">
+            <Label htmlFor="image">Featured Image</Label>
+            <Input id="image" type="file" accept="image/*" onChange={handleImageUpload} disabled={uploading} />
+            {uploading && <p className="text-sm text-muted-foreground">Uploading...</p>}
+            {watch("image") && (
+              <img src={watch("image")} alt="Preview" className="w-full h-40 object-cover rounded" />
+            )}
+            {errors.image && <p className="text-sm text-red-500">{errors.image.message}</p>}
+          </div>
+
           <div className="grid gap-2">
             <Label htmlFor="excerpt">Excerpt</Label>
-            <Textarea id="excerpt" value={form.excerpt} onChange={(e) => handleChange("excerpt", e.target.value)} rows={3} />
+            <Textarea id="excerpt" {...register("excerpt")} rows={2} placeholder="Brief summary (max 500 chars)" />
           </div>
+
+          <div className="grid gap-2">
+            <Label htmlFor="content">Content * (HTML supported)</Label>
+            <Textarea id="content" {...register("content")} rows={12} placeholder="Full blog post content with HTML tags" />
+            {errors.content && <p className="text-sm text-red-500">{errors.content.message}</p>}
+            <p className="text-xs text-muted-foreground">Read time will be calculated automatically</p>
+          </div>
+
           <div className="flex justify-end gap-2">
-            <Button variant="outline" onClick={() => onOpenChange(false)}>Cancel</Button>
-            <Button onClick={handleSubmit} disabled={saving}>{saving ? "Saving..." : "Save"}</Button>
+            <Button type="button" variant="outline" onClick={() => onOpenChange(false)}>Cancel</Button>
+            <Button type="submit" disabled={saving || uploading}>
+              {saving ? "Saving..." : "Save Post"}
+            </Button>
           </div>
-        </div>
+        </form>
       </DialogContent>
     </Dialog>
   );

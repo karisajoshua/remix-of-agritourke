@@ -3,7 +3,7 @@ import { supabase } from "@/integrations/supabase/client";
 import AdminLayout from "@/components/AdminLayout";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Plus, Trash2 } from "lucide-react";
+import { Plus, Trash2, Pencil } from "lucide-react";
 import { toast } from "sonner";
 import {
   AlertDialog,
@@ -16,6 +16,7 @@ import {
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
 import GalleryUploadDialog from "@/components/admin/GalleryUploadDialog";
+import GalleryEditDialog from "@/components/admin/GalleryEditDialog";
 
 interface GalleryImage {
   id: string;
@@ -30,6 +31,7 @@ export default function AdminGallery() {
   const [loading, setLoading] = useState(true);
   const [deleteId, setDeleteId] = useState<string | null>(null);
   const [uploadOpen, setUploadOpen] = useState(false);
+  const [editImage, setEditImage] = useState<GalleryImage | null>(null);
 
   useEffect(() => {
     fetchImages();
@@ -102,7 +104,14 @@ export default function AdminGallery() {
                     alt={image.title || "Gallery image"}
                     className="w-full h-full object-cover"
                   />
-                  <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                  <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
+                    <Button
+                      variant="secondary"
+                      size="sm"
+                      onClick={() => setEditImage(image)}
+                    >
+                      <Pencil className="h-4 w-4" />
+                    </Button>
                     <Button
                       variant="destructive"
                       size="sm"
@@ -152,6 +161,13 @@ export default function AdminGallery() {
       <GalleryUploadDialog
         open={uploadOpen}
         onOpenChange={setUploadOpen}
+        onSaved={fetchImages}
+      />
+
+      <GalleryEditDialog
+        open={!!editImage}
+        onOpenChange={(open) => !open && setEditImage(null)}
+        image={editImage}
         onSaved={fetchImages}
       />
     </AdminLayout>

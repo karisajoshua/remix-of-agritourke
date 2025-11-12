@@ -3,7 +3,7 @@ import { supabase } from "@/integrations/supabase/client";
 import AdminLayout from "@/components/AdminLayout";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Plus, Pencil, Trash2 } from "lucide-react";
+import { Plus, Pencil, Trash2, Download } from "lucide-react";
 import { toast } from "sonner";
 import {
   AlertDialog,
@@ -16,6 +16,7 @@ import {
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
 import BlogPostForm, { BlogPostRecord } from "@/components/admin/BlogPostForm";
+import { blogPosts as staticBlogPosts } from "@/data/blogPosts";
 
 interface BlogPost {
   id: string;
@@ -26,6 +27,7 @@ interface BlogPost {
   date: string;
   image: string;
   author: string;
+  content: string;
 }
 
 export default function AdminBlog() {
@@ -34,6 +36,7 @@ export default function AdminBlog() {
   const [deleteId, setDeleteId] = useState<string | null>(null);
   const [formOpen, setFormOpen] = useState(false);
   const [editing, setEditing] = useState<BlogPostRecord | null>(null);
+  const [importing, setImporting] = useState(false);
 
   useEffect(() => {
     fetchPosts();
@@ -72,6 +75,32 @@ export default function AdminBlog() {
     }
   };
 
+  const importStaticPosts = async () => {
+    try {
+      setImporting(true);
+      const postsToImport = staticBlogPosts.map(post => ({
+        title: post.title,
+        slug: post.slug,
+        excerpt: post.excerpt,
+        category: post.category,
+        date: post.date,
+        author: post.author,
+        image: post.image,
+        content: post.content,
+        read_time: post.readTime || null,
+      }));
+
+      const { error } = await supabase.from("blog_posts").insert(postsToImport);
+      if (error) throw error;
+      toast.success("Blog posts imported successfully");
+      fetchPosts();
+    } catch (error) {
+      toast.error("Failed to import blog posts");
+    } finally {
+      setImporting(false);
+    }
+  };
+
   if (loading) {
     return (
       <AdminLayout>
@@ -90,10 +119,18 @@ export default function AdminBlog() {
             <h2 className="text-3xl font-bold text-agri-dark">Blog Management</h2>
             <p className="text-muted-foreground mt-2">Manage your blog content</p>
           </div>
-          <Button className="gap-2" onClick={() => { setEditing(null); setFormOpen(true); }}>
-            <Plus className="h-4 w-4" />
-            Add New Post
-          </Button>
+          <div className="flex gap-2">
+            {posts.length === 0 && (
+              <Button variant="outline" className="gap-2" onClick={importStaticPosts} disabled={importing}>
+                <Download className="h-4 w-4" />
+                {importing ? "Importing..." : "Import Sample Posts"}
+              </Button>
+            )}
+            <Button className="gap-2" onClick={() => { setEditing(null); setFormOpen(true); }}>
+              <Plus className="h-4 w-4" />
+              Add New Post
+            </Button>
+          </div>
         </div>
 
         <div className="grid gap-4">
@@ -119,7 +156,7 @@ export default function AdminBlog() {
                   </div>
                 </div>
                 <div className="flex flex-col gap-2">
-                  <Button variant="outline" size="sm" onClick={() => { setEditing({ id: post.id, title: post.title, slug: post.slug, excerpt: post.excerpt, category: post.category, date: post.date, image: post.image, author: post.author }); setFormOpen(true); }}>
+                  <Button variant="outline" size="sm" onClick={() => { setEditing({ id: post.id, title: post.title, slug: post.slug, excerpt: post.excerpt, category: post.category, date: post.date, image: post.image, author: post.author, content: post.content }); setFormOpen(true); }}>
                     <Pencil className="h-4 w-4" />
                   </Button>
                   <Button

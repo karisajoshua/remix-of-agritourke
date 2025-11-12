@@ -1,19 +1,45 @@
 import { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
+import { Textarea } from "@/components/ui/textarea";
+import { Switch } from "@/components/ui/switch";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
+import { X, Plus } from "lucide-react";
+
+const tourSchema = z.object({
+  title: z.string().min(1, "Title is required").max(200),
+  category: z.string().max(100).optional(),
+  duration: z.string().max(50).optional(),
+  location: z.string().max(100).optional(),
+  participants: z.string().max(50).optional(),
+  description: z.string().max(500).optional(),
+  full_description: z.string().optional(),
+  featured: z.boolean(),
+  image: z.string().url("Must be a valid URL").optional().or(z.literal("")),
+});
+
+type TourFormData = z.infer<typeof tourSchema>;
 
 export interface TourRecord {
   id?: string;
   title: string;
-  category: string;
-  duration: string;
-  location: string;
-  image: string;
+  category?: string;
+  duration?: string;
+  location?: string;
+  participants?: string;
+  description?: string;
+  full_description?: string;
+  image?: string;
   featured?: boolean;
+  includes?: string[];
+  itinerary?: Array<{ day: number; title?: string; details: string }>;
+  external_links?: Array<{ label: string; url: string }>;
 }
 
 interface TourFormProps {
@@ -24,59 +50,165 @@ interface TourFormProps {
 }
 
 export default function TourForm({ open, onOpenChange, initial, onSaved }: TourFormProps) {
-  const [form, setForm] = useState<TourRecord>({
-    title: "",
-    category: "",
-    duration: "",
-    location: "",
-    image: "",
-    featured: false,
-  });
+  const [uploading, setUploading] = useState(false);
   const [saving, setSaving] = useState(false);
+  const [includes, setIncludes] = useState<string[]>([]);
+  const [newInclude, setNewInclude] = useState("");
+  const [itinerary, setItinerary] = useState<Array<{ day: number; title?: string; details: string }>>([]);
+  const [externalLinks, setExternalLinks] = useState<Array<{ label: string; url: string }>>([]);
+
+  const { register, handleSubmit, formState: { errors }, reset, setValue, watch } = useForm<TourFormData>({
+    resolver: zodResolver(tourSchema),
+    defaultValues: {
+      title: "",
+      category: "",
+      duration: "",
+      location: "",
+      participants: "",
+      description: "",
+      full_description: "",
+      featured: false,
+      image: "",
+    },
+  });
 
   useEffect(() => {
     if (initial) {
-      setForm({
-        id: initial.id,
+      reset({
         title: initial.title || "",
         category: initial.category || "",
         duration: initial.duration || "",
         location: initial.location || "",
-        image: initial.image || "",
+        participants: initial.participants || "",
+        description: initial.description || "",
+        full_description: initial.full_description || "",
         featured: initial.featured ?? false,
+        image: initial.image || "",
       });
+      setIncludes(initial.includes || []);
+      setItinerary(initial.itinerary || []);
+      setExternalLinks(initial.external_links || []);
     } else {
-      setForm({ title: "", category: "", duration: "", location: "", image: "", featured: false });
+      reset({
+        title: "",
+        category: "",
+        duration: "",
+        location: "",
+        participants: "",
+        description: "",
+        full_description: "",
+        featured: false,
+        image: "",
+      });
+      setIncludes([]);
+      setItinerary([]);
+      setExternalLinks([]);
     }
-  }, [initial, open]);
+  }, [initial, open, reset]);
 
-  const handleChange = (key: keyof TourRecord, value: string | boolean) => {
-    setForm((p) => ({ ...p, [key]: value } as TourRecord));
+  const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    if (!file.type.startsWith("image/")) {
+      toast.error("Please upload an image file");
+      return;
+    }
+
+    try {
+      setUploading(true);
+      const fileExt = file.name.split(".").pop();
+      const filePath = `${crypto.randomUUID()}.${fileExt}`;
+
+      const { error: uploadError } = await supabase.storage
+        .from("tour-images")
+        .upload(filePath, file);
+
+      if (uploadError) throw uploadError;
+
+      const { data: { publicUrl } } = supabase.storage
+        .from("tour-images")
+        .getPublicUrl(filePath);
+
+      setValue("image", publicUrl);
+      toast.success("Image uploaded");
+    } catch (error) {
+      toast.error("Failed to upload image");
+    } finally {
+      setUploading(false);
+    }
   };
 
-  const handleSubmit = async () => {
+  const addInclude = () => {
+    if (newInclude.trim() && newInclude.length <= 100) {
+      setIncludes([...includes, newInclude.trim()]);
+      setNewInclude("");
+    }
+  };
+
+  const removeInclude = (index: number) => {
+    setIncludes(includes.filter((_, i) => i !== index));
+  };
+
+  const addItineraryItem = () => {
+    setItinerary([...itinerary, { day: itinerary.length + 1, title: "", details: "" }]);
+  };
+
+  const updateItineraryItem = (index: number, field: "day" | "title" | "details", value: string | number) => {
+    const updated = [...itinerary];
+    updated[index] = { ...updated[index], [field]: value };
+    setItinerary(updated);
+  };
+
+  const removeItineraryItem = (index: number) => {
+    setItinerary(itinerary.filter((_, i) => i !== index));
+  };
+
+  const addExternalLink = () => {
+    setExternalLinks([...externalLinks, { label: "", url: "" }]);
+  };
+
+  const updateExternalLink = (index: number, field: "label" | "url", value: string) => {
+    const updated = [...externalLinks];
+    updated[index] = { ...updated[index], [field]: value };
+    setExternalLinks(updated);
+  };
+
+  const removeExternalLink = (index: number) => {
+    setExternalLinks(externalLinks.filter((_, i) => i !== index));
+  };
+
+  const onSubmit = async (data: TourFormData) => {
     try {
       setSaving(true);
-      if (form.id) {
-        const { error } = await supabase.from("tours").update({
-          title: form.title,
-          category: form.category,
-          duration: form.duration,
-          location: form.location,
-          image: form.image,
-          featured: form.featured,
-        }).eq("id", form.id);
+      const payload = {
+        title: data.title,
+        category: data.category || null,
+        duration: data.duration || null,
+        location: data.location || null,
+        participants: data.participants || null,
+        description: data.description || null,
+        full_description: data.full_description || null,
+        image: data.image || null,
+        featured: data.featured,
+        includes: includes.length > 0 ? includes : null,
+        itinerary: itinerary.length > 0 ? itinerary : null,
+        external_links: externalLinks.filter(l => l.label && l.url).length > 0 
+          ? externalLinks.filter(l => l.label && l.url) 
+          : null,
+      };
+
+      if (initial?.id) {
+        const { error } = await supabase
+          .from("tours")
+          .update(payload)
+          .eq("id", initial.id);
         if (error) throw error;
         toast.success("Tour updated");
       } else {
-        const { error } = await supabase.from("tours").insert({
-          title: form.title,
-          category: form.category,
-          duration: form.duration,
-          location: form.location,
-          image: form.image,
-          featured: form.featured ?? false,
-        });
+        const { error } = await supabase
+          .from("tours")
+          .insert(payload);
         if (error) throw error;
         toast.success("Tour created");
       }
@@ -91,38 +223,159 @@ export default function TourForm({ open, onOpenChange, initial, onSaved }: TourF
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent>
+      <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto">
         <DialogHeader>
-          <DialogTitle>{form.id ? "Edit Tour" : "Add New Tour"}</DialogTitle>
+          <DialogTitle>{initial?.id ? "Edit Tour" : "Add New Tour"}</DialogTitle>
         </DialogHeader>
-        <div className="grid gap-4">
+        <form onSubmit={handleSubmit(onSubmit)} className="grid gap-6">
           <div className="grid gap-2">
-            <Label htmlFor="title">Title</Label>
-            <Input id="title" value={form.title} onChange={(e) => handleChange("title", e.target.value)} />
+            <Label htmlFor="title">Title *</Label>
+            <Input id="title" {...register("title")} />
+            {errors.title && <p className="text-sm text-red-500">{errors.title.message}</p>}
           </div>
-          <div className="grid gap-2">
-            <Label htmlFor="category">Category</Label>
-            <Input id="category" value={form.category} onChange={(e) => handleChange("category", e.target.value)} />
-          </div>
+
           <div className="grid grid-cols-2 gap-4">
             <div className="grid gap-2">
-              <Label htmlFor="duration">Duration</Label>
-              <Input id="duration" value={form.duration} onChange={(e) => handleChange("duration", e.target.value)} />
+              <Label htmlFor="category">Category</Label>
+              <Input id="category" {...register("category")} placeholder="e.g., Coffee Farm" />
             </div>
             <div className="grid gap-2">
-              <Label htmlFor="location">Location</Label>
-              <Input id="location" value={form.location} onChange={(e) => handleChange("location", e.target.value)} />
+              <Label htmlFor="duration">Duration</Label>
+              <Input id="duration" {...register("duration")} placeholder="e.g., 3 days" />
             </div>
           </div>
+
+          <div className="grid grid-cols-2 gap-4">
+            <div className="grid gap-2">
+              <Label htmlFor="location">Location</Label>
+              <Input id="location" {...register("location")} placeholder="e.g., Kiambu" />
+            </div>
+            <div className="grid gap-2">
+              <Label htmlFor="participants">Participants</Label>
+              <Input id="participants" {...register("participants")} placeholder="e.g., 2-15 people" />
+            </div>
+          </div>
+
           <div className="grid gap-2">
-            <Label htmlFor="image">Image URL</Label>
-            <Input id="image" value={form.image} onChange={(e) => handleChange("image", e.target.value)} placeholder="https://..." />
+            <Label htmlFor="description">Short Description</Label>
+            <Textarea id="description" {...register("description")} rows={2} placeholder="Brief tour summary (max 500 chars)" />
           </div>
+
+          <div className="grid gap-2">
+            <Label htmlFor="full_description">Full Description</Label>
+            <Textarea id="full_description" {...register("full_description")} rows={4} placeholder="Detailed tour description" />
+          </div>
+
+          <div className="grid gap-2">
+            <Label htmlFor="image">Tour Image</Label>
+            <Input id="image" type="file" accept="image/*" onChange={handleImageUpload} disabled={uploading} />
+            {uploading && <p className="text-sm text-muted-foreground">Uploading...</p>}
+            {watch("image") && (
+              <img src={watch("image")} alt="Preview" className="w-full h-40 object-cover rounded" />
+            )}
+            {errors.image && <p className="text-sm text-red-500">{errors.image.message}</p>}
+          </div>
+
+          <div className="flex items-center gap-2">
+            <Switch id="featured" checked={watch("featured")} onCheckedChange={(checked) => setValue("featured", checked)} />
+            <Label htmlFor="featured">Featured Tour</Label>
+          </div>
+
+          <div className="grid gap-2">
+            <Label>What's Included</Label>
+            <div className="flex gap-2">
+              <Input 
+                value={newInclude} 
+                onChange={(e) => setNewInclude(e.target.value)}
+                placeholder="Add item (max 100 chars)"
+                maxLength={100}
+                onKeyDown={(e) => e.key === "Enter" && (e.preventDefault(), addInclude())}
+              />
+              <Button type="button" onClick={addInclude} size="sm">
+                <Plus className="h-4 w-4" />
+              </Button>
+            </div>
+            <div className="flex flex-wrap gap-2 mt-2">
+              {includes.map((item, i) => (
+                <div key={i} className="flex items-center gap-1 bg-secondary px-2 py-1 rounded text-sm">
+                  {item}
+                  <button type="button" onClick={() => removeInclude(i)}>
+                    <X className="h-3 w-3" />
+                  </button>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="grid gap-2">
+            <Label>Itinerary</Label>
+            <Button type="button" onClick={addItineraryItem} size="sm" variant="outline">
+              <Plus className="h-4 w-4 mr-2" /> Add Day
+            </Button>
+            <div className="space-y-3 mt-2">
+              {itinerary.map((item, i) => (
+                <div key={i} className="border p-3 rounded space-y-2">
+                  <div className="flex justify-between items-center">
+                    <Input 
+                      type="number" 
+                      value={item.day} 
+                      onChange={(e) => updateItineraryItem(i, "day", parseInt(e.target.value))}
+                      className="w-20"
+                      min={1}
+                    />
+                    <button type="button" onClick={() => removeItineraryItem(i)}>
+                      <X className="h-4 w-4" />
+                    </button>
+                  </div>
+                  <Input 
+                    placeholder="Title (optional)" 
+                    value={item.title || ""} 
+                    onChange={(e) => updateItineraryItem(i, "title", e.target.value)}
+                  />
+                  <Textarea 
+                    placeholder="Day details *" 
+                    value={item.details} 
+                    onChange={(e) => updateItineraryItem(i, "details", e.target.value)}
+                    rows={2}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="grid gap-2">
+            <Label>External Links</Label>
+            <Button type="button" onClick={addExternalLink} size="sm" variant="outline">
+              <Plus className="h-4 w-4 mr-2" /> Add Link
+            </Button>
+            <div className="space-y-2 mt-2">
+              {externalLinks.map((link, i) => (
+                <div key={i} className="flex gap-2 items-start">
+                  <Input 
+                    placeholder="Label" 
+                    value={link.label} 
+                    onChange={(e) => updateExternalLink(i, "label", e.target.value)}
+                  />
+                  <Input 
+                    placeholder="URL" 
+                    value={link.url} 
+                    onChange={(e) => updateExternalLink(i, "url", e.target.value)}
+                  />
+                  <button type="button" onClick={() => removeExternalLink(i)}>
+                    <X className="h-4 w-4" />
+                  </button>
+                </div>
+              ))}
+            </div>
+          </div>
+
           <div className="flex justify-end gap-2">
-            <Button variant="outline" onClick={() => onOpenChange(false)}>Cancel</Button>
-            <Button onClick={handleSubmit} disabled={saving}>{saving ? "Saving..." : "Save"}</Button>
+            <Button type="button" variant="outline" onClick={() => onOpenChange(false)}>Cancel</Button>
+            <Button type="submit" disabled={saving || uploading}>
+              {saving ? "Saving..." : "Save Tour"}
+            </Button>
           </div>
-        </div>
+        </form>
       </DialogContent>
     </Dialog>
   );

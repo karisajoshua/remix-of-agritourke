@@ -31,33 +31,47 @@ export default function GalleryUploadDialog({ open, onOpenChange, onSaved }: Gal
 
   const upload = async () => {
     if (!fileRef.current || !fileRef.current.files || fileRef.current.files.length === 0) {
-      toast.error("Please choose an image");
+      toast.error("Please select at least one image");
       return;
     }
-    const file = fileRef.current.files[0];
+    
+    const files = Array.from(fileRef.current.files);
 
     try {
       setUploading(true);
-      const ext = file.name.split('.').pop();
-      const path = `${Date.now()}-${Math.random().toString(36).slice(2)}.${ext}`;
+      let successCount = 0;
+      let failCount = 0;
 
-      const { error: uploadError } = await supabase.storage.from('gallery-images').upload(path, file, {
-        cacheControl: '3600', upsert: false
-      });
-      if (uploadError) throw uploadError;
+      for (const file of files) {
+        try {
+          const ext = file.name.split('.').pop();
+          const path = `${crypto.randomUUID()}.${ext}`;
 
-      const { data: publicUrlData } = supabase.storage.from('gallery-images').getPublicUrl(path);
-      const url = publicUrlData.publicUrl;
+          const { error: uploadError } = await supabase.storage.from('gallery-images').upload(path, file);
+          if (uploadError) throw uploadError;
 
-      const { error: insertError } = await supabase.from('gallery_images').insert({
-        url,
-        title,
-        description,
-        category,
-      });
-      if (insertError) throw insertError;
+          const { data: { publicUrl } } = supabase.storage.from('gallery-images').getPublicUrl(path);
 
-      toast.success('Image uploaded');
+          const { error: insertError } = await supabase.from('gallery_images').insert({
+            url: publicUrl,
+            title: title.trim() || null,
+            description: description.trim() || null,
+            category: category.trim() || null,
+          });
+          if (insertError) throw insertError;
+          successCount++;
+        } catch {
+          failCount++;
+        }
+      }
+
+      if (successCount > 0) {
+        toast.success(`${successCount} image${successCount > 1 ? 's' : ''} uploaded`);
+      }
+      if (failCount > 0) {
+        toast.error(`${failCount} upload${failCount > 1 ? 's' : ''} failed`);
+      }
+
       onOpenChange(false);
       onSaved?.();
     } catch (e) {
@@ -75,8 +89,8 @@ export default function GalleryUploadDialog({ open, onOpenChange, onSaved }: Gal
         </DialogHeader>
         <div className="grid gap-4">
           <div className="grid gap-2">
-            <Label>Image</Label>
-            <Input ref={fileRef} type="file" accept="image/*" />
+            <Label>Images (select multiple)</Label>
+            <Input ref={fileRef} type="file" accept="image/*" multiple />
           </div>
           <div className="grid gap-2">
             <Label>Title</Label>
