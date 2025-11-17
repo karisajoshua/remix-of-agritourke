@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
-import { supabase } from "@/integrations/supabase/client";
-import AdminLayout from "@/components/AdminLayout";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Plus, Trash2, Pencil } from "lucide-react";
-import { toast } from "sonner";
+import { useState, useEffect } from 'react';
+import { supabase } from '@/integrations/supabase/client';
+import { Button } from '@/components/ui/button';
+import { Card } from '@/components/ui/card';
+import { Pencil, Trash2, Upload, Copy, Plus } from 'lucide-react';
+import { toast } from 'sonner';
+import AdminLayout from '@/components/AdminLayout';
 import {
   AlertDialog,
   AlertDialogAction,
@@ -15,8 +15,8 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
-import GalleryUploadDialog from "@/components/admin/GalleryUploadDialog";
-import GalleryEditDialog from "@/components/admin/GalleryEditDialog";
+import GalleryUploadDialog from '@/components/admin/GalleryUploadDialog';
+import GalleryEditDialog from '@/components/admin/GalleryEditDialog';
 
 interface GalleryImage {
   id: string;
@@ -57,17 +57,26 @@ export default function AdminGallery() {
     if (!deleteId) return;
 
     try {
-      const { error } = await supabase.from("gallery_images").delete().eq("id", deleteId);
+      const { error } = await supabase
+        .from('gallery_images')
+        .delete()
+        .eq('id', deleteId);
 
       if (error) throw error;
 
-      toast.success("Image deleted successfully");
+      toast.success('Image deleted successfully');
       fetchImages();
-    } catch (error: any) {
-      toast.error("Failed to delete image");
+    } catch (error) {
+      console.error('Delete error:', error);
+      toast.error('Failed to delete image');
     } finally {
       setDeleteId(null);
     }
+  };
+
+  const handleCopyUrl = (url: string) => {
+    navigator.clipboard.writeText(url);
+    toast.success('Image URL copied to clipboard');
   };
 
   if (loading) {
