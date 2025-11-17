@@ -46,7 +46,7 @@ interface BlogPostFormProps {
 }
 
 export default function BlogPostForm({ open, onOpenChange, initial, onSaved }: BlogPostFormProps) {
-  const [uploading, setUploading] = useState(false);
+  
   const [saving, setSaving] = useState(false);
 
   const { register, handleSubmit, formState: { errors }, reset, setValue, watch } = useForm<BlogFormData>({
@@ -98,36 +98,7 @@ export default function BlogPostForm({ open, onOpenChange, initial, onSaved }: B
   };
 
   const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
-
-    if (!file.type.startsWith("image/")) {
-      toast.error("Please upload an image file");
-      return;
-    }
-
-    try {
-      setUploading(true);
-      const fileExt = file.name.split(".").pop();
-      const filePath = `${crypto.randomUUID()}.${fileExt}`;
-
-      const { error: uploadError } = await supabase.storage
-        .from("blog-images")
-        .upload(filePath, file);
-
-      if (uploadError) throw uploadError;
-
-      const { data: { publicUrl } } = supabase.storage
-        .from("blog-images")
-        .getPublicUrl(filePath);
-
-      setValue("image", publicUrl);
-      toast.success("Image uploaded");
-    } catch (error) {
-      toast.error("Failed to upload image");
-    } finally {
-      setUploading(false);
-    }
+    // Removed - using URL input instead
   };
 
   const checkSlugExists = async (slug: string, currentId?: string): Promise<boolean> => {
@@ -229,9 +200,8 @@ export default function BlogPostForm({ open, onOpenChange, initial, onSaved }: B
           </div>
 
           <div className="grid gap-2">
-            <Label htmlFor="image">Featured Image</Label>
-            <Input id="image" type="file" accept="image/*" onChange={handleImageUpload} disabled={uploading} />
-            {uploading && <p className="text-sm text-muted-foreground">Uploading...</p>}
+            <Label htmlFor="image">Featured Image URL</Label>
+            <Input id="image" {...register("image")} placeholder="https://example.com/image.jpg" type="url" />
             {watch("image") && (
               <img src={watch("image")} alt="Preview" className="w-full h-40 object-cover rounded" />
             )}
@@ -252,7 +222,7 @@ export default function BlogPostForm({ open, onOpenChange, initial, onSaved }: B
 
           <div className="flex justify-end gap-2">
             <Button type="button" variant="outline" onClick={() => onOpenChange(false)}>Cancel</Button>
-            <Button type="submit" disabled={saving || uploading}>
+            <Button type="submit" disabled={saving}>
               {saving ? "Saving..." : "Save Post"}
             </Button>
           </div>

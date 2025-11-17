@@ -50,7 +50,7 @@ interface TourFormProps {
 }
 
 export default function TourForm({ open, onOpenChange, initial, onSaved }: TourFormProps) {
-  const [uploading, setUploading] = useState(false);
+  
   const [saving, setSaving] = useState(false);
   const [includes, setIncludes] = useState<string[]>([]);
   const [newInclude, setNewInclude] = useState("");
@@ -107,36 +107,7 @@ export default function TourForm({ open, onOpenChange, initial, onSaved }: TourF
   }, [initial, open, reset]);
 
   const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
-
-    if (!file.type.startsWith("image/")) {
-      toast.error("Please upload an image file");
-      return;
-    }
-
-    try {
-      setUploading(true);
-      const fileExt = file.name.split(".").pop();
-      const filePath = `${crypto.randomUUID()}.${fileExt}`;
-
-      const { error: uploadError } = await supabase.storage
-        .from("tour-images")
-        .upload(filePath, file);
-
-      if (uploadError) throw uploadError;
-
-      const { data: { publicUrl } } = supabase.storage
-        .from("tour-images")
-        .getPublicUrl(filePath);
-
-      setValue("image", publicUrl);
-      toast.success("Image uploaded");
-    } catch (error) {
-      toast.error("Failed to upload image");
-    } finally {
-      setUploading(false);
-    }
+    // Removed - using URL input instead
   };
 
   const addInclude = () => {
@@ -267,9 +238,8 @@ export default function TourForm({ open, onOpenChange, initial, onSaved }: TourF
           </div>
 
           <div className="grid gap-2">
-            <Label htmlFor="image">Tour Image</Label>
-            <Input id="image" type="file" accept="image/*" onChange={handleImageUpload} disabled={uploading} />
-            {uploading && <p className="text-sm text-muted-foreground">Uploading...</p>}
+            <Label htmlFor="image">Tour Image URL</Label>
+            <Input id="image" {...register("image")} placeholder="https://example.com/image.jpg" type="url" />
             {watch("image") && (
               <img src={watch("image")} alt="Preview" className="w-full h-40 object-cover rounded" />
             )}
@@ -371,7 +341,7 @@ export default function TourForm({ open, onOpenChange, initial, onSaved }: TourF
 
           <div className="flex justify-end gap-2">
             <Button type="button" variant="outline" onClick={() => onOpenChange(false)}>Cancel</Button>
-            <Button type="submit" disabled={saving || uploading}>
+            <Button type="submit" disabled={saving}>
               {saving ? "Saving..." : "Save Tour"}
             </Button>
           </div>

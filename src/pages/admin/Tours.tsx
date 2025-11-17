@@ -89,22 +89,130 @@ export default function AdminTours() {
   };
 
   const importStaticTours = async () => {
-    const staticTours = [
-      { title: "Coffee Farm Tour", category: "Agriculture", duration: "Half day", location: "Central Kenya", image: "https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=500", description: "Experience coffee production firsthand", featured: true },
-      { title: "Tea Plantation Visit", category: "Agriculture", duration: "Full day", location: "Kericho", image: "https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?w=500", description: "Explore lush tea estates", featured: false },
-      { title: "Dairy Farm Experience", category: "Livestock", duration: "Half day", location: "Kiambu", image: "https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=500", description: "Learn about modern dairy farming", featured: true },
-      { title: "Flower Farm Tour", category: "Horticulture", duration: "3 hours", location: "Naivasha", image: "https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=500", description: "Visit export-quality flower farms", featured: false },
-      { title: "Organic Vegetable Farm", category: "Agriculture", duration: "Half day", location: "Nairobi", image: "https://images.unsplash.com/photo-1592982537447-7440770cbfc9?w=500", description: "Learn organic farming techniques", featured: false },
-    ];
-
+    setImporting(true);
     try {
-      setImporting(true);
-      const { error } = await supabase.from("tours").insert(staticTours);
+      const detailedTours = [
+        {
+          title: "🌹 Flower Farm Tour in Naivasha",
+          duration: "1 day",
+          location: "Naivasha",
+          participants: "4-150 people",
+          image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Fair%20view/The%20Crew.webp",
+          description: "Ever wondered where the stunning roses that grace European castles, luxury events, and world-class floral boutiques come from? Welcome to our Flower Farm Tour in Naivasha—a journey into the heart of Kenya's blossoming floriculture industry.",
+          full_description: "Kenya is one of the world's leading exporters of cut flowers, with roses making up over 80% of the floral export market. Through this immersive tour, you'll explore where it all begins—on lush farms nestled between Lake Naivasha and Lake Nakuru, in one of Kenya's richest agricultural zones.",
+          category: "Farm Tours",
+          featured: false,
+          includes: ["Transportation", "Farm visits", "Guided tours", "Organic tastings", "Expert guidance"],
+          itinerary: [
+            { day: 1, title: "Farm Arrival", details: "Farm arrival and orientation session" },
+            { day: 1, title: "Rose Greenhouses", details: "Visit premium rose cultivation greenhouses" },
+            { day: 1, title: "Export Markets", details: "Learn about export market processes" },
+            { day: 1, title: "Regenerative Practices", details: "Explore regenerative farming practices" },
+            { day: 1, title: "Organic Farming", details: "Organic vegetable farming techniques" },
+            { day: 1, title: "Tastings", details: "Farm-grown tastings and honey sampling" }
+          ],
+          external_links: [
+            { label: "Kenya Flower Council", url: "https://kenyaflowercouncil.org/" },
+            { label: "Kenya Export Promotion Council", url: "https://www.epc.go.ke/" }
+          ]
+        },
+        {
+          title: "🍵 Rural Farm Safari - Tea & Cheese",
+          duration: "1 day",
+          location: "Countryside",
+          participants: "4-160 people",
+          image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Fair%20view/Tea%20farmers.webp",
+          description: "Escape the city and step into Kenya's thriving rural agricultural scene with our Rural Farm Safari—a day immersed in tea cultivation and artisan cheesemaking.",
+          full_description: "Kenya is Africa's leading tea exporter and one of the world's top three tea producers. With over 560,000 smallholder farmers contributing to the industry, tea is woven into the fabric of rural life and drives key export revenues.",
+          category: "Farm Tours",
+          featured: true,
+          includes: ["Transportation", "Farm tours", "Tea tasting", "Cheese sampling", "Expert guides"],
+          itinerary: [
+            { day: 1, title: "Tea Plantation Visit", details: "Walk through lush tea fields and learn harvesting techniques" },
+            { day: 1, title: "Processing Demonstration", details: "See tea processing from leaf to export-ready product" },
+            { day: 1, title: "Artisan Cheese Tour", details: "Visit a local cheese-making facility" },
+            { day: 1, title: "Tastings", details: "Sample premium tea and artisan cheeses" }
+          ],
+          external_links: [
+            { label: "Kenya Tea Development Agency", url: "https://www.ktdateas.com/" }
+          ]
+        },
+        {
+          title: "☕ Coffee & Dairy - Kiambu",
+          duration: "1 day",
+          location: "Kiambu County",
+          participants: "5-60 people",
+          image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Fair%20view/Coffee%20&%20Dairy.webp",
+          description: "Experience two of Kenya's most iconic agricultural industries in one unforgettable day—coffee and dairy farming in the heart of Kiambu County.",
+          full_description: "Kiambu County is synonymous with premium Kenyan coffee and thriving dairy farming. As one of the country's top coffee-producing regions and a major milk supplier to Nairobi, Kiambu embodies the agricultural diversity that drives Kenya's economy.",
+          category: "Farm Tours",
+          featured: true,
+          includes: ["Transportation", "Coffee & dairy tours", "Tastings", "Expert guidance", "Farm-to-table lunch"],
+          itinerary: [
+            { day: 1, title: "Coffee Estate", details: "Tour coffee plantation and processing" },
+            { day: 1, title: "Coffee Tasting", details: "Professional cupping session" },
+            { day: 1, title: "Dairy Farm", details: "Modern dairy operations and milking" },
+            { day: 1, title: "Fresh Tastings", details: "Sample dairy products" }
+          ],
+          external_links: [
+            { label: "Agriculture and Food Authority", url: "https://www.agricultureauthority.go.ke/" }
+          ]
+        },
+        {
+          title: "🐖 Pig Farm Tour - Large-Scale Farming in Kenya",
+          duration: "1 day",
+          location: "Central Kenya",
+          participants: "5-100 people",
+          image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Fair%20view/Pig%20farm%20tour%20%F0%9F%90%96.webp",
+          description: "Discover the dynamic world of large-scale pig farming in Kenya—a booming agricultural sector that's reshaping food security and livelihoods.",
+          full_description: "Kenya's pig farming sector has grown rapidly over the past decade, driven by rising demand for pork products across urban and rural markets.",
+          category: "Farm Tours",
+          featured: false,
+          includes: ["Transportation", "Farm tour", "Expert guidance", "Safety equipment", "Light refreshments"],
+          itinerary: [
+            { day: 1, title: "Farm Introduction", details: "Overview of operations and pig farming in Kenya" },
+            { day: 1, title: "Breeding & Genetics", details: "Learn about modern breeding programs" },
+            { day: 1, title: "Nutrition Systems", details: "Explore feed formulation and nutrition" },
+            { day: 1, title: "Health Management", details: "Disease prevention and biosecurity measures" }
+          ],
+          external_links: [
+            { label: "Ministry of Agriculture", url: "https://kilimo.go.ke/" }
+          ]
+        },
+        {
+          title: "🏔️ Ngong Adrenaline Rush",
+          duration: "1 day",
+          location: "Ngong Hills",
+          participants: "8-40 people",
+          image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Fair%20view/Ngong%20Adrenaline%20Rush%20%F0%9F%8F%94%EF%B8%8F.webp",
+          description: "Get your adrenaline pumping with an unforgettable adventure in the iconic Ngong Hills.",
+          full_description: "The Ngong Hills are one of Kenya's most scenic and accessible outdoor destinations, offering panoramic views of the Great Rift Valley, Nairobi's skyline, and the vast plains stretching toward Tanzania.",
+          category: "Regional Experiences",
+          featured: false,
+          includes: ["Transportation", "Guided hike", "Safety briefing", "Packed lunch", "Drinking water"],
+          itinerary: [
+            { day: 1, title: "Departure", details: "Pickup and scenic drive to Ngong Hills" },
+            { day: 1, title: "Hiking Adventure", details: "Trek across the Ngong peaks" },
+            { day: 1, title: "Community Visit", details: "Visit local Maasai community" },
+            { day: 1, title: "Lunch Break", details: "Packed lunch with scenic views" }
+          ],
+          external_links: [
+            { label: "Kenya Wildlife Service", url: "https://www.kws.go.ke/" }
+          ]
+        }
+      ];
+
+      const { error } = await supabase
+        .from('tours')
+        .insert(detailedTours);
+
       if (error) throw error;
-      toast.success("Tours imported successfully");
+
+      toast.success('Detailed tours imported successfully!');
       fetchTours();
     } catch (error) {
-      toast.error("Failed to import tours");
+      console.error('Import error:', error);
+      toast.error('Failed to import tours');
     } finally {
       setImporting(false);
     }
