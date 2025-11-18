@@ -80,9 +80,9 @@ const Navigation = () => {
             </Link>
           </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-8">
+          {/* Desktop Navigation and CTA Buttons */}
+          <div className="hidden md:flex items-center gap-6">
+            <div className="flex items-baseline space-x-8">
               {navItems.map((item) => (
                 <button
                   key={item.name}
@@ -93,10 +93,7 @@ const Navigation = () => {
                 </button>
               ))}
             </div>
-          </div>
-
-          {/* CTA Button - Desktop */}
-          <div className="hidden md:flex items-center gap-3">
+            <div className="flex items-center gap-3">
             {!user && (
               <Button 
                 onClick={() => navigate('/auth')}
@@ -120,6 +117,7 @@ const Navigation = () => {
                 Book a Tour
               </a>
             </Button>
+            </div>
           </div>
 
           {/* Mobile menu button */}
