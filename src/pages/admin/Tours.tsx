@@ -23,8 +23,14 @@ interface Tour {
   category: string;
   duration: string;
   location: string;
+  participants: string;
   image: string;
+  description: string;
+  full_description: string;
   featured: boolean;
+  includes: string[];
+  itinerary: { day: number; title: string; details: string }[];
+  external_links: { label: string; url: string }[];
 }
 
 export default function AdminTours() {
@@ -47,7 +53,25 @@ export default function AdminTours() {
         .order("created_at", { ascending: false });
 
       if (error) throw error;
-      setTours(data || []);
+      
+      // Map database records to Tour interface
+      const mappedTours = (data || []).map(tour => ({
+        id: tour.id,
+        title: tour.title,
+        category: tour.category || '',
+        duration: tour.duration || '',
+        location: tour.location || '',
+        participants: tour.participants || '',
+        image: tour.image || '',
+        description: tour.description || '',
+        full_description: tour.full_description || '',
+        featured: tour.featured || false,
+        includes: Array.isArray(tour.includes) ? tour.includes as string[] : [],
+        itinerary: Array.isArray(tour.itinerary) ? tour.itinerary as { day: number; title: string; details: string }[] : [],
+        external_links: Array.isArray(tour.external_links) ? tour.external_links as { label: string; url: string }[] : []
+      }));
+      
+      setTours(mappedTours);
     } catch (error: any) {
       toast.error("Failed to load tours");
     } finally {
@@ -270,8 +294,9 @@ export default function AdminTours() {
               <CardContent className="p-4">
                 <CardTitle className="text-lg mb-2">{tour.title}</CardTitle>
                 <p className="text-sm text-muted-foreground mb-1">{tour.category}</p>
-                <p className="text-sm text-muted-foreground mb-1">{tour.duration}</p>
-                <p className="text-sm text-muted-foreground mb-4">{tour.location}</p>
+                <p className="text-sm text-muted-foreground mb-1">{tour.duration} • {tour.location}</p>
+                <p className="text-sm text-muted-foreground mb-1">{tour.participants}</p>
+                <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{tour.description}</p>
                 <div className="flex gap-2">
                   <Button
                     variant="outline"
@@ -280,7 +305,24 @@ export default function AdminTours() {
                   >
                     {tour.featured ? "Unfeature" : "Feature"}
                   </Button>
-                  <Button variant="outline" size="sm" onClick={() => { setEditing({ id: tour.id, title: tour.title, category: tour.category, duration: tour.duration, location: tour.location, image: tour.image, featured: tour.featured }); setFormOpen(true); }}>
+                  <Button variant="outline" size="sm" onClick={() => { 
+                    setEditing({ 
+                      id: tour.id, 
+                      title: tour.title, 
+                      category: tour.category, 
+                      duration: tour.duration, 
+                      location: tour.location,
+                      participants: tour.participants,
+                      image: tour.image, 
+                      description: tour.description,
+                      full_description: tour.full_description,
+                      featured: tour.featured,
+                      includes: tour.includes,
+                      itinerary: tour.itinerary,
+                      external_links: tour.external_links
+                    }); 
+                    setFormOpen(true); 
+                  }}>
                     <Pencil className="h-4 w-4" />
                   </Button>
                   <Button

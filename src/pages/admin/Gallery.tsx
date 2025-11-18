@@ -117,6 +117,13 @@ export default function AdminGallery() {
                     <Button
                       variant="secondary"
                       size="sm"
+                      onClick={() => handleCopyUrl(image.url)}
+                    >
+                      <Copy className="h-4 w-4" />
+                    </Button>
+                    <Button
+                      variant="secondary"
+                      size="sm"
                       onClick={() => setEditImage(image)}
                     >
                       <Pencil className="h-4 w-4" />
