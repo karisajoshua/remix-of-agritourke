@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
-import { Card } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { Pencil, Trash2, Upload, Copy, Plus } from 'lucide-react';
 import { toast } from 'sonner';
 import AdminLayout from '@/components/AdminLayout';
