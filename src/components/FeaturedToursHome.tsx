@@ -1,89 +1,75 @@
 import { useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
 import { Button } from '@/components/ui/button';
 import { Clock, MapPin, Users, ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import TourDetailModal from './TourDetailModal';
+import { supabase } from '@/integrations/supabase/client';
+
+interface Tour {
+  id: string;
+  title: string;
+  duration: string;
+  location: string;
+  participants: string;
+  image: string;
+  description: string;
+  category: string;
+  featured: boolean;
+  full_description: string;
+  itinerary: { day: number; title: string; details: string }[];
+  includes: string[];
+  external_links: { label: string; url: string }[];
+}
 
 const FeaturedToursHome = () => {
-  const [selectedTour, setSelectedTour] = useState(null);
+  const [selectedTour, setSelectedTour] = useState<Tour | null>(null);
   const navigate = useNavigate();
 
-  const featuredTours = [
-    {
-      id: 3,
-      title: "🐘 9-Day Mixed Farming Safari",
-      duration: "9 days", 
-      location: "Central Kenya",
-      participants: "4-70 people",
-      image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Fair%20view/Intro-2.webp",
-      description: "Embrace the Calm Within. A comprehensive journey through Kenya's diverse agricultural landscape, from Mount Kenya to Thompson Falls.",
-      category: "Safari & Wildlife",
-      featured: true,
-      fullDescription: "A 9-day comprehensive agricultural safari that takes you through Kenya's most fertile regions. Experience diverse farming systems from flower and wheat farms near Mount Kenya to dairy farms in Nyahururu, combined with wildlife viewing at Sweetwaters Game Reserve and Solio Ranch.",
-      itinerary: [
-        "Day 1: Nairobi to Nanyuki - Cross the Equator, Mount Kenya views",
-        "Day 2: Flower & wheat farms, Sweetwaters Game Reserve",
-        "Day 3: Nyahururu - Dairy tour & Thompson Falls",
-        "Day 4: Maize farming & cattle milking experience", 
-        "Day 5: Nyeri - Wildlife at Solio Ranch",
-        "Day 6: Coffee farm tour & Baden Powell Memorial",
-        "Day 7: Tea farm harvesting experience",
-        "Day 8: Orphanage & community visit",
-        "Day 9: Return to Nairobi via plantations"
-      ],
-      includes: ["All accommodation", "All meals", "Transportation", "Farm visits", "Game drives", "Professional guide", "Community visits"]
-    },
-    {
-      id: 5,
-      title: "☕ Coffee & Dairy Tour",
-      duration: "1 day",
-      location: "Central Kenya Highlands",
-      participants: "2-150 people",
-      image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Fair%20view/coffee%20and%20dairy%20tour.webp",
-      description: "Make Every Sip an Adventure. Ready for your next farm vacation? Let's dive into nature, heritage, and a cup of fresh, farm-grown coffee.",
-      category: "Farm Tours",
-      featured: true,
-      fullDescription: "We'll pick you up from your hotel in Nairobi at 8:00 AM. Just 8 kilometers away lies a 54-acre paradise—lush with coffee plants, rich in history, and surrounded by serene natural beauty. Our destination? Paradise Lost—a beautifully managed estate that offers more than just a farm tour.",
-      itinerary: [
-        "8:00 AM: Hotel pickup in Nairobi",
-        "Paradise Lost estate arrival",
-        "Nature walks and birdwatching",
-        "Horse and camel riding",
-        "Maasai ostrich feeding",
-        "Coffee berry picking experience",
-        "Processing and production line tour",
-        "Brand your own coffee with Kenyan label",
-        "Dairy farm experience - milking session",
-        "Return to Nairobi with fresh coffee"
-      ],
-      includes: ["Hotel pickup", "Estate activities", "Coffee processing experience", "Dairy farm visit", "Take-home coffee", "All activities"]
-    },
-    {
-      id: 8,
-      title: "🏔️ Ngong Adrenaline Rush",
-      duration: "1 day",
-      location: "Ngong Hills",
-      participants: "4-80 people",
-      image: "https://mmzxltmxiolqboogdvzi.supabase.co/storage/v1/object/public/agritourism/Mbuzi%20Farm/Ngong%20adrenaline.webp",
-      description: "We Turn Moments Into Memories. Nestled in the breathtaking Rift Valley, Ngong Hills are among Kenya's most exhilarating adventure destinations.",
-      category: "Regional Experiences",
-      featured: true,
-      fullDescription: "Meet at International House parking lot (CBD) at 8:00 AM, and after a quick meet-and-greet, we'll hit the road by 8:30 AM. Our journey takes us past Maasai villages and through scenic terrain, with a short stop for teambuilding exercises to shake off the chill of the highlands.",
-      itinerary: [
-        "8:00 AM: Meet at International House CBD",
-        "8:30 AM: Departure past Maasai villages",
-        "10:30 AM: Kompass Hotel arrival",
-        "Ziplining across hilltops",
-        "Archery challenges",
-        "Mountain hiking and photography",
-        "Teambuilding and group games",
-        "Nature walk through untouched landscape",
-        "2:30 PM: Nyama Choma lunch at Riverside Restaurant",
-        "4:30 PM: Return to Nairobi"
-      ],
-      includes: ["Transportation", "Adventure activities", "Teambuilding", "Nyama Choma lunch", "Mountain access"]
+  const { data: featuredTours = [], isLoading } = useQuery({
+    queryKey: ['featured-tours'],
+    queryFn: async () => {
+      const { data, error } = await supabase
+        .from('tours')
+        .select('*')
+        .eq('featured', true)
+        .limit(3);
+      
+      if (error) throw error;
+      
+      return (data || []).map(tour => ({
+        id: tour.id,
+        title: tour.title,
+        duration: tour.duration || '',
+        location: tour.location || '',
+        participants: tour.participants || '',
+        image: tour.image || '',
+        description: tour.description || '',
+        category: tour.category || '',
+        featured: tour.featured || false,
+        full_description: tour.full_description || '',
+        itinerary: Array.isArray(tour.itinerary) ? tour.itinerary as { day: number; title: string; details: string }[] : [],
+        includes: Array.isArray(tour.includes) ? tour.includes as string[] : [],
+        external_links: Array.isArray(tour.external_links) ? tour.external_links as { label: string; url: string }[] : []
+      })) as Tour[];
     }
-  ];
+  });
+
+  if (isLoading) {
+    return (
+      <section id="tours" className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-center h-64">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-agri-green"></div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  if (featuredTours.length === 0) {
+    return null;
+  }
 
   return (
     <section id="tours" className="py-20 bg-white">
@@ -119,18 +105,8 @@ const FeaturedToursHome = () => {
                 <h3 className="text-xl font-poppins font-bold text-agri-dark mb-3">
                   {tour.title}
                 </h3>
-                <p className="text-gray-600 font-inter mb-4 leading-relaxed">
-                  {tour.id === 3 ? (
-                    <>
-                      Embrace the Calm Within. A comprehensive journey through Kenya's diverse agricultural landscape, from Mount Kenya to Thompson Falls, featuring <a href="https://ecotourism.org/" target="_blank" rel="noopener noreferrer" className="text-agri-green hover:text-agri-green/80 underline">sustainable practices</a>.
-                    </>
-                  ) : tour.id === 5 ? (
-                    <>
-                      Make Every Sip an Adventure. Ready for your next farm vacation? Let's dive into nature, heritage, and a cup of fresh, farm-grown coffee through <a href="https://www.fao.org/organicag/en/" target="_blank" rel="noopener noreferrer" className="text-agri-green hover:text-agri-green/80 underline">organic farming</a> experiences.
-                    </>
-                  ) : (
-                    tour.description
-                  )}
+                <p className="text-gray-600 font-inter mb-4 leading-relaxed line-clamp-3">
+                  {tour.description.replace(/<[^>]*>/g, '')}
                 </p>
 
                 <div className="space-y-2 mb-6">
@@ -174,7 +150,12 @@ const FeaturedToursHome = () => {
 
       {selectedTour && (
         <TourDetailModal
-          tour={selectedTour}
+          tour={{
+            ...selectedTour,
+            fullDescription: selectedTour.full_description,
+            externalLinks: selectedTour.external_links.map(link => ({ title: link.label, url: link.url })),
+            itinerary: selectedTour.itinerary.map(item => item.details)
+          }}
           isOpen={!!selectedTour}
           onClose={() => setSelectedTour(null)}
         />

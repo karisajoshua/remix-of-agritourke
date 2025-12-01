@@ -6,7 +6,7 @@ import { Clock, MapPin, Users, Check, MessageCircle, User, Phone, ExternalLink }
 import { Link } from 'react-router-dom';
 
 interface Tour {
-  id: number;
+  id: number | string;
   title: string;
   duration: string;
   location: string;
