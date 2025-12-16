@@ -128,11 +128,11 @@ const Gallery = () => {
               <p className="text-gray-600 font-inter">No images found in this category.</p>
             </div>
           ) : (
-            <div className="columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
+            <div className="columns-2 md:columns-3 lg:columns-4 gap-4">
               {filteredImages.map((image) => (
                 <div
                   key={image.id}
-                  className="break-inside-avoid group cursor-pointer overflow-hidden rounded-lg"
+                  className="break-inside-avoid mb-4 group cursor-pointer overflow-hidden rounded-lg"
                   onClick={() => setSelectedImage(image)}
                 >
                   <div className="relative">

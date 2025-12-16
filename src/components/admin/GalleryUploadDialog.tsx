@@ -9,7 +9,7 @@ import { Switch } from "@/components/ui/switch";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { compressImage } from "@/lib/imageCompression";
-import { Plus } from "lucide-react";
+import { Plus, Trash2 } from "lucide-react";
 
 interface GalleryUploadDialogProps {
   open: boolean;
@@ -91,6 +91,35 @@ export default function GalleryUploadDialog({ open, onOpenChange, onSaved }: Gal
     setShowNewCategory(false);
     setNewCategoryName("");
     toast.success(`Category "${trimmedName}" created`);
+  };
+
+  const handleDeleteCategory = async (categoryToDelete: string) => {
+    if (!confirm(`Delete category "${categoryToDelete}"? Images in this category will remain but become uncategorized.`)) {
+      return;
+    }
+
+    // Remove category from images first
+    await supabase
+      .from('gallery_images')
+      .update({ category: null })
+      .eq('category', categoryToDelete);
+
+    // Delete the category
+    const { error } = await supabase
+      .from('gallery_categories')
+      .delete()
+      .eq('name', categoryToDelete);
+
+    if (error) {
+      toast.error("Failed to delete category");
+      return;
+    }
+
+    setCategories(categories.filter(c => c !== categoryToDelete));
+    if (category === categoryToDelete) {
+      setCategory("");
+    }
+    toast.success(`Category "${categoryToDelete}" deleted`);
   };
 
   const upload = async () => {
@@ -184,7 +213,20 @@ export default function GalleryUploadDialog({ open, onOpenChange, onSaved }: Gal
                 </SelectTrigger>
                 <SelectContent className="bg-background z-50">
                   {categories.map((cat) => (
-                    <SelectItem key={cat} value={cat}>{cat}</SelectItem>
+                    <div key={cat} className="flex items-center justify-between pr-2">
+                      <SelectItem value={cat} className="flex-1">{cat}</SelectItem>
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          handleDeleteCategory(cat);
+                        }}
+                        className="p-1 text-destructive hover:bg-destructive/10 rounded ml-2"
+                      >
+                        <Trash2 className="h-3 w-3" />
+                      </button>
+                    </div>
                   ))}
                   <SelectItem value="__new__" className="text-agri-green font-medium">
                     <span className="flex items-center gap-1">
