@@ -184,6 +184,29 @@ Thank you! 🙏`;
                     ))}
                   </ul>
                 </div>
+
+                {tour.externalLinks && tour.externalLinks.length > 0 && (
+                  <div className="mb-6">
+                    <h3 className="text-xl font-poppins font-bold text-agri-dark mb-3">
+                      Learn More
+                    </h3>
+                    <ul className="space-y-2">
+                      {tour.externalLinks.map((link, index) => (
+                        <li key={index}>
+                          <a
+                            href={link.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center text-agri-green hover:text-agri-teal font-inter transition-colors"
+                          >
+                            <ExternalLink className="h-4 w-4 mr-2 flex-shrink-0" />
+                            {link.title}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
               </div>
             </div>
 
