@@ -18,6 +18,7 @@ import Auth from "./pages/Auth";
 import Dashboard from "./pages/admin/Dashboard";
 import AdminTours from "./pages/admin/Tours";
 import AdminBlog from "./pages/admin/Blog";
+import AdminComments from "./pages/admin/Comments";
 import AdminGallery from "./pages/admin/Gallery";
 import AdminSettings from "./pages/admin/Settings";
 
@@ -42,6 +43,7 @@ const App = () => (
           <Route path="/admin" element={<Dashboard />} />
           <Route path="/admin/tours" element={<AdminTours />} />
           <Route path="/admin/blog" element={<AdminBlog />} />
+          <Route path="/admin/comments" element={<AdminComments />} />
           <Route path="/admin/gallery" element={<AdminGallery />} />
           <Route path="/admin/settings" element={<AdminSettings />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

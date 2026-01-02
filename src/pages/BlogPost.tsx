@@ -3,10 +3,12 @@ import { useEffect, useState } from 'react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
-import { Calendar, User, ArrowLeft, Clock } from 'lucide-react';
+import { Calendar, User, ArrowLeft, Clock, MessageSquare } from 'lucide-react';
 import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
 import { supabase } from '@/integrations/supabase/client';
 import { sanitizeHtml } from '@/lib/sanitize';
+import BlogComments from '@/components/BlogComments';
+import CommentForm from '@/components/CommentForm';
 
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -14,6 +16,8 @@ const BlogPost = () => {
   const [post, setPost] = useState<any>(null);
   const [relatedPosts, setRelatedPosts] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
+  const [commentCount, setCommentCount] = useState(0);
+  const [refreshComments, setRefreshComments] = useState(0);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -33,6 +37,14 @@ const BlogPost = () => {
           .neq('slug', slug)
           .limit(3);
         setRelatedPosts(related || []);
+
+        // Fetch comment count
+        const { count } = await supabase
+          .from('blog_comments')
+          .select('*', { count: 'exact', head: true })
+          .eq('post_id', data.id)
+          .eq('approved', true);
+        setCommentCount(count || 0);
       }
       setLoading(false);
     };
@@ -126,6 +138,25 @@ const BlogPost = () => {
             className="prose prose-lg max-w-none font-inter"
             dangerouslySetInnerHTML={{ __html: sanitizeHtml(post.content) }}
           />
+
+          {/* Comments Section */}
+          <div className="mt-16 pt-8 border-t">
+            <div className="flex items-center gap-2 mb-8">
+              <MessageSquare className="h-6 w-6 text-agri-green" />
+              <h2 className="text-2xl font-poppins font-bold text-agri-dark">
+                Comments {commentCount > 0 && `(${commentCount})`}
+              </h2>
+            </div>
+            
+            <BlogComments postId={post.id} refreshTrigger={refreshComments} />
+            
+            <div className="mt-8">
+              <CommentForm 
+                postId={post.id} 
+                onCommentSubmitted={() => setRefreshComments(r => r + 1)} 
+              />
+            </div>
+          </div>
 
           <div className="mt-12 pt-8 border-t">
             <Button onClick={() => navigate('/blog')} variant="outline">

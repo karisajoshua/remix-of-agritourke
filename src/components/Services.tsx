@@ -107,9 +107,13 @@ const Services = () => {
             >
               Get Custom Quote
             </a>
-            <button className="border-2 border-white text-white hover:bg-white hover:text-agri-green px-8 py-4 rounded-lg font-inter font-semibold text-lg transition-colors">
+            <a 
+              href="/documents/AA_Brochure.pdf" 
+              download="Agritourism-Adventures-Brochure.pdf"
+              className="border-2 border-white text-white hover:bg-white hover:text-agri-green px-8 py-4 rounded-lg font-inter font-semibold text-lg transition-colors inline-block"
+            >
               Download Brochure
-            </button>
+            </a>
           </div>
         </div>
       </div>

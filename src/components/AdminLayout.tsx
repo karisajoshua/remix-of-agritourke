@@ -1,4 +1,4 @@
-import { ReactNode, useEffect } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import { useNavigate, NavLink, useLocation } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
 import { useAdminCheck } from "@/hooks/useAdminCheck";
@@ -15,14 +15,17 @@ import {
   SidebarTrigger,
   useSidebar,
 } from "@/components/ui/sidebar";
-import { LayoutDashboard, MapPin, FileText, Image, Settings, LogOut } from "lucide-react";
+import { LayoutDashboard, MapPin, FileText, Image, Settings, LogOut, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
+import { Badge } from "@/components/ui/badge";
+import { supabase } from "@/integrations/supabase/client";
 
 const menuItems = [
   { title: "Dashboard", url: "/admin", icon: LayoutDashboard },
   { title: "Tours", url: "/admin/tours", icon: MapPin },
   { title: "Blog", url: "/admin/blog", icon: FileText },
+  { title: "Comments", url: "/admin/comments", icon: MessageSquare },
   { title: "Gallery", url: "/admin/gallery", icon: Image },
   { title: "Settings", url: "/admin/settings", icon: Settings },
 ];
@@ -32,6 +35,18 @@ function AdminSidebarContent() {
   const location = useLocation();
   const { signOut } = useAuth();
   const navigate = useNavigate();
+  const [pendingCount, setPendingCount] = useState(0);
+
+  useEffect(() => {
+    const fetchPendingCount = async () => {
+      const { count } = await supabase
+        .from('blog_comments')
+        .select('*', { count: 'exact', head: true })
+        .eq('approved', false);
+      setPendingCount(count || 0);
+    };
+    fetchPendingCount();
+  }, []);
 
   const handleLogout = async () => {
     await signOut();
@@ -58,7 +73,16 @@ function AdminSidebarContent() {
                   <SidebarMenuButton asChild>
                     <NavLink to={item.url} end className={getNavCls(item.url)}>
                       <item.icon className="h-4 w-4" />
-                      {!isCollapsed && <span>{item.title}</span>}
+                      {!isCollapsed && (
+                        <span className="flex items-center gap-2">
+                          {item.title}
+                          {item.title === "Comments" && pendingCount > 0 && (
+                            <Badge variant="secondary" className="bg-yellow-100 text-yellow-800 text-xs px-1.5 py-0.5">
+                              {pendingCount}
+                            </Badge>
+                          )}
+                        </span>
+                      )}
                     </NavLink>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
