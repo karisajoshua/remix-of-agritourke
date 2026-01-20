@@ -1,0 +1,17 @@
+# Agritourism Adventures
+
+> Agritourism Adventures connects travelers with Kenya's farms, cultures, and countryside through immersive, eco-conscious adventures. We offer sustainable tourism experiences that support local communities and regenerative agriculture practices.
+
+## Core Pages
+- [About Us](https://agritourke.lovable.app/about): Learn about our mission, team, and commitment to sustainable tourism in Kenya
+- [Our Tours](https://agritourke.lovable.app/tours): Browse our curated agritourism experiences across Kenyan farms and communities
+- [Services](https://agritourke.lovable.app/services): Discover our educational tours, cultural experiences, and farm-to-table programs
+- [FAQ](https://agritourke.lovable.app/faq): Answers to common questions about visiting, booking, safety, and sustainability
+
+## Resources
+- [Blog](https://agritourke.lovable.app/blog): Articles on sustainable agriculture, travel tips, and Kenyan farm experiences
+- [Gallery](https://agritourke.lovable.app/gallery): Visual showcase of our tours and partner farms
+
+## Contact
+- Phone: (+254) 710 429 755
+- Location: Kenya
