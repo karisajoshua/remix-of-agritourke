@@ -1,7 +1,40 @@
 import React from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { Heart, Users, Leaf, ArrowRight, User } from 'lucide-react';
+import { Heart, Users, Leaf, ArrowRight, User, Quote } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+
+// Testimonial images
+import leylaImage from '@/assets/testimonials/leyla-feisal.jpeg';
+import naomiImage from '@/assets/testimonials/naomi-nelima.jpeg';
+import floisImage from '@/assets/testimonials/flois-kevogo.jpeg';
+import kelvinImage from '@/assets/testimonials/kelvin-ambetsa.jpeg';
+
+const testimonials = [
+  {
+    name: "Leyla Feisal",
+    role: "Tourist",
+    image: leylaImage,
+    quote: "The flower farm trip in Naivasha was beautiful & eye-opening. The organized farm, informed guides and Naivasha's scenery made the trip worthwhile. I want another one!"
+  },
+  {
+    name: "Naomi Nelima",
+    role: "Digital Marketer",
+    image: naomiImage,
+    quote: "If your 2026 travel vision board doesn't include the Matatu Tour by Agritourism Adventures, it's time for an update. While I previously avoided matatus, this experience completely redefined the journey through a lens of cleanliness, impeccable organization and vibrant Kenyan pride."
+  },
+  {
+    name: "Flois Kevogo",
+    role: "Childhood Educator",
+    image: floisImage,
+    quote: "We loved our Bonding Safari experience! The trip was just right for couples, and everything went smoothly from beginning to end. The food was tasty, and the activities kept us entertained. The tour guides made the whole trip even better with their positive energy. We're already looking forward to the next adventure!"
+  },
+  {
+    name: "Kelvin Ambetsa",
+    role: "Strategy Expert",
+    image: kelvinImage,
+    quote: "I wanted to learn about goat farming from real experts, and Agritourism Adventures arranged a visit for me. The whole experience was packaged well; educative, organized and fun! I learned about different goat breeds, their business and animal care. AA promised me ongoing help with networking among goat farmers, and they kept it. Makofi kwenyu!"
+  }
+];
 const About = () => {
   const navigate = useNavigate();
   return <div className="bg-white py-24">
@@ -181,6 +214,49 @@ const About = () => {
                 </p>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-poppins font-bold text-agri-dark mb-6">
+              What Our Travelers Say
+            </h2>
+            <p className="text-xl text-gray-600 font-inter max-w-4xl mx-auto leading-relaxed">
+              Real stories from adventurers who've experienced the magic of agritourism with us.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {testimonials.map((testimonial, index) => (
+              <div 
+                key={index}
+                className="bg-agri-grey rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 relative"
+              >
+                <Quote className="absolute top-6 right-6 h-10 w-10 text-agri-green/20" />
+                <div className="flex items-start gap-4 mb-6">
+                  <img 
+                    src={testimonial.image} 
+                    alt={testimonial.name}
+                    className="w-16 h-16 rounded-full object-cover border-2 border-agri-green"
+                  />
+                  <div>
+                    <h4 className="text-xl font-poppins font-bold text-agri-dark">
+                      {testimonial.name}
+                    </h4>
+                    <p className="text-agri-green font-inter font-medium">
+                      {testimonial.role}
+                    </p>
+                  </div>
+                </div>
+                <p className="text-gray-600 font-inter leading-relaxed italic">
+                  "{testimonial.quote}"
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
