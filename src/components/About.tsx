@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { Heart, Users, Leaf, ArrowRight, User, Quote } from 'lucide-react';
+import { Heart, Users, Leaf, ArrowRight, User, Quote, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 // Testimonial images
@@ -14,27 +14,56 @@ const testimonials = [
     name: "Leyla Feisal",
     role: "Tourist",
     image: leylaImage,
+    rating: 5,
     quote: "The flower farm trip in Naivasha was beautiful & eye-opening. The organized farm, informed guides and Naivasha's scenery made the trip worthwhile. I want another one!"
   },
   {
     name: "Naomi Nelima",
     role: "Digital Marketer",
     image: naomiImage,
+    rating: 5,
     quote: "If your 2026 travel vision board doesn't include the Matatu Tour by Agritourism Adventures, it's time for an update. While I previously avoided matatus, this experience completely redefined the journey through a lens of cleanliness, impeccable organization and vibrant Kenyan pride."
   },
   {
     name: "Flois Kevogo",
     role: "Childhood Educator",
     image: floisImage,
+    rating: 4.5,
     quote: "We loved our Bonding Safari experience! The trip was just right for couples, and everything went smoothly from beginning to end. The food was tasty, and the activities kept us entertained. The tour guides made the whole trip even better with their positive energy. We're already looking forward to the next adventure!"
   },
   {
     name: "Kelvin Ambetsa",
     role: "Strategy Expert",
     image: kelvinImage,
+    rating: 5,
     quote: "I wanted to learn about goat farming from real experts, and Agritourism Adventures arranged a visit for me. The whole experience was packaged well; educative, organized and fun! I learned about different goat breeds, their business and animal care. AA promised me ongoing help with networking among goat farmers, and they kept it. Makofi kwenyu!"
   }
 ];
+
+const StarRating = ({ rating }: { rating: number }) => {
+  const fullStars = Math.floor(rating);
+  const hasHalfStar = rating % 1 !== 0;
+  
+  return (
+    <div className="flex items-center gap-0.5">
+      {[...Array(fullStars)].map((_, i) => (
+        <Star key={i} className="h-4 w-4 fill-agri-yellow text-agri-yellow" />
+      ))}
+      {hasHalfStar && (
+        <div className="relative">
+          <Star className="h-4 w-4 text-gray-300" />
+          <div className="absolute inset-0 overflow-hidden w-1/2">
+            <Star className="h-4 w-4 fill-agri-yellow text-agri-yellow" />
+          </div>
+        </div>
+      )}
+      {[...Array(5 - Math.ceil(rating))].map((_, i) => (
+        <Star key={`empty-${i}`} className="h-4 w-4 text-gray-300" />
+      ))}
+      <span className="ml-1 text-sm font-medium text-gray-600">{rating}</span>
+    </div>
+  );
+};
 const About = () => {
   const navigate = useNavigate();
   return <div className="bg-white py-24">
@@ -250,6 +279,7 @@ const About = () => {
                     <p className="text-agri-green font-inter font-medium">
                       {testimonial.role}
                     </p>
+                    <StarRating rating={testimonial.rating} />
                   </div>
                 </div>
                 <p className="text-gray-600 font-inter leading-relaxed italic">
