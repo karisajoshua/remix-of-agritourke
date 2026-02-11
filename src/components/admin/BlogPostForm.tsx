@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
+import RichTextEditor from "@/components/admin/RichTextEditor";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { slugify } from "@/lib/slugify";
@@ -214,8 +215,11 @@ export default function BlogPostForm({ open, onOpenChange, initial, onSaved }: B
           </div>
 
           <div className="grid gap-2">
-            <Label htmlFor="content">Content * (HTML supported)</Label>
-            <Textarea id="content" {...register("content")} rows={12} placeholder="Full blog post content with HTML tags" />
+            <Label>Content *</Label>
+            <RichTextEditor
+              value={watch("content")}
+              onChange={(html) => setValue("content", html, { shouldValidate: true })}
+            />
             {errors.content && <p className="text-sm text-red-500">{errors.content.message}</p>}
             <p className="text-xs text-muted-foreground">Read time will be calculated automatically</p>
           </div>
