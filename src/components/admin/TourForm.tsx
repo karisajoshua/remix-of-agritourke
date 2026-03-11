@@ -22,6 +22,7 @@ const tourSchema = z.object({
   full_description: z.string().optional(),
   featured: z.boolean(),
   image: z.string().url("Must be a valid URL").optional().or(z.literal("")),
+  price_starting_from: z.union([z.number().int().positive(), z.nan(), z.literal(0)]).optional().nullable(),
 });
 
 type TourFormData = z.infer<typeof tourSchema>;
