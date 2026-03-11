@@ -15,7 +15,7 @@ import {
   SidebarTrigger,
   useSidebar,
 } from "@/components/ui/sidebar";
-import { LayoutDashboard, MapPin, FileText, Image, Settings, LogOut, MessageSquare } from "lucide-react";
+import { LayoutDashboard, MapPin, FileText, Image, Settings, LogOut, MessageSquare, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import { Badge } from "@/components/ui/badge";
