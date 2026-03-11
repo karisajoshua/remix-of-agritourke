@@ -2,10 +2,11 @@ import { useState, useEffect } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import { Button } from '@/components/ui/button';
-import { Clock, MapPin, Users, ArrowRight, ExternalLink } from 'lucide-react';
+import { Clock, MapPin, Users, ArrowRight, Tag } from 'lucide-react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import TourDetailModal from '@/components/TourDetailModal';
+import QuoteRequestDialog from '@/components/QuoteRequestDialog';
 import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
 import { supabase } from '@/integrations/supabase/client';
 import { toast } from 'sonner';
@@ -24,12 +25,14 @@ interface Tour {
   itinerary: { day: number; title: string; details: string }[];
   includes: string[];
   external_links: { label: string; url: string }[];
+  price_starting_from: number | null;
 }
 
 const Tours = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [activeFilter, setActiveFilter] = useState(searchParams.get('category') || 'All');
   const [selectedTour, setSelectedTour] = useState<Tour | null>(null);
+  const [quoteTour, setQuoteTour] = useState<{ id: string; title: string } | null>(null);
 
   const filters = ['All', 'Farm Tours', 'Safari & Wildlife', 'Cultural & Urban', 'Regional Experiences', 'Educational Tours'];
 
@@ -56,7 +59,8 @@ const Tours = () => {
         full_description: tour.full_description || '',
         itinerary: Array.isArray(tour.itinerary) ? tour.itinerary as { day: number; title: string; details: string }[] : [],
         includes: Array.isArray(tour.includes) ? tour.includes as string[] : [],
-        external_links: Array.isArray(tour.external_links) ? tour.external_links as { label: string; url: string }[] : []
+        external_links: Array.isArray(tour.external_links) ? tour.external_links as { label: string; url: string }[] : [],
+        price_starting_from: tour.price_starting_from ?? null,
       })) as Tour[];
     }
   });
@@ -77,6 +81,10 @@ const Tours = () => {
   const filteredTours = activeFilter === 'All'
     ? tours 
     : tours.filter(tour => tour.category === activeFilter);
+
+  const formatPrice = (price: number) => {
+    return new Intl.NumberFormat('en-KE').format(price);
+  };
 
   if (isLoading) {
     return (
@@ -194,7 +202,7 @@ const Tours = () => {
                       {tour.description.replace(/<[^>]*>/g, '')}
                     </p>
 
-                    <div className="space-y-2 mb-6">
+                    <div className="space-y-2 mb-4">
                       <div className="flex items-center text-sm text-gray-500 font-inter">
                         <Clock className="h-4 w-4 mr-2 text-agri-green" />
                         {tour.duration}
@@ -209,13 +217,32 @@ const Tours = () => {
                       </div>
                     </div>
 
-                    <Button 
-                      onClick={() => setSelectedTour(tour)}
-                      className="w-full bg-agri-teal hover:bg-agri-teal/90 text-white font-inter font-semibold group"
-                    >
-                      Explore Tour
-                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                    </Button>
+                    {/* Price */}
+                    {tour.price_starting_from && (
+                      <div className="flex items-center gap-2 mb-4 bg-agri-green/5 px-3 py-2 rounded-lg">
+                        <Tag className="h-4 w-4 text-agri-green" />
+                        <span className="text-sm font-inter font-semibold text-agri-green">
+                          Starting from KES {formatPrice(tour.price_starting_from)}
+                        </span>
+                      </div>
+                    )}
+
+                    <div className="flex gap-2">
+                      <Button 
+                        onClick={() => setSelectedTour(tour)}
+                        className="flex-1 bg-agri-teal hover:bg-agri-teal/90 text-white font-inter font-semibold group"
+                      >
+                        Explore
+                        <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                      </Button>
+                      <Button
+                        variant="outline"
+                        onClick={() => setQuoteTour({ id: tour.id, title: tour.title })}
+                        className="flex-1 border-agri-green text-agri-green hover:bg-agri-green hover:text-white font-inter font-semibold"
+                      >
+                        Get Quote
+                      </Button>
+                    </div>
                   </div>
                 </div>
               ))}
@@ -232,10 +259,23 @@ const Tours = () => {
             ...selectedTour,
             fullDescription: selectedTour.full_description,
             externalLinks: selectedTour.external_links.map(link => ({ title: link.label, url: link.url })),
-            itinerary: selectedTour.itinerary.map(item => item.details)
+            itinerary: selectedTour.itinerary.map(item => item.details),
+            priceStartingFrom: selectedTour.price_starting_from,
           }}
           isOpen={!!selectedTour}
           onClose={() => setSelectedTour(null)}
+          onRequestQuote={() => {
+            setQuoteTour({ id: selectedTour.id, title: selectedTour.title });
+          }}
+        />
+      )}
+
+      {quoteTour && (
+        <QuoteRequestDialog
+          open={!!quoteTour}
+          onOpenChange={(open) => !open && setQuoteTour(null)}
+          tourId={quoteTour.id}
+          tourTitle={quoteTour.title}
         />
       )}
     </div>

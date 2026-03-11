@@ -252,6 +252,19 @@ export default function TourForm({ open, onOpenChange, initial, onSaved }: TourF
             {errors.image && <p className="text-sm text-red-500">{errors.image.message}</p>}
           </div>
 
+          <div className="grid gap-2">
+            <Label htmlFor="price_starting_from">Starting Price (KES)</Label>
+            <Input
+              id="price_starting_from"
+              type="number"
+              min={0}
+              placeholder="e.g. 5000"
+              value={watch("price_starting_from") ?? ""}
+              onChange={(e) => setValue("price_starting_from", e.target.value ? parseInt(e.target.value) : null)}
+            />
+            <p className="text-xs text-muted-foreground">Minimum price shown to visitors. Leave empty to hide pricing.</p>
+          </div>
+
           <div className="flex items-center gap-2">
             <Switch id="featured" checked={watch("featured")} onCheckedChange={(checked) => setValue("featured", checked)} />
             <Label htmlFor="featured">Featured Tour</Label>

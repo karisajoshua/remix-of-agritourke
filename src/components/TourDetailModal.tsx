@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
-import { Clock, MapPin, Users, Check, MessageCircle, User, Phone, ExternalLink } from 'lucide-react';
+import { Clock, MapPin, Users, Check, MessageCircle, User, Phone, ExternalLink, Tag, Send } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 interface Tour {
@@ -18,15 +18,19 @@ interface Tour {
   itinerary: string[];
   includes: string[];
   externalLinks?: { title: string; url: string }[];
+  priceStartingFrom?: number | null;
 }
 
 interface TourDetailModalProps {
   tour: Tour;
   isOpen: boolean;
   onClose: () => void;
+  onRequestQuote?: () => void;
 }
 
-const TourDetailModal = ({ tour, isOpen, onClose }: TourDetailModalProps) => {
+const formatPrice = (price: number) => new Intl.NumberFormat('en-KE').format(price);
+
+const TourDetailModal = ({ tour, isOpen, onClose, onRequestQuote }: TourDetailModalProps) => {
   const [showBookingForm, setShowBookingForm] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
@@ -36,10 +40,7 @@ const TourDetailModal = ({ tour, isOpen, onClose }: TourDetailModalProps) => {
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
+    setFormData(prev => ({ ...prev, [name]: value }));
   };
 
   const handleSubmitBooking = () => {
@@ -131,6 +132,21 @@ Thank you! 🙏`;
                     <span className="ml-2">{tour.participants}</span>
                   </div>
                 </div>
+
+                {/* Price Display */}
+                {tour.priceStartingFrom && (
+                  <div className="mt-4 bg-agri-green/5 border border-agri-green/20 px-4 py-3 rounded-lg">
+                    <div className="flex items-center gap-2">
+                      <Tag className="h-5 w-5 text-agri-green" />
+                      <span className="font-inter font-bold text-agri-green text-lg">
+                        Starting from KES {formatPrice(tour.priceStartingFrom)}
+                      </span>
+                    </div>
+                    <p className="text-xs text-muted-foreground mt-1 font-inter">
+                      Final price depends on group size and customization
+                    </p>
+                  </div>
+                )}
               </div>
 
               {/* Details */}
@@ -210,21 +226,31 @@ Thank you! 🙏`;
               </div>
             </div>
 
-            {/* Book Now Button */}
-            <div className="flex gap-4 pt-4 border-t">
+            {/* Action Buttons */}
+            <div className="flex gap-3 pt-4 border-t">
               <Button
                 variant="outline"
                 onClick={onClose}
-                className="flex-1 font-inter font-semibold"
+                className="font-inter font-semibold"
               >
                 Close
               </Button>
+              {onRequestQuote && (
+                <Button
+                  onClick={() => { onClose(); setTimeout(onRequestQuote, 200); }}
+                  variant="outline"
+                  className="flex-1 border-agri-green text-agri-green hover:bg-agri-green hover:text-white font-inter font-semibold"
+                >
+                  <Send className="mr-2 h-4 w-4" />
+                  Request Custom Quote
+                </Button>
+              )}
               <Button
                 onClick={handleBookNow}
                 className="flex-1 bg-agri-green hover:bg-agri-green/90 text-white font-inter font-semibold"
               >
                 <MessageCircle className="mr-2 h-4 w-4" />
-                Book Now
+                Book via WhatsApp
               </Button>
             </div>
           </>

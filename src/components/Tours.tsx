@@ -156,6 +156,16 @@ const Tours = () => {
                     </div>
                   </div>
 
+                  {/* Price */}
+                  {tour.price_starting_from && (
+                    <div className="flex items-center gap-2 mb-4 bg-agri-green/5 px-3 py-2 rounded-lg">
+                      <Tag className="h-4 w-4 text-agri-green" />
+                      <span className="text-sm font-inter font-semibold text-agri-green">
+                        Starting from KES {new Intl.NumberFormat('en-KE').format(tour.price_starting_from)}
+                      </span>
+                    </div>
+                  )}
+
                   {/* CTA Button */}
                   <Button 
                     onClick={() => navigate('/tours')}

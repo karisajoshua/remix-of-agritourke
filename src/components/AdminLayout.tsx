@@ -26,6 +26,7 @@ const menuItems = [
   { title: "Tours", url: "/admin/tours", icon: MapPin },
   { title: "Blog", url: "/admin/blog", icon: FileText },
   { title: "Comments", url: "/admin/comments", icon: MessageSquare },
+  { title: "Quotes", url: "/admin/quotes", icon: Send },
   { title: "Gallery", url: "/admin/gallery", icon: Image },
   { title: "Settings", url: "/admin/settings", icon: Settings },
 ];
