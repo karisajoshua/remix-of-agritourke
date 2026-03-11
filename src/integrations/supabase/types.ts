@@ -184,6 +184,59 @@ export type Database = {
         }
         Relationships: []
       }
+      quote_requests: {
+        Row: {
+          created_at: string | null
+          email: string
+          group_size: string | null
+          id: string
+          message: string | null
+          name: string
+          phone: string | null
+          preferred_dates: string | null
+          status: string
+          tour_id: string | null
+          tour_title: string
+          updated_at: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          email: string
+          group_size?: string | null
+          id?: string
+          message?: string | null
+          name: string
+          phone?: string | null
+          preferred_dates?: string | null
+          status?: string
+          tour_id?: string | null
+          tour_title: string
+          updated_at?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          email?: string
+          group_size?: string | null
+          id?: string
+          message?: string | null
+          name?: string
+          phone?: string | null
+          preferred_dates?: string | null
+          status?: string
+          tour_id?: string | null
+          tour_title?: string
+          updated_at?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "quote_requests_tour_id_fkey"
+            columns: ["tour_id"]
+            isOneToOne: false
+            referencedRelation: "tours"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       tours: {
         Row: {
           category: string | null
@@ -200,6 +253,7 @@ export type Database = {
           itinerary: Json | null
           location: string | null
           participants: string | null
+          price_starting_from: number | null
           title: string
           updated_at: string | null
         }
@@ -218,6 +272,7 @@ export type Database = {
           itinerary?: Json | null
           location?: string | null
           participants?: string | null
+          price_starting_from?: number | null
           title: string
           updated_at?: string | null
         }
@@ -236,6 +291,7 @@ export type Database = {
           itinerary?: Json | null
           location?: string | null
           participants?: string | null
+          price_starting_from?: number | null
           title?: string
           updated_at?: string | null
         }
