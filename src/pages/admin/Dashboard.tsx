@@ -103,6 +103,9 @@ export default function Dashboard() {
           <Button className="rounded-none bg-agri-yellow hover:bg-agri-yellow/90 gap-2" onClick={() => navigate("/admin/gallery")}>
             <Plus className="h-4 w-4" /> Upload Photo
           </Button>
+          <Button className="rounded-none bg-orange-500 hover:bg-orange-600 gap-2" onClick={() => navigate("/admin/quotes")}>
+            <Send className="h-4 w-4" /> View Quotes
+          </Button>
         </div>
 
         {/* Recent Activity */}
