@@ -41,6 +41,7 @@ export interface TourRecord {
   includes?: string[];
   itinerary?: Array<{ day: number; title?: string; details: string }>;
   external_links?: Array<{ label: string; url: string }>;
+  price_starting_from?: number | null;
 }
 
 interface TourFormProps {
