@@ -23,7 +23,7 @@ interface PendingComment {
 
 export default function Dashboard() {
   const navigate = useNavigate();
-  const [stats, setStats] = useState({ tours: 0, blogPosts: 0, galleryImages: 0 });
+  const [stats, setStats] = useState({ tours: 0, blogPosts: 0, galleryImages: 0, pendingQuotes: 0 });
   const [recentPosts, setRecentPosts] = useState<RecentPost[]>([]);
   const [pendingComments, setPendingComments] = useState<PendingComment[]>([]);
 
