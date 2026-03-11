@@ -167,6 +167,7 @@ export default function TourForm({ open, onOpenChange, initial, onSaved }: TourF
         full_description: data.full_description || null,
         image: data.image || null,
         featured: data.featured,
+        price_starting_from: data.price_starting_from && !isNaN(data.price_starting_from) ? data.price_starting_from : null,
         includes: includes.length > 0 ? includes : null,
         itinerary: itinerary.length > 0 ? itinerary : null,
         external_links: externalLinks.filter(l => l.label && l.url).length > 0 
