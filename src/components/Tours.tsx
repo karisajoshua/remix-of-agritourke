@@ -16,6 +16,7 @@ interface Tour {
   description: string;
   category: string;
   featured: boolean;
+  price_starting_from: number | null;
 }
 
 const Tours = () => {
