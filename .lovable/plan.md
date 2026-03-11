@@ -1,65 +1,120 @@
 
 
-## Plan: Revamp Admin Dashboard and Add Rich Text Blog Editor
+## Plan: Tour Pricing, Custom Quote Requests & Admin Quote Management
 
-### Part 1: Admin Dashboard Redesign
+### What We're Building
 
-The current dashboard is minimal -- just 3 stat cards. We'll make it more engaging and informative while keeping the sharp-edged, solid-color design.
+1. **Add a `price_starting_from` field to the `tours` table** so each tour shows a minimum price
+2. **Display "Starting from KES X" on tour cards** on the Tours page
+3. **Create a `quote_requests` table** to store custom quote submissions
+4. **Add a "Request Custom Quote" dialog** on each tour card / detail modal where visitors fill in their details (name, email, phone, group size, preferred dates, message)
+5. **Add a Quote Requests section on the admin dashboard** so the admin can see and manage incoming requests
 
-**Changes to `src/pages/admin/Dashboard.tsx`:**
+---
 
-- Add a welcome banner with the current date and a motivational greeting
-- Redesign stat cards with colored left borders and larger icons
-- Add a "Recent Activity" section showing the latest 5 blog posts and comments
-- Add quick-action buttons (New Tour, New Blog Post, Upload Photo)
-- Fetch recent blog posts and pending comments to display in activity feed
-- Use the brand palette: agri-green, agri-teal, agri-dark, agri-yellow
+### Part 1: Database Changes
 
-**Changes to `src/components/AdminLayout.tsx`:**
+**Migration 1 — Add `price_starting_from` column to `tours`:**
+```sql
+ALTER TABLE public.tours ADD COLUMN price_starting_from integer DEFAULT NULL;
+```
 
-- Add a subtle brand accent to the header (colored top border or left accent)
-- Improve the header with a breadcrumb-style page title
+**Migration 2 — Create `quote_requests` table:**
+```sql
+CREATE TABLE public.quote_requests (
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  tour_id uuid REFERENCES public.tours(id) ON DELETE SET NULL,
+  tour_title text NOT NULL,
+  name text NOT NULL,
+  email text NOT NULL,
+  phone text,
+  group_size text,
+  preferred_dates text,
+  message text,
+  status text NOT NULL DEFAULT 'pending',
+  created_at timestamptz DEFAULT now(),
+  updated_at timestamptz DEFAULT now()
+);
 
-### Part 2: Rich Text Blog Editor (No HTML Code Required)
+ALTER TABLE public.quote_requests ENABLE ROW LEVEL SECURITY;
 
-Replace the plain textarea with a toolbar-based rich text editor so admins can write content naturally -- adding headings, bold/italic text, paragraph breaks -- without touching any code.
+-- Anyone can submit a quote request
+CREATE POLICY "Anyone can submit quote requests" ON public.quote_requests
+  FOR INSERT TO public WITH CHECK (true);
 
-**Approach:** Build a custom toolbar-based editor using a `contentEditable` div. This avoids adding heavy dependencies while giving admins a familiar word-processor-like experience.
+-- Only admins can view quote requests
+CREATE POLICY "Admins can view quote requests" ON public.quote_requests
+  FOR SELECT TO authenticated USING (public.has_role(auth.uid(), 'admin'));
 
-**Create `src/components/admin/RichTextEditor.tsx`:**
+-- Only admins can update quote requests
+CREATE POLICY "Admins can update quote requests" ON public.quote_requests
+  FOR UPDATE TO authenticated USING (public.has_role(auth.uid(), 'admin'));
 
-- A `contentEditable` div with a formatting toolbar above it
-- Toolbar buttons for:
-  - **Heading 1, Heading 2, Heading 3** -- section titles
-  - **Bold, Italic, Underline** -- text formatting
-  - **Bullet List, Numbered List** -- lists
-  - **Quote** -- blockquotes
-  - **Link** -- insert hyperlinks
-  - **Paragraph spacing** -- clear formatting / add paragraph breaks
-- Uses `document.execCommand()` for formatting (widely supported, simple)
-- Outputs clean HTML that works with the existing `sanitizeHtml` + `dangerouslySetInnerHTML` rendering
-- When editing an existing post, loads the existing HTML content into the editor
-- Styled to look like a proper writing area with a visible toolbar
+-- Only admins can delete quote requests
+CREATE POLICY "Admins can delete quote requests" ON public.quote_requests
+  FOR DELETE TO authenticated USING (public.has_role(auth.uid(), 'admin'));
+```
 
-**Update `src/components/admin/BlogPostForm.tsx`:**
+---
 
-- Replace the content `<Textarea>` with the new `<RichTextEditor>` component
-- Remove the "(HTML supported)" label -- the form now feels like a normal text editor
-- The editor outputs HTML behind the scenes but the admin never sees it
-- Update the form's `setValue` integration to work with the editor's `onChange`
+### Part 2: Frontend — Tour Cards & Quote Dialog
 
-### Technical Details
+**Modify `src/pages/Tours.tsx`:**
+- Add `price_starting_from` to the Tour interface and query
+- Display "Starting from KES X" on each card below the tour details
+- Add a "Request Custom Quote" button alongside the existing "Explore Tour" button
 
-**Files to create:**
-| File | Purpose |
-|------|---------|
-| `src/components/admin/RichTextEditor.tsx` | Toolbar-based rich text editor component |
+**Create `src/components/QuoteRequestDialog.tsx`:**
+- A dialog with fields: Name, Email, Phone, Group Size, Preferred Dates, Message
+- Pre-fills the tour title
+- Submits to the `quote_requests` table
+- Shows a success toast on submission
 
-**Files to modify:**
-| File | Changes |
-|------|---------|
-| `src/pages/admin/Dashboard.tsx` | Complete redesign with welcome banner, improved stat cards, recent activity, quick actions |
-| `src/components/admin/BlogPostForm.tsx` | Replace textarea with RichTextEditor for content field |
+**Modify `src/components/TourDetailModal.tsx`:**
+- Show the starting price in the tour detail view
+- Add a "Request Custom Quote" button next to "Book Now"
 
-**No new dependencies needed** -- the rich text editor uses native browser APIs (`contentEditable` + `execCommand`).
+**Modify `src/components/Tours.tsx` (homepage tours):**
+- Show "Starting from KES X" on homepage tour cards too
+
+---
+
+### Part 3: Admin — TourForm & Dashboard
+
+**Modify `src/components/admin/TourForm.tsx`:**
+- Add a `price_starting_from` number input field so admins can set the starting price per tour
+
+**Modify `src/pages/admin/Dashboard.tsx`:**
+- Add a stat card for pending quote requests count
+- Add a "Recent Quote Requests" card showing the latest 5 requests with name, tour, and date
+- Add a quick action button to view all quotes
+
+**Create `src/pages/admin/Quotes.tsx`:**
+- A full admin page listing all quote requests in a table
+- Columns: Date, Name, Email, Phone, Tour, Group Size, Status
+- Admin can mark requests as "contacted" or "completed"
+- Filter by status (pending / contacted / completed)
+
+**Modify `src/App.tsx`:**
+- Add route for `/admin/quotes`
+
+**Modify `src/components/AdminLayout.tsx`:**
+- Add "Quotes" to the admin sidebar navigation
+
+---
+
+### Files Summary
+
+| File | Action |
+|------|--------|
+| DB migration | Add `price_starting_from` to tours, create `quote_requests` table |
+| `src/components/QuoteRequestDialog.tsx` | Create — quote request form dialog |
+| `src/pages/admin/Quotes.tsx` | Create — admin quotes management page |
+| `src/pages/Tours.tsx` | Modify — show price, add quote button |
+| `src/components/Tours.tsx` | Modify — show price on homepage cards |
+| `src/components/TourDetailModal.tsx` | Modify — show price, add quote button |
+| `src/components/admin/TourForm.tsx` | Modify — add price field |
+| `src/pages/admin/Dashboard.tsx` | Modify — add quotes stat & recent requests |
+| `src/components/AdminLayout.tsx` | Modify — add Quotes nav link |
+| `src/App.tsx` | Modify — add quotes route |
 
