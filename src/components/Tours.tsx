@@ -46,7 +46,8 @@ const Tours = () => {
         image: tour.image || '',
         description: tour.description || '',
         category: tour.category || '',
-        featured: tour.featured || false
+        featured: tour.featured || false,
+        price_starting_from: tour.price_starting_from ?? null,
       })) as Tour[];
     }
   });
