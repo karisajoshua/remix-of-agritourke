@@ -103,6 +103,7 @@ export default function TourForm({ open, onOpenChange, initial, onSaved }: TourF
         full_description: "",
         featured: false,
         image: "",
+        price_starting_from: null,
       });
       setIncludes([]);
       setItinerary([]);
