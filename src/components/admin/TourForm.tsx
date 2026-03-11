@@ -87,6 +87,7 @@ export default function TourForm({ open, onOpenChange, initial, onSaved }: TourF
         full_description: initial.full_description || "",
         featured: initial.featured ?? false,
         image: initial.image || "",
+        price_starting_from: initial.price_starting_from ?? null,
       });
       setIncludes(initial.includes || []);
       setItinerary(initial.itinerary || []);
