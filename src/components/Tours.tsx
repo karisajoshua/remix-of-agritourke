@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { Button } from '@/components/ui/button';
-import { Clock, MapPin, Users, ArrowRight } from 'lucide-react';
+import { Clock, MapPin, Users, ArrowRight, Tag } from 'lucide-react';
 import { useContentProtection } from '@/hooks/useContentProtection';
 import { supabase } from '@/integrations/supabase/client';
 import { useNavigate } from 'react-router-dom';
