@@ -22,6 +22,7 @@ const tourSchema = z.object({
   full_description: z.string().optional(),
   featured: z.boolean(),
   image: z.string().url("Must be a valid URL").optional().or(z.literal("")),
+  price_starting_from: z.union([z.number().int().positive(), z.nan(), z.literal(0)]).optional().nullable(),
 });
 
 type TourFormData = z.infer<typeof tourSchema>;
@@ -40,6 +41,7 @@ export interface TourRecord {
   includes?: string[];
   itinerary?: Array<{ day: number; title?: string; details: string }>;
   external_links?: Array<{ label: string; url: string }>;
+  price_starting_from?: number | null;
 }
 
 interface TourFormProps {
@@ -69,6 +71,7 @@ export default function TourForm({ open, onOpenChange, initial, onSaved }: TourF
       full_description: "",
       featured: false,
       image: "",
+      price_starting_from: null,
     },
   });
 
@@ -84,6 +87,7 @@ export default function TourForm({ open, onOpenChange, initial, onSaved }: TourF
         full_description: initial.full_description || "",
         featured: initial.featured ?? false,
         image: initial.image || "",
+        price_starting_from: initial.price_starting_from ?? null,
       });
       setIncludes(initial.includes || []);
       setItinerary(initial.itinerary || []);
@@ -99,6 +103,7 @@ export default function TourForm({ open, onOpenChange, initial, onSaved }: TourF
         full_description: "",
         featured: false,
         image: "",
+        price_starting_from: null,
       });
       setIncludes([]);
       setItinerary([]);
@@ -162,6 +167,7 @@ export default function TourForm({ open, onOpenChange, initial, onSaved }: TourF
         full_description: data.full_description || null,
         image: data.image || null,
         featured: data.featured,
+        price_starting_from: data.price_starting_from && !isNaN(data.price_starting_from) ? data.price_starting_from : null,
         includes: includes.length > 0 ? includes : null,
         itinerary: itinerary.length > 0 ? itinerary : null,
         external_links: externalLinks.filter(l => l.label && l.url).length > 0 
@@ -244,6 +250,19 @@ export default function TourForm({ open, onOpenChange, initial, onSaved }: TourF
               <img src={watch("image")} alt="Preview" className="w-full h-40 object-cover rounded" />
             )}
             {errors.image && <p className="text-sm text-red-500">{errors.image.message}</p>}
+          </div>
+
+          <div className="grid gap-2">
+            <Label htmlFor="price_starting_from">Starting Price (KES)</Label>
+            <Input
+              id="price_starting_from"
+              type="number"
+              min={0}
+              placeholder="e.g. 5000"
+              value={watch("price_starting_from") ?? ""}
+              onChange={(e) => setValue("price_starting_from", e.target.value ? parseInt(e.target.value) : null)}
+            />
+            <p className="text-xs text-muted-foreground">Minimum price shown to visitors. Leave empty to hide pricing.</p>
           </div>
 
           <div className="flex items-center gap-2">

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { MapPin, FileText, Image, Plus, Calendar, MessageSquare, Clock } from "lucide-react";
+import { MapPin, FileText, Image, Plus, Calendar, MessageSquare, Clock, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import AdminLayout from "@/components/AdminLayout";
 import { format } from "date-fns";
@@ -23,24 +23,26 @@ interface PendingComment {
 
 export default function Dashboard() {
   const navigate = useNavigate();
-  const [stats, setStats] = useState({ tours: 0, blogPosts: 0, galleryImages: 0 });
+  const [stats, setStats] = useState({ tours: 0, blogPosts: 0, galleryImages: 0, pendingQuotes: 0 });
   const [recentPosts, setRecentPosts] = useState<RecentPost[]>([]);
   const [pendingComments, setPendingComments] = useState<PendingComment[]>([]);
 
   useEffect(() => {
     const fetchAll = async () => {
-      const [toursRes, blogRes, galleryRes, postsRes, commentsRes] = await Promise.all([
+      const [toursRes, blogRes, galleryRes, postsRes, commentsRes, quotesRes] = await Promise.all([
         supabase.from("tours").select("*", { count: "exact", head: true }),
         supabase.from("blog_posts").select("*", { count: "exact", head: true }),
         supabase.from("gallery_images").select("*", { count: "exact", head: true }),
         supabase.from("blog_posts").select("id, title, date, category").order("created_at", { ascending: false }).limit(5),
         supabase.from("blog_comments").select("id, author_name, content, created_at").eq("approved", false).order("created_at", { ascending: false }).limit(5),
+        supabase.from("quote_requests").select("*", { count: "exact", head: true }).eq("status", "pending"),
       ]);
 
       setStats({
         tours: toursRes.count || 0,
         blogPosts: blogRes.count || 0,
         galleryImages: galleryRes.count || 0,
+        pendingQuotes: quotesRes.count || 0,
       });
       setRecentPosts(postsRes.data || []);
       setPendingComments(commentsRes.data || []);
@@ -55,6 +57,7 @@ export default function Dashboard() {
     { title: "Total Tours", value: stats.tours, icon: MapPin, borderColor: "border-l-agri-green", iconBg: "bg-agri-green/10", iconColor: "text-agri-green", route: "/admin/tours" },
     { title: "Blog Posts", value: stats.blogPosts, icon: FileText, borderColor: "border-l-agri-teal", iconBg: "bg-agri-teal/10", iconColor: "text-agri-teal", route: "/admin/blog" },
     { title: "Gallery Images", value: stats.galleryImages, icon: Image, borderColor: "border-l-agri-yellow", iconBg: "bg-agri-yellow/10", iconColor: "text-agri-yellow", route: "/admin/gallery" },
+    { title: "Pending Quotes", value: stats.pendingQuotes, icon: Send, borderColor: "border-l-orange-500", iconBg: "bg-orange-50", iconColor: "text-orange-500", route: "/admin/quotes" },
   ];
 
   return (
@@ -69,7 +72,7 @@ export default function Dashboard() {
         </div>
 
         {/* Stat Cards */}
-        <div className="grid gap-4 md:grid-cols-3">
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           {statCards.map((stat) => (
             <Card
               key={stat.title}
@@ -99,6 +102,9 @@ export default function Dashboard() {
           </Button>
           <Button className="rounded-none bg-agri-yellow hover:bg-agri-yellow/90 gap-2" onClick={() => navigate("/admin/gallery")}>
             <Plus className="h-4 w-4" /> Upload Photo
+          </Button>
+          <Button className="rounded-none bg-orange-500 hover:bg-orange-600 gap-2" onClick={() => navigate("/admin/quotes")}>
+            <Send className="h-4 w-4" /> View Quotes
           </Button>
         </div>
 

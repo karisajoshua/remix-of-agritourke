@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { Button } from '@/components/ui/button';
-import { Clock, MapPin, Users, ArrowRight } from 'lucide-react';
+import { Clock, MapPin, Users, ArrowRight, Tag } from 'lucide-react';
 import { useContentProtection } from '@/hooks/useContentProtection';
 import { supabase } from '@/integrations/supabase/client';
 import { useNavigate } from 'react-router-dom';
@@ -16,6 +16,7 @@ interface Tour {
   description: string;
   category: string;
   featured: boolean;
+  price_starting_from: number | null;
 }
 
 const Tours = () => {
@@ -30,7 +31,7 @@ const Tours = () => {
     queryFn: async () => {
       const { data, error } = await supabase
         .from('tours')
-        .select('id, title, duration, location, participants, image, description, category, featured')
+        .select('id, title, duration, location, participants, image, description, category, featured, price_starting_from')
         .order('featured', { ascending: false })
         .limit(9);
       
@@ -45,7 +46,8 @@ const Tours = () => {
         image: tour.image || '',
         description: tour.description || '',
         category: tour.category || '',
-        featured: tour.featured || false
+        featured: tour.featured || false,
+        price_starting_from: tour.price_starting_from ?? null,
       })) as Tour[];
     }
   });
@@ -153,6 +155,16 @@ const Tours = () => {
                       {tour.participants}
                     </div>
                   </div>
+
+                  {/* Price */}
+                  {tour.price_starting_from && (
+                    <div className="flex items-center gap-2 mb-4 bg-agri-green/5 px-3 py-2 rounded-lg">
+                      <Tag className="h-4 w-4 text-agri-green" />
+                      <span className="text-sm font-inter font-semibold text-agri-green">
+                        Starting from KES {new Intl.NumberFormat('en-KE').format(tour.price_starting_from)}
+                      </span>
+                    </div>
+                  )}
 
                   {/* CTA Button */}
                   <Button 
