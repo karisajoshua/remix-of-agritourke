@@ -31,7 +31,7 @@ const Tours = () => {
     queryFn: async () => {
       const { data, error } = await supabase
         .from('tours')
-        .select('id, title, duration, location, participants, image, description, category, featured')
+        .select('id, title, duration, location, participants, image, description, category, featured, price_starting_from')
         .order('featured', { ascending: false })
         .limit(9);
       
