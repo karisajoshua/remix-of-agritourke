@@ -21,6 +21,7 @@ import AdminBlog from "./pages/admin/Blog";
 import AdminComments from "./pages/admin/Comments";
 import AdminGallery from "./pages/admin/Gallery";
 import AdminSettings from "./pages/admin/Settings";
+import AdminQuotes from "./pages/admin/Quotes";
 
 const queryClient = new QueryClient();
 
