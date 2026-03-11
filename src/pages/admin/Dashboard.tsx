@@ -29,18 +29,20 @@ export default function Dashboard() {
 
   useEffect(() => {
     const fetchAll = async () => {
-      const [toursRes, blogRes, galleryRes, postsRes, commentsRes] = await Promise.all([
+      const [toursRes, blogRes, galleryRes, postsRes, commentsRes, quotesRes] = await Promise.all([
         supabase.from("tours").select("*", { count: "exact", head: true }),
         supabase.from("blog_posts").select("*", { count: "exact", head: true }),
         supabase.from("gallery_images").select("*", { count: "exact", head: true }),
         supabase.from("blog_posts").select("id, title, date, category").order("created_at", { ascending: false }).limit(5),
         supabase.from("blog_comments").select("id, author_name, content, created_at").eq("approved", false).order("created_at", { ascending: false }).limit(5),
+        supabase.from("quote_requests").select("*", { count: "exact", head: true }).eq("status", "pending"),
       ]);
 
       setStats({
         tours: toursRes.count || 0,
         blogPosts: blogRes.count || 0,
         galleryImages: galleryRes.count || 0,
+        pendingQuotes: quotesRes.count || 0,
       });
       setRecentPosts(postsRes.data || []);
       setPendingComments(commentsRes.data || []);
