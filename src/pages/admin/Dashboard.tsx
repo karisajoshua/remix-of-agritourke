@@ -57,6 +57,7 @@ export default function Dashboard() {
     { title: "Total Tours", value: stats.tours, icon: MapPin, borderColor: "border-l-agri-green", iconBg: "bg-agri-green/10", iconColor: "text-agri-green", route: "/admin/tours" },
     { title: "Blog Posts", value: stats.blogPosts, icon: FileText, borderColor: "border-l-agri-teal", iconBg: "bg-agri-teal/10", iconColor: "text-agri-teal", route: "/admin/blog" },
     { title: "Gallery Images", value: stats.galleryImages, icon: Image, borderColor: "border-l-agri-yellow", iconBg: "bg-agri-yellow/10", iconColor: "text-agri-yellow", route: "/admin/gallery" },
+    { title: "Pending Quotes", value: stats.pendingQuotes, icon: Send, borderColor: "border-l-orange-500", iconBg: "bg-orange-50", iconColor: "text-orange-500", route: "/admin/quotes" },
   ];
 
   return (
