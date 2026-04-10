@@ -15,6 +15,7 @@ import BlogPost from "./pages/BlogPost";
 import FAQ from "./pages/FAQ";
 import NotFound from "./pages/NotFound";
 import Auth from "./pages/Auth";
+import CookieConsent from "./components/CookieConsent";
 import Dashboard from "./pages/admin/Dashboard";
 import AdminTours from "./pages/admin/Tours";
 import AdminBlog from "./pages/admin/Blog";

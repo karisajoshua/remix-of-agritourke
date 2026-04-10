@@ -100,26 +100,24 @@ const Footer = () => {
             <div className="mt-6">
               <h5 className="font-poppins font-semibold mb-2">Legal Documents</h5>
               <ul className="space-y-1 text-sm text-gray-400 font-inter">
-                <li><a href="#" className="hover:text-agri-yellow transition-colors">Privacy Policy</a></li>
-                <li><a href="#" className="hover:text-agri-yellow transition-colors">Terms of Service</a></li>
                 <li>
-                  <a 
-                    href="https://ppmyiephtxszzlhijssl.supabase.co/storage/v1/object/public/agritourismadv//Consent%20For%20Use%20Of%20Images%20Form%20-%20AA.pdf" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="hover:text-agri-yellow transition-colors"
-                  >
+                  <a href="/legal/Privacy_Policy.pdf" target="_blank" rel="noopener noreferrer" download className="hover:text-agri-yellow transition-colors">
+                    Privacy Policy
+                  </a>
+                </li>
+                <li>
+                  <a href="/legal/Terms_of_Service.pdf" target="_blank" rel="noopener noreferrer" download className="hover:text-agri-yellow transition-colors">
+                    Terms of Service
+                  </a>
+                </li>
+                <li>
+                  <a href="/legal/Image_Media_Consent_Form.pdf" target="_blank" rel="noopener noreferrer" download className="hover:text-agri-yellow transition-colors">
                     Image Consent Form
                   </a>
                 </li>
                 <li>
-                  <a 
-                    href="https://ppmyiephtxszzlhijssl.supabase.co/storage/v1/object/public/agritourismadv//Data%20Subject%20Consent%20Withdrawal%20Form.pdf" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="hover:text-agri-yellow transition-colors"
-                  >
-                    Data Withdrawal Form
+                  <a href="/legal/Privacy_Opt-Out_Form.pdf" target="_blank" rel="noopener noreferrer" download className="hover:text-agri-yellow transition-colors">
+                    Privacy Opt-Out Form
                   </a>
                 </li>
               </ul>
